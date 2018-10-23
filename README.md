@@ -11,5 +11,5 @@ These features are what makes it different from all other frameworks.
 
 
 # Learning Icarus
-Icarus is simple and easy to learn .The documentation will provide you with all the necessary information about the framework, in a simple language which is understandable for beginners.
+Icarus is simple and easy to learn .The <a href="https://www.armia.com/icarus/">documentation</a> will provide you with all the necessary information about the framework, in a simple language which is understandable for beginners.
 It will give you a clear idea about the framework , its underlying  features and  the implementation details.
