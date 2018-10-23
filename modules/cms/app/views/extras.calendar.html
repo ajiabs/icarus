@@ -1,0 +1,43 @@
+<!-- START row-->
+<div ng-controller="CalendarController as calendar" class="calendar-app">
+   <div class="panel panel-default">
+      <div class="panel-body bg-primary panel-card card-md">
+         <ul class="list-table fh text-center">
+            <li class="v-middle">
+               <p class="lead m0">{{calendar.today | date:'EEEE'}}</p>
+               <div class="text-hg m0">{{calendar.today | date:'dd'}}</div>
+               <p class="m0">{{calendar.today | date:'MMMM'}}, {{calendar.today | date:'yyyy'}}</p>
+            </li>
+         </ul>
+      </div>
+      <div class="panel-body">
+         <div ng-model="calendar.eventSources" calendar="calendar.myCalendar" ui-calendar="calendar.uiConfig.calendar" class="calendar"></div>
+      </div>
+      <div class="panel-footer">
+         <div class="clearfix">
+            <div class="pull-right">
+               <button ng-click="calendar.changeLang()" class="btn btn-default btn-sm">{{calendar.changeTo}}</button>
+            </div>
+            <div class="pull-left">
+               <div class="btn-switch mb btn-switch-info">
+                  <input type="checkbox" id="input-btn-switch-info" ng-click="calendar.toggleEventSource(0)" checked="calendar.isVisible(0)" />
+                  <label for="input-btn-switch-info" class="btn btn-info">
+                     <em class="fa fa-check"></em>
+                     <strong>Personal Calendar</strong>
+                  </label>
+               </div>
+               <div class="btn-switch mb btn-switch-purple">
+                  <input type="checkbox" id="input-btn-switch-purple" ng-click="calendar.toggleEventSource(2)" checked="calendar.isVisible(2)" />
+                  <label for="input-btn-switch-purple" class="btn btn-purple">
+                     <em class="fa fa-check"></em>
+                     <strong>External Events (Json)</strong>
+                  </label>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <p class="text-muted">
+      <small>*Click on the calendar to add events</small>
+   </p>
+</div>

@@ -1,0 +1,101 @@
+
+CREATE TABLE IF NOT EXISTS `tbl_tier` (
+  `tier_id` int(10) NOT NULL AUTO_INCREMENT,
+  `tier_name` varchar(255) DEFAULT NULL,
+  `tier_desc` text,
+  PRIMARY KEY (`tier_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+
+
+CREATE TABLE IF NOT EXISTS `tbl_school` (
+  `school_id` int(10) NOT NULL AUTO_INCREMENT,
+  `tier_id` int(10) NOT NULL DEFAULT '0',
+  `school_logo_id` int(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`school_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE IF NOT EXISTS `tbl_slot` (
+  `slot_id` int(10) NOT NULL AUTO_INCREMENT,
+  `slot_name` varchar(255) DEFAULT NULL,
+  `slot_desc` text,
+  PRIMARY KEY (`slot_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+
+
+
+CREATE TABLE IF NOT EXISTS `tbl_school_slot` (
+  `school_slot_id` int(10) NOT NULL AUTO_INCREMENT,
+  `school_id` int(10) NOT NULL DEFAULT '0',
+  `slot_id` int(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`school_slot_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE IF NOT EXISTS `tbl_tier_price` (
+  `tier_price_id` int(10) NOT NULL AUTO_INCREMENT,
+  `tier_id` int(10) NOT NULL DEFAULT '0',
+  `slot_id` int(10) NOT NULL DEFAULT '0',
+  `plan_amount` float DEFAULT NULL,
+  PRIMARY KEY (`tier_price_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+
+
+
+CREATE TABLE IF NOT EXISTS `tbl_flyer` (
+  `flyer_id` int(10) NOT NULL AUTO_INCREMENT,
+  `school_id` int(10) NOT NULL DEFAULT '0',
+  `position` int(10) NOT NULL DEFAULT '0',
+   `flyer_image_id` int(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`flyer_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+ALTER TABLE `tbl_orders`
+	CHANGE COLUMN `smb_account_id` `plan_id` INT(10) NULL DEFAULT NULL AFTER `order_id`,
+	CHANGE COLUMN `order_type` `salesrep_id` INT(10) NULL DEFAULT NULL AFTER `plan_id`,
+	ADD COLUMN `school_id` INT(10) NULL DEFAULT NULL AFTER `user_id`,
+	ADD COLUMN `school_slot_id` INT(10) NULL DEFAULT NULL AFTER `school_id`,
+	CHANGE COLUMN `order_created_on` `camp_start_date` DATETIME NULL DEFAULT NULL AFTER `order_status`,
+	ADD COLUMN `camp_end_date` DATETIME NULL DEFAULT NULL AFTER `camp_start_date`,
+	ADD COLUMN `purchase_date` DATETIME NULL DEFAULT NULL AFTER `camp_end_date`,
+	ADD COLUMN `price` FLOAT NULL DEFAULT NULL AFTER `purchase_date`,
+	CHANGE COLUMN `order_created_by` `share_of_voice` INT(10) NULL DEFAULT NULL AFTER `price`,
+	DROP COLUMN `order_total`,
+	DROP COLUMN `subscription_id`,
+	DROP COLUMN `transact_id`;
+
+
+CREATE TABLE IF NOT EXISTS `tbl_artworks` (
+  `artworks_id` int(10) NOT NULL AUTO_INCREMENT,
+  `order_id` int(10) NOT NULL DEFAULT '0',
+  `artworks_image_id` int(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`artworks_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+
+
+
+CREATE TABLE IF NOT EXISTS `tbl_salesrep` (
+  `salesrep_id` int(10) NOT NULL AUTO_INCREMENT,
+  `salesrep_company` varchar(100) NOT NULL DEFAULT '0',
+  `salesrep_email` varchar(100) DEFAULT NULL,
+  `salesrep_password` varchar(100) DEFAULT NULL,
+  `salesrep_fname` varchar(100) DEFAULT NULL,
+  `salesrep_lname` varchar(100) DEFAULT NULL,
+  `salesrep_status` tinyint(2) DEFAULT NULL,
+  `salesrep_photo_id` int(11) DEFAULT NULL,
+  `salesrep_joinedon` datetime DEFAULT NULL,
+  `salesrep_activation_key` varchar(255) DEFAULT NULL,
+  `salesrep_phone` varchar(50) DEFAULT NULL,
+  `salesrep_phone_extension` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`salesrep_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+
+
+
+ALTER TABLE `tbl_orders`
+  ADD COLUMN `click_url` VARCHAR(255) NULL DEFAULT NULL AFTER `price`,
+  ADD COLUMN `notes` VARCHAR(255) NULL DEFAULT NULL AFTER `click_url`;

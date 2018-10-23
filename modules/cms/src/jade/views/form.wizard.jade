@@ -1,0 +1,61 @@
+.app-view-header Form Wizard
+
+// START panel
+.panel.panel-default
+  .panel-heading  Form Wizard Validate
+  .panel-body
+    .wizard(ng-init='activeStep=1')
+      ul.steps-bar
+        li(ng-class="{'active':activeStep>=1}")
+          span Step 1
+        li(ng-class="{'active':activeStep>=2}")
+          span Step 2
+        li(ng-class="{'active':activeStep>=3}")
+          span Step 3
+
+      .wizard-step(ng-show='activeStep==1')
+        h4 Create Account 
+          small &mdash; Step 1
+        form.form-validate(name='form_step1')
+          p Email:
+          input.form-control(type='email', placeholder="mail@example.com" name='email', ng-model='email', required='required')
+          p.mt Password
+          .row
+            .col-xs-6
+              input.form-control#id-source(type='password', placeholder="Type your password", ng-model="form.match1")
+            .col-xs-6
+              input.form-control(type='password', placeholder="Retype your password", name="confirm_match", data-parsley-equalto='#id-source', required='', ng-model="form.match2", ui-validate="'$value==form.match1'" ui-validate-watch="'validator.match1'")
+          p.text-danger(ng-show='form_step1.confirm_match.$error.validator') Password do not match!
+
+          .mt
+            button.btn.btn-primary(type='submit', ng-disabled='form_step1.$invalid', ng-click='activeStep=2') Next
+      .wizard-step(ng-show='activeStep==2')
+        h4 Your Social Networks 
+          small &mdash; Step 2
+        form.form-validate(name='form_step2')
+          p.mt Twitter:
+          input.form-control(type='text', name='twitter', ng-model='twitter', placeholder="#username", ng-pattern="/^#[0-9a-zA-Z]+$/")
+          p.mt Facebook:
+          input.form-control(type='text', name='facebook', ng-model='facebook', placeholder="/username", ng-pattern="/^\/[0-9a-zA-Z]+$/")
+          p.mt Website:
+          input.form-control(type='url', name='url', placeholder='http://', ng-model='website')
+
+          .mt
+            button.btn.btn-default(type='button', ng-click='activeStep=1') Prev
+            button.btn.btn-primary(type='submit', ng-disabled='form_step2.$invalid', ng-click='activeStep=3') Next
+      .wizard-step(ng-show='activeStep==3')
+        h4 Personal details
+          small &mdash; Step 3
+        form.form-validate(name='form_step3')
+          p.mt Name:
+          input.form-control(type='text', name='name', placeholder="Your fullname", ng-model='name', required="")
+          p.mt Phone:
+          input.form-control(type='text', name='phone', ng-model='phone', placeholder="Only numbers", ng-pattern="/^[0-9]+$/",)
+          p.mt Address:
+          textarea.form-control(name='address', placeholder='Your address', ng-model='address')
+        .alert.alert-success.mv-lg(ng-show="stepsDone")
+          p.text-bold.m0 Excellent ! You've completed all steps.
+        .mt
+          button.btn.btn-default(type='button', ng-click='activeStep=2') Prev
+          button.btn.btn-primary(type='button', ng-disabled='form_step3.$invalid', ng-click="stepsDone=true") Finish
+

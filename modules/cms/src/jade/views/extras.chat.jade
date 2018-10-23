@@ -1,0 +1,137 @@
+.container-fh(ng-controller="ChatController as chat", ng-init="app.footer.hidden = true")
+  .l-table-fixed
+    .l-cell.wd-md.br
+      .l-table.bg-white
+        .p.bt
+
+          select.form-control
+            option Current Status
+            option Online
+            option Offline
+            option Away
+            option Busy
+        .l-row
+          .l-cell-wrapper
+            .l-cell-inner
+              .p
+                ul.list-block
+                  li.pv.text-muted ONLINE
+                  li.media.pb.bb
+                    .pull-left
+                      // Contact avatar
+                      .point-pin
+                        a(href="")
+                          img.media-object.img-circle.thumb40(src='app/img/user/05.jpg', alt="Image")
+                        .point.point-success.point-lg
+                    // Contact info
+                    .media-body
+                      .media-heading
+                        a(href="") Sylvia Harper
+                        br
+                        small.text-muted Designeer
+                  // END User status
+                  // START User status
+                  li.media.pb.bb
+                    .pull-left
+                      // Contact avatar
+                      .point-pin
+                        a(href="")
+                          img.media-object.img-circle.thumb40(src='app/img/user/06.jpg', alt="Image")
+                        .point.point-success.point-lg
+                    // Contact info
+                    .media-body
+                      .media-heading
+                        a(href="") Bob Hayes
+                        br
+                        small.text-muted Designeer
+                  // END User status
+                  // START User status
+                  li.media.pb.bb
+                    .pull-left
+                      // Contact avatar
+                      .point-pin
+                        a(href="")
+                          img.media-object.img-circle.thumb40(src='app/img/user/07.jpg', alt="Image")
+                        .point.point-danger.point-lg
+                    // Contact info
+                    .media-body
+                      .media-heading
+                        a(href="") Jimmie Stevens
+                        br
+                        small.text-muted Designeer
+                  // END User status
+                  // START User status
+                  li.media.pb
+                    .pull-left
+                      // Contact avatar
+                      .point-pin
+                        a(href="")
+                          img.media-object.img-circle.thumb40(src='app/img/user/08.jpg', alt="Image")
+                        .point.point-warning.point-lg
+                    // Contact info
+                    .media-body
+                      .media-heading
+                        a(href="") Chris Berry
+                        br
+                        small.text-muted Designer
+                  // END User status
+                  li.pv.text-muted OFFLINE
+                  // START User status
+                  li.media.pb.bb
+                    .pull-left
+                      // Contact avatar
+                      .point-pin
+                        a(href="")
+                          img.media-object.img-circle.thumb40(src='app/img/user/03.jpg', alt="Image")
+                        .point.point-lg
+                    // Contact info
+                    .media-body
+                      .media-heading
+                        a(href="") Leta Wood
+                        br
+                        small.text-muted Developer
+                  // END User status
+                  // START User status
+                  li.media.pb
+                    .pull-left
+                      // Contact avatar
+                      .point-pin
+                        a(href="")
+                          img.media-object.img-circle.thumb40(src='app/img/user/01.jpg', alt="Image")
+                        .point.point-lg
+                    // Contact info
+                    .media-body
+                      .media-heading
+                        a(href="") Alicia Grant
+                        br
+                        small.text-muted Designer
+                  // END User status
+        .p.bt
+          .btn.btn-success.btn-block + New contact
+    .l-cell
+      .l-table
+        .l-row
+          .l-cell-wrapper
+            .l-cell-inner
+              .p
+                ul.chat
+                  li.clearfix.animated.fadeIn(ng-repeat="msg in chat.messages", ng-class="msg.position")
+                    span.chat-img(ng-class="msg.position === 'right' ? 'pull-right' : 'pull-left'")
+                      img.img-circle.thumb48(ng-src="{{msg.avatar}}", alt="Image")
+                    .chat-body.clearfix
+                      .chat-header
+                        a(href="").text-inverse
+                          strong(ng-class="{'pull-right': (msg.position === 'right')}") {{msg.name}}
+                        small.text-muted(ng-class="{'pull-right': (msg.position !== 'right')}")
+                          span.fa.fa-time
+                          | {{msg.time}}
+                      .chat-msg {{msg.content}}
+        .p.bt
+          form
+            .input-group
+              input.form-control(type='text', placeholder='Type your message...', ng-model="chat.currMessage")
+              span.input-group-btn
+                button.btn.btn-default(type='submit', ng-click="chat.addMessage()") Send
+
+
+

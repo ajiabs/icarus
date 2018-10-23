@@ -1,0 +1,42 @@
+.app-view-header Tasks List
+  // Button trigger modal 
+  button.pull-right.btn.btn-primary(ng-click='taskctrl.modalOpen()') Add new Task
+
+  // Modal inline template
+  script(type='text/ng-template', id='/myModalContent.html')
+    .modal-header
+      h4#myModalLabel.modal-title Add new Task
+    .modal-body
+      .form-group
+        input.form-control(ng-trim="true", type='text', ng-model='theTask.title', placeholder='Task title..', required)
+      .form-group
+        textarea.form-control(ng-trim="true", ng-model='theTask.description', placeholder='Type a description..', rows="8")
+    .modal-footer
+      button.btn.btn-primary(ng-click='modalAddTask(theTask)', ng-bind="actionText()") 
+      button.btn.btn-warning(ng-click='modalCancel()') Cancel
+
+.task
+  .task-item-list
+    .lead.text-muted.text-center(ng-show='!taskctrl.tasksList.length') Start creating a new task..
+    uib-accordion(close-others="true")
+      uib-accordion-group.task-item(ng-repeat='item in taskctrl.tasksList', ng-class="{'task-complete': item.complete}", is-disabled="item.complete")
+        uib-accordion-heading
+          span.close(ng-click='taskctrl.removeTask($index, $event)', ng-hide="!item.complete")
+            em.fa.fa-times
+          .inline.checkbox.c-checkbox
+            label(ng-click="$event.stopPropagation()")
+              input(type='checkbox', ng-model='item.complete', id="{{'task-item-'+$index}}", ng-disabled="taskEdition")
+              span.fa.fa-check
+          span.task-title(ng-bind='item.task.title') Task title
+          span.task-edit.fa.fa-pencil(ng-click="taskctrl.editTask($index, $event)")
+        p
+          span(ng-bind='item.task.description') 
+          span.text-muted(ng-if="item.task.description === ''") No description
+    
+    .clearfix
+      .pull-left(ng-if="taskctrl.tasksList.length > 0")
+        span {{ taskctrl.totalTasksCompleted() }} Completed
+        | - 
+        span {{ taskctrl.totalTasksPending() }} Pending
+      .pull-right(ng-if="taskctrl.tasksList.length > 0")
+        button.btn.btn-warning.btn-sm(ng-click='taskctrl.clearAllTasks()') Remove all Tasks

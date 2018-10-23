@@ -1,0 +1,150 @@
+ #colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+ #cboxOverlay{position:fixed; width:100%; height:100%;}
+    #cboxContent{ overflow:hidden;}
+       #cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%;}
+       
+      // #cboxOverlay{background:url(images/overlay.png) repeat 0 0;}
+      #cboxOverlay{background:#000; overflow:hidden;}
+       #inline_content{ border:1px solid;}
+         #cboxClose{position:absolute; top:1px; right:1px; background:url(images/controls.png) no-repeat -25px 0; width:25px; height:25px; text-indent:-9999px; cursor:pointer;}
+        #cboxClose:hover{background-position:-25px -25px;}
+        
+         #cboxLoadingOverlay{background:url(images/loading_background.png) no-repeat center center;}
+         #cboxLoadingGraphic{background:url(images/loading.gif) no-repeat center center;}
+.col_pop_st{
+	 border:5px solid #919191;
+	 padding:10px;
+	 /*background:#FFF;*/
+}		
+.col_pop_st h2{
+	color: #EA5100;
+    float: left;
+    font-family: "open Sans Condensed",arial;
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 37px;
+	margin-bottom:10px;
+}
+.col_pop_txtbox{
+	background:#FFF;
+	border:1px solid #e3e3e3;
+	padding:2px;
+	height:30px;
+	width:250px;
+}   
+.col_pop_txtarea{
+	background:#FFF;
+	border:1px solid #e3e3e3;
+	padding:2px;
+	height:120px;
+	width:505px;
+}  
+.col_pop_txtarea11{
+	background:#FFF;
+	border:1px solid #e3e3e3;
+	padding:2px;
+	height:120px;
+	width:250px;
+}   
+.col_pop_sendsms{
+	background:#FFF;
+	border:1px solid #e3e3e3;
+	padding:2px;
+	height:60px;
+	width:300px;
+}   
+
+.col_pop_sendbtn{
+	height:34px;
+	outline:none;
+	border:1px solid #cd2701;
+	background:url(images/send_btn.jpg) repeat-x;
+	border-radius:5px;
+	margin-left: 10px;	
+	padding:0px 20px ;
+	cursor:pointer;
+	color:#FFFFFF;
+} 
+.col_pop_sendbtn:hover{
+	background:url(images/send_btnHover.jpg) repeat-x;
+}
+.col_pop_sendbtn_long{
+	height:34px;
+	outline:none;
+	border:1px solid #cd2701;
+	background:url(images/send_btn.jpg) repeat-x;
+	border-radius:5px;
+	padding:0px 40px ;
+	margin-left:10px;
+	cursor:pointer;
+	font-weight:normal!important;
+	color:#FFFFFF;
+} 
+.col_pop_sendbtn_long:hover{
+	background:url(images/send_btnHover.jpg) repeat-x;
+}
+
+.col_pop_cancelbtn{
+	height:34px;
+	outline:none;
+	border:1px solid #000;
+	background:url(images/cancel_btn.jpg) repeat-x;
+	border-radius:5px;
+	padding:0px 20px ;
+	cursor:pointer;
+	font-weight:normal!important;
+	color:#FFFFFF;
+} 
+.col_pop_cancelbtn:hover{
+	background:url(images/cancel_btn_hvr.jpg) repeat-x;
+}
+.col_close_btn{
+	height:34px;
+	outline:none;
+	border:1px solid #000;
+	background:url(images/cancel_btn.jpg) repeat-x;
+	border-radius:5px;
+	padding:0px 20px ;
+	cursor:pointer;
+	color:#FFFFFF;
+} 
+.col_close_btn:hover{
+	background:url(images/cancel_btn_hvr.jpg) repeat-x;
+}
+
+.row_marg_bot{
+	margin-bottom:10px;
+}
+.date_popup{
+background:#FFF;	
+border:5px solid #e6e6e6;
+border-radius:5px;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+}
+.date_popup h4{
+	color: #EA5100;
+    font-family: "open Sans Condensed",arial;
+    font-size: 22px;
+    font-weight: normal;
+	margin-bottom:7px;
+}
+.textfield_date{
+	height:24px;
+	padding:2px;
+}
+.calender_popup{
+}
+table.calender_popup td{
+	padding:5px 0;
+	font-size:13px;
+}
+table.calender_popup td a{
+	padding-right:10px;
+	background:url(images/arrow_rt.gif) no-repeat right center;
+}
+table.calender_popup td a:hover{
+	color:#EA5100;
+}
+
+ .hidden { display:none !important; }

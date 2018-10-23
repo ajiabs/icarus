@@ -1,0 +1,440 @@
+.app-view-header
+  | Dashboard
+  small(ng-bind="app.name + ' - ' + app.description")
+
+.row(ng-controller="DashboardController as dashboard")
+
+  // START dashboard content
+  .col-lg-9.fw-boxed
+ 
+    // START Tabbed panel
+    .panel.panel-default(ng-init="hpanel = [true, false, false, false]")
+      .row
+        .col-md-4
+          .row.row-flush.text-center.text-muted.m0
+            .col-xs-3.col-md-6.bb.br.pv-xxl.clickable(ripple="", ng-click="hpanel = [true, false, false, false]", ng-class="{'bg-primary': hpanel[0]}")
+              em.icon-pie-graph.fa-2x.mv
+            .col-xs-3.col-md-6.bb.br.pv-xxl.clickable(ripple="", ng-click="hpanel = [false, true, false, false]", ng-class="{'bg-purple': hpanel[1]}")
+              em.icon-head.fa-2x.mv
+            .col-xs-3.col-md-6.bb-lg.br.pv-xxl.clickable(ripple="", ng-click="hpanel = [false, false, true, false]", ng-class="{'bg-pink': hpanel[2]}")
+              em.icon-share.fa-2x.mv
+            .col-xs-3.col-md-6.bb-lg.br.pv-xxl.clickable(ripple="", ng-click="hpanel = [false, false, false, true]", ng-class="{'bg-amber': hpanel[3]}")
+              em.icon-briefcase.fa-2x.mv
+        .col-md-8(ng-if="hpanel[0]")
+          .row.row-table
+            .col-sm-6.col-xs-12
+              .p
+                .row.row-flush.text-center
+                  .col-xs-6
+                    p.mt-lg Monthly Income
+                     .easypie(easypiechart='', options='dashboard.pieOptions', percent='dashboard.piePercent1')
+                      span {{dashboard.piePercent1}}
+                  .col-xs-6
+                    p.mt-lg Total Income
+                    .easypie(easypiechart='', options='dashboard.pieOptions', percent='dashboard.piePercent2')
+                      span {{dashboard.piePercent2}}
+            .col-sm-6.col-xs-12
+              .p
+                | Hourly 
+                uib-progressbar.progress-xs(value='35', type='warning')
+                | Last Month
+                uib-progressbar.progress-xs(value='10', type='info')
+                | Last Year
+                uib-progressbar.progress-xs.m0(value='35', type='danger')
+        .col-md-8(ng-if="hpanel[1]")
+          .row.row-table
+            .col-sm-8.col-xs-12
+              .p
+                h4 Total Views (3 months)
+                sparkline.mb(options="dashboard.sparkOptionsLine", values="dashboard.sparkValuesLine")
+                small Nullam at justo vel neque euismod porttitor. 
+            .col-sm-4.col-xs-12.pv
+              .p.text-center
+                .mb-sm Daily
+                sparkline.mb(options="dashboard.sparkOptions", values="dashboard.sparkValues1")
+                .mv-sm Monthly
+                sparkline.mb(options="dashboard.sparkOptions", values="dashboard.sparkValues2")
+                .mv-sm Yearly
+                sparkline.mb(options="dashboard.sparkOptions", values="dashboard.sparkValues3")
+        .col-md-8(ng-if="hpanel[2]", ng-init="dashboard.loadProgressValues()")
+          .row.row-table
+            .col-sm-8.col-xs-12
+              .p
+                h3 Tasks done 60%
+                uib-progressbar.progress-xs(value='dashboard.progressVal[0]', type='info')
+                em Sed ut semper leo. Nulla sit amet risus sem, sit amet molestie felis. 
+            .col-sm-4.col-xs-12.pv
+              .p
+                | Pending 
+                uib-progressbar.active.progress-xs(value="dashboard.progressVal[1]", type='purple')
+                | In progress
+                uib-progressbar.active.progress-xs(value="dashboard.progressVal[2]", type='primary')
+                | This month
+                uib-progressbar.active.progress-xs.m0(value="dashboard.progressVal[3]", type='warning')
+        .col-md-8(ng-if="hpanel[3]")
+          .p.pv-xxl
+            .row.row-table.text-center
+              .col-sm-4.col-xs-12
+                p.text-muted PAY RATE
+                h1.text-lg.m0.mb-lg $18
+                p.text-muted.m0 TIME
+                p.m0 5 months
+              .col-sm-4.col-xs-12
+                p.text-muted AVG INCOME
+                h1.text-lg.m0.mb-lg $8.40
+                p.text-muted.m0 LAST INCOME
+                p.m0 Yesterday
+              .col-sm-4.col-xs-12
+                p.text-muted TOTAL SALES
+                h1.text-lg.m0.mb-lg 3050
+                p.text-muted.m0 LAST SALE
+                p.m0 10 minutes ago
+    // END Tabbed panel
+    
+    // START Panel
+    .panel.panel-default
+      .panel-heading
+        .panel-title 
+          em.icon-signal.fa-lg.text-muted.pull-right
+          | Analytics
+      .panel-body
+        .row
+          .col-md-9
+            p.text-center: em Proin vulputate neque non turpis pellentesque mattis. 
+            flot(options='dashboard.splineChartOpts', dataset="dashboard.splineData", series="{splines: dashboard.areaSplineSeries}")
+          .col-md-3
+            table.table.table-hover.mb-lg
+              thead
+                tr
+                  th Name
+                  th.text-right Show
+              tbody
+                tr
+                  td Campaing 1
+                  td.text-right
+                    label.switch.m0(ng-class="'switch-' + app.theme.name")
+                      input(type='checkbox', ng-model="dashboard.areaSplineSeries[0]")
+                      span
+                tr
+                  td Campaing 2
+                  td.text-right
+                    label.switch.m0(ng-class="'switch-' + app.theme.name")
+                      input(type='checkbox', ng-model="dashboard.areaSplineSeries[1]")
+                      span
+                tr
+                  td Campaing 3
+                  td.text-right
+                    label.switch.m0(ng-class="'switch-' + app.theme.name")
+                      input(type='checkbox', ng-model="dashboard.areaSplineSeries[2]")
+                      span
+            p: em Etiam ultrices mollis placerat. Proin ullamcorper lectus ut libero blandit pretium. 
+    
+    .row
+      .col-md-4
+        // START Panel
+        .panel.panel-default
+          .panel-body
+            em.pull-right.icon-bar-graph-2.text-muted
+            .text-center
+              .text-lg 31.2 ms
+              p.text-muted Average response time
+              .label.label-success 
+                | 20% 
+                em.fa.fa-angle-up
+            flot.mt-lg(options='dashboard.smallChartOpts', dataset="dashboard.smallChartData1", height="110px")
+      .col-md-4
+        // START Panel
+        .panel.bg-purple
+          .panel-body
+            em.pull-right.icon-thermometer.text-muted
+            .text-center
+              .text-lg 30,300
+              p.text-muted Total Visits
+          .lead.text-center.mb Devices
+          .list-group
+            a(href="").bg-purple.list-group-item.clearfix.bg-light.b0
+              .pull-left
+                em.fa.fa-fw.fa-desktop.mr
+                | Desktop
+              .pull-right
+                | 10,200
+            a(href="").bg-purple.list-group-item.clearfix.b0
+              .pull-left
+                em.fa.fa-fw.fa-tablet.mr
+                | Tablet
+              .pull-right
+                | 9,040
+            a(href="").bg-purple.list-group-item.clearfix.bg-light.b0
+              .pull-left
+                em.fa.fa-fw.fa-mobile.mr
+                | Mobile
+              .pull-right
+                | 3,900
+      .col-md-4
+        // START Panel
+        .panel.panel-default
+          .panel-body
+            em.pull-right.icon-bar-graph.text-muted
+            .text-center
+              .text-lg 70%
+              p.text-muted Consumed resources
+              .label.label-warning
+                | 5% 
+                em.fa.fa-angle-down
+            flot.mt-lg(options='dashboard.smallChartOpts', dataset="dashboard.smallChartData2", height="110px")
+    // START Responsive table
+    .panel.panel-default
+      .table-responsive
+        table.table.table-bordered.table-striped.text-center
+          thead
+            tr
+              th.text-center Code
+              th.text-center Files
+              th.text-center Transactions
+              th.text-center Request
+              th.text-center Income
+              th.text-center Outcome
+              th.text-center Total
+          tbody
+            tr
+              td.text-bold #1234
+              td 1,232
+              td 523
+              td -
+              td
+                .label.label-success.text-bold $ 1,548.00
+                  em.fa.fa-fw.fa-caret-up
+              td
+                .label.label-danger.text-bold $ 0.00
+                  em.fa.fa-fw.fa-caret-down
+              td $ 1,548.00
+            tr
+              td.text-bold #548
+              td 1,232
+              td -
+              td 300
+              td
+                .label.label-success.text-bold $ 3,548.00
+                  em.fa.fa-fw.fa-caret-up
+              td
+                .label.label-danger.text-bold $ 1000.00
+                  em.fa.fa-fw.fa-caret-down
+              td $ 2,548.00
+            tr
+              td.text-bold #654
+              td 1,232
+              td 523
+              td 57889
+              td
+                .label.label-success.text-bold $ 10,256.00
+                  em.fa.fa-fw.fa-caret-up
+              td
+                .label.label-danger.text-bold $ 10,000.00
+                  em.fa.fa-fw.fa-caret-down
+              td $ 256.00
+            tr
+              td.text-bold #3266
+              td -
+              td 523
+              td 1200
+              td
+                .label.label-success.text-bold $ 11,100.50
+                  em.fa.fa-fw.fa-caret-up
+              td
+                .label.label-danger.text-bold $ 100.00
+                  em.fa.fa-fw.fa-caret-down
+              td $ 11,000.50
+            tr
+              td.text-bold #548
+              td 1,232
+              td -
+              td 300
+              td
+                .label.label-success.text-bold $ 3,548.00
+                  em.fa.fa-fw.fa-caret-up
+              td
+                .label.label-danger.text-bold $ 1000.00
+                  em.fa.fa-fw.fa-caret-down
+              td $ 2,548.00
+      .panel-footer
+        .row
+          .col-md-4.col-xs-6
+            .input-group.input-group-sm
+              input.form-control(type='text', placeholder='Search')
+              span.input-group-btn
+                button.btn.btn-sm.btn-default(type='button') Search
+          .col-md-4.col-md-offset-4.col-xs-6
+            .input-group.input-group-sm.pull-right
+              select.form-control
+                option(value='0') Bulk action
+                option(value='1') Delete
+                option(value='2') Clone
+                option(value='3') Export
+              span.input-group-btn
+                button.btn.btn-sm.btn-default Apply
+    // END Responsive table
+
+  // END dashboard content
+
+  // START dashboard sidebar
+  aside.col-lg-3.fw-boxed
+    .row
+      .col-lg-6.col-sm-3.col-xs-6
+        .panel.panel-default(ripple="")
+          .panel-body(ng-class="'bg-' + app.theme.name")
+            h1.text-thin.mt 150
+            .text-right.text-sm.text-muted Transactions
+      .col-lg-6.col-sm-3.col-xs-6
+        .panel.panel-default(ripple="")
+          .panel-body
+            h1.text-thin.mt 700
+            .text-right.text-sm.text-muted Users
+      .col-lg-6.col-sm-3.col-xs-6
+        .panel.panel-default(ripple="")
+          .panel-body
+            h1.text-thin.mt 699
+            .text-right.text-sm.text-muted Views
+      .col-lg-6.col-sm-3.col-xs-6
+        .panel.panel-default(ripple="")
+          .panel-body(ng-class="'bg-' + app.theme.name")
+            h1.text-thin.mt 96
+            .text-right.text-sm.text-muted Downloads
+      .col-xs-12
+        .panel.panel-default
+          .panel-body(ng-class="'bg-' + app.theme.name")
+            h2.text-thin.mt New contacts
+            .clearfix
+              .pull-right
+                ul.list-inline.m0
+                  li.p0
+                    a(href='')
+                      img.img-responsive.img-circle.thumb24(src='app/img/user/02.jpg', alt='Follower')
+                  li.p0
+                    a(href='')
+                      img.img-responsive.img-circle.thumb24(src='app/img/user/01.jpg', alt='Follower')
+                  li.p0
+                    a(href='')
+                      img.img-responsive.img-circle.thumb24(src='app/img/user/03.jpg', alt='Follower')
+                  li.p0
+                    a(href='')
+                      img.img-responsive.img-circle.thumb24(src='app/img/user/04.jpg', alt='Follower')
+                  li.p0
+                    a(href='').v-middle
+                      strong +7
+
+    .row
+      .col-lg-12.col-md-6
+        .panel(ng-class="'panel-' + app.theme.name")
+          .panel-heading
+            .panel-title(ng-class="'bg-' + app.theme.name")
+              em.icon-clock.fa-lg.pull-right.text-muted
+              | Activity
+          .panel-body.pt0
+            .smoothy
+              scrollable.pt
+                // START timeline
+                ul.timeline-alt
+                  li.timeline-separator(data-datetime="14 Oct")
+                  // START timeline item
+                  li
+                    .timeline-badge.timeline-badge-sm.thumb-32.bg-purple
+                      em.fa.fa-users
+                    .timeline-date
+                      time(datetime='10m')
+                    .timeline-panel
+                      strong Client Meeting
+                      .text-muted Green Offfice - Av 123 St Floor 2
+                  // END timeline item
+                  // START timeline item
+                  li
+                    .timeline-badge.timeline-badge-sm.bg-amber
+                      em.fa.fa-phone
+                    .timeline-date
+                      time(datetime='1h')
+                    .timeline-panel
+                      strong Call
+                      .text-muted From: 
+                        a(href="tel:+011231987") Michael
+                        | . 
+                        em  No message left.
+                  // END timeline item
+                  // START timeline item
+                  li
+                    .timeline-badge.timeline-badge-sm.bg-info
+                      em.fa.fa-envelope
+                    .timeline-date
+                      time(datetime='3h')
+                    .timeline-panel
+                      strong New invitation
+                      .text-muted From: 
+                        strong UX Design Team
+                  // END timeline item
+                  li.timeline-separator(data-datetime="13 Oct")
+                  // START timeline item
+                  li
+                    .timeline-badge.timeline-badge-sm.bg-warning
+                      em.fa.fa-upload
+                    .timeline-date
+                      time(datetime='9am')
+                    .timeline-panel
+                      strong File upload
+                      a(href="") 
+                        .text-bold angular+bs.zip
+                  // END timeline item
+                // END timeline
+      .col-lg-12.col-md-6
+        .panel(ng-class="'panel-' + app.theme.name")
+          .panel-heading
+            .panel-title(ng-class="'bg-' + app.theme.name")
+              em.icon-speech-bubble.fa-lg.pull-right.text-muted
+              | Team chat
+          .panel-body.pt0
+            .smoothy
+              scrollable.pt
+                ul.chat
+                  li.left.clearfix
+                    span.chat-img.pull-left
+                      img.img-circle.thumb48(src="app/img/user/01.jpg", alt="Image")
+                    .chat-body.clearfix
+                      .chat-header
+                        a(href="").text-inverse: strong Florence Douglas
+                        small.pull-right.text-muted
+                          span.fa.fa-time
+                          | 12m
+                      .chat-msg Suspendisse nisl nulla, interdum at fermentum eget, adipiscing in elit. 
+                  li.right.clearfix
+                    span.chat-img.pull-right
+                      img.img-circle.thumb48(src="app/img/user/03.jpg", alt="Image")
+                    .chat-body.clearfix
+                      .chat-header
+                        small.text-muted
+                          span.fa.fa-time
+                          | 13m
+                        a(href="").text-inverse: strong.pull-right Jon Elliott
+                      .chat-msg Donec consequat venenatis orci, et sagittis risus pretium eget. 
+                  li.left.clearfix
+                    span.chat-img.pull-left
+                      img.img-circle.thumb48(src="app/img/user/02.jpg", alt="Image")
+                    .chat-body.clearfix
+                      .chat-header
+                        a(href="").text-inverse: strong Joel Miles
+                        small.pull-right.text-muted
+                          span.fa.fa-time
+                          | 14m
+                      .chat-msg Mauris eleifend, libero nec cursus lacinia, tellus est pharetra orci, et pretium urna felis eget neque. 
+                  li.right.clearfix
+                    span.chat-img.pull-right
+                      img.img-circle.thumb48(src="app/img/user/03.jpg", alt="Image")
+                    .chat-body.clearfix
+                      .chat-header
+                        small.text-muted
+                          span.fa.fa-time
+                          | 15m
+                        a(href="").text-inverse: strong.pull-right Jon Elliott
+                      .chat-msg Sed semper diam vitae purus tristique at scelerisque massa ultricies. Aliquam non eros dui. 
+          .panel-footer
+            .input-group.input-group-sm
+              input.form-control(type='text', placeholder="Type a message ...")
+              span.input-group-btn
+                button.btn.btn-info(type='button'): small Post
+  // END dashboard sidebar

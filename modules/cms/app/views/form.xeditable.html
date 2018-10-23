@@ -1,0 +1,142 @@
+<div class="app-view-header">Form xEditable
+   <small>Edit in place for AngularJS</small>
+</div>
+<div ng-controller="FormxEditableController as xform" class="row">
+   <div class="col-md-6">
+      <div class="panel panel-default">
+         <div class="panel-heading">HTML5 Inputs</div>
+         <div class="panel-body">
+            <div class="form-horizontal">
+               <div class="form-group m0">
+                  <label class="col-sm-4 control-label">Email:</label>
+                  <div class="col-sm-8">
+                     <p class="form-control-static"><a href="" editable-email="xform.user.email">{{ xform.user.email || &apos;empty&apos; }}</a>
+                     </p>
+                  </div>
+               </div>
+               <div class="form-group m0">
+                  <label class="col-sm-4 control-label">Tel:</label>
+                  <div class="col-sm-8">
+                     <p class="form-control-static"><a href="" editable-tel="xform.user.tel" e-pattern="\d{3}-\d{2}-\d{2}" e-title="xxx-xx-xx">{{ xform.user.tel || &apos;empty&apos; }}</a>
+                     </p>
+                  </div>
+               </div>
+               <div class="form-group m0">
+                  <label class="col-sm-4 control-label">Number:</label>
+                  <div class="col-sm-8">
+                     <p class="form-control-static"><a href="" editable-number="xform.user.number" e-min="18">{{ xform.user.number || &apos;empty&apos; }}</a>
+                     </p>
+                  </div>
+               </div>
+               <div class="form-group m0">
+                  <label class="col-sm-4 control-label">Range:</label>
+                  <div class="col-sm-8">
+                     <p class="form-control-static"><a href="" editable-range="xform.user.range" e-step="5">{{ xform.user.range || &apos;empty&apos; }}</a>
+                     </p>
+                  </div>
+               </div>
+               <div class="form-group m0">
+                  <label class="col-sm-4 control-label">Url:</label>
+                  <div class="col-sm-8">
+                     <p class="form-control-static"><a href="" editable-url="xform.user.url">{{ xform.user.url || &apos;empty&apos; }}</a>
+                     </p>
+                  </div>
+               </div>
+               <div class="form-group m0">
+                  <label class="col-sm-4 control-label">Search:</label>
+                  <div class="col-sm-8">
+                     <p class="form-control-static"><a href="" editable-search="xform.user.search">{{ xform.user.search || &apos;empty&apos; }}</a>
+                     </p>
+                  </div>
+               </div>
+               <div class="form-group m0">
+                  <label class="col-sm-4 control-label">Color:</label>
+                  <div class="col-sm-8">
+                     <p class="form-control-static"><a href="" editable-color="xform.user.color">{{ xform.user.color || &apos;empty&apos; }}</a>
+                     </p>
+                  </div>
+               </div>
+               <div class="form-group m0">
+                  <label class="col-sm-4 control-label">Date:</label>
+                  <div class="col-sm-8">
+                     <p class="form-control-static"><a href="" editable-date="xform.user.date">{{ xform.user.date || &apos;empty&apos; }}</a>
+                     </p>
+                  </div>
+               </div>
+               <div class="form-group m0">
+                  <label class="col-sm-4 control-label">Time:</label>
+                  <div class="col-sm-8">
+                     <p class="form-control-static"><a href="" editable-time="xform.user.time">{{ xform.user.time || &apos;empty&apos; }}</a>
+                     </p>
+                  </div>
+               </div>
+               <div class="form-group m0">
+                  <label class="col-sm-4 control-label">Datetime:</label>
+                  <div class="col-sm-8">
+                     <p class="form-control-static"><a href="" editable-datetime="xform.user.datetime">{{ xform.user.datetime || &apos;empty&apos; }}</a>
+                     </p>
+                  </div>
+               </div>
+               <div class="form-group m0">
+                  <label class="col-sm-4 control-label">Month:</label>
+                  <div class="col-sm-8">
+                     <p class="form-control-static"><a href="" editable-month="xform.user.month">{{ xform.user.month || &apos;empty&apos; }}</a>
+                     </p>
+                  </div>
+               </div>
+               <div class="form-group m0">
+                  <label class="col-sm-4 control-label">Week:</label>
+                  <div class="col-sm-8">
+                     <p class="form-control-static"><a href="" editable-week="xform.user.week">{{ xform.user.week || &apos;empty&apos; }}</a>
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="col-md-6">
+      <div class="panel panel-default">
+         <div class="panel-heading">Controls</div>
+         <div class="panel-body">
+            <div class="form-horizontal">
+               <div class="form-group m0">
+                  <label class="col-sm-4 control-label">Text</label>
+                  <div class="col-sm-8">
+                     <p class="form-control-static"><a href="" editable-text="xform.user.name">{{ xform.user.name || &apos;empty&apos; }}</a>
+                     </p>
+                  </div>
+               </div>
+               <div class="form-group m0">
+                  <label class="col-sm-4 control-label">Local Select</label>
+                  <div class="col-sm-8">
+                     <p class="form-control-static"><a href="" editable-select="xform.user2.status" e-ng-options="s.value as s.text for s in xform.statuses">{{ xform.showStatus() }}</a>
+                     </p>
+                  </div>
+               </div>
+               <div class="form-group m0">
+                  <label class="col-sm-4 control-label">Remote Select</label>
+                  <div class="col-sm-8">
+                     <p class="form-control-static"><a href="" editable-select="xform.user3.text" ng-init="xform.loadGroups()" e-ng-options="g.text as g.text for g in xform.groups">{{ xform.user3.text || &apos;not set&apos; }}  </a>
+                     </p>
+                  </div>
+               </div>
+               <div class="form-group m0">
+                  <label class="col-sm-4 control-label">Textarea</label>
+                  <div class="col-sm-8">
+                     <p class="form-control-static"><a href="" editable-textarea="xform.user.desc" e-rows="3" e-cols="30">{{ xform.user.desc || 'no description' }}    </a>
+                     </p>
+                  </div>
+               </div>
+               <div class="form-group m0">
+                  <label class="col-sm-4 control-label">Typeahead</label>
+                  <div class="col-sm-8">
+                     <p class="form-control-static"><a href="" editable-text="xform.user4.state" e-typeahead="state for state in xform.states | filter:$viewValue | limitTo:8">{{ xform.user4.state || &apos;empty&apos; }}  </a>
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

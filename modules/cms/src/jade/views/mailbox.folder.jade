@@ -1,0 +1,26 @@
+.mb-panel(ng-controller="MailboxFolderController")
+  .mb-panel-inner(ng-class="{'mb-content-open' : mailPanelOpened}")
+    .mb-panel-list
+      h3.text-center.visible-lg {{ folder | titlecase }} 
+        small ({{ mailList.length }})
+      // START Mail list
+      .mb-mails-responsive
+        p.lead.text-center.text-muted.mt-xl(ng-if="!mailList.length") No Mail
+        table.table.mb-mails(ng-if="mailList.length")
+          tbody
+            tr(ng-repeat="mail in mailList", ng-class="{'mb-unread' : mail.unread}")
+              td
+                .point-pin
+                  img.img-circle.mb-mail-avatar.thumb48(ng-src="{{mail.from.avatar}}", alt="Mail Avatar")
+                  .point.point-success.point-lg
+              td.clickable(ng-click="openMail(mail.id)")
+                .mb-mail-date {{mail.time}}
+                .pull-left
+                  a(href="").mb-mail-from {{mail.from.name}}
+                  .mb-mail-subject {{mail.subject}}
+                .mb-mail-preview {{mail.excerpt}}
+      // END Mail list
+    
+    // Mail content
+    .mb-panel-content(ui-view="mails")
+      p.lead.text-center.text-muted.mt-xl Select Mail

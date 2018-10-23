@@ -1,0 +1,13 @@
+{
+  "name": "feather",
+  "homepage": "https://github.com/colebemis/feather",
+  "_release": "9c7485ba2b",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "9c7485ba2b4663743c5718a6088863512db6d47e"
+  },
+  "_source": "git://github.com/colebemis/feather.git",
+  "_target": "*",
+  "_originalSource": "colebemis/feather"
+}

@@ -1,0 +1,109 @@
+/**
+   Component: slider.scss
+*/
+
+slider,
+[slider] {
+  display: inline-block;
+  position: relative;
+  height: 4px;
+  width: 100%;
+  margin: 25px 5px 25px 5px;
+  vertical-align: middle;
+  span {
+    white-space: nowrap;
+    position: absolute;
+    display: inline-block;
+    &.base {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+    }
+    &.bar {
+      height: 100%;
+      z-index: 0;
+      -webkit-border-radius: 1em/1em;
+      border-radius: 1em/1em;
+      background-color: $gray-light;
+      &.selection {
+        width: 0%;
+        z-index: 1;
+        background-color: $brand-primary;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+    }
+    &.pointer {
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      top: -10px;
+      background-color: $brand-primary;
+      border: 1px solid $brand-primary;
+      z-index: 2;
+      -webkit-border-radius: 1em/1em;
+      border-radius: 1em/1em;
+      &:after {
+        // content: '';
+        background-color: $brand-primary;
+        width: 8px;
+        height: 8px;
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        -webkit-border-radius: 1em/1em;
+        border-radius: 1em/1em;
+      }
+      &:hover:after {
+        background-color: #000;
+      }
+      &.active:after {
+        background-color: $brand-primary;
+      }
+    }
+    &.bubble {
+      cursor: default;
+      top: -22px;
+      padding: 1px 3px 1px 3px;
+      font-size: 0.7em;
+      &.selection {
+        top: 15px;
+      }
+      &.limit {
+        color: $text-color;
+      }
+    }
+  }
+}
+
+@mixin slider-variant($color) {
+  span {
+    &.bar {
+      &.selection {
+        background-color: $color;
+      }
+    }
+    &.pointer {
+      background-color: $color;
+      border: 1px solid $color;
+      &:after {
+        background-color: $color;
+      }
+      &.active:after {
+        background-color: $color;
+      }
+    }
+  }
+}
+
+.slider-success { @include slider-variant($brand-success); }
+.slider-info    { @include slider-variant($brand-info); }
+.slider-warning { @include slider-variant($brand-warning); }
+.slider-danger  { @include slider-variant($brand-danger); }
+.slider-inverse { @include slider-variant($brand-inverse); }
+.slider-amber   { @include slider-variant($brand-amber); }
+.slider-pink    { @include slider-variant($brand-pink); }
+.slider-purple  { @include slider-variant($brand-purple); }
+.slider-orange  { @include slider-variant($brand-orange); }
+.slider-white   { @include slider-variant($brand-white); }
+

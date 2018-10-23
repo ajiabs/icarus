@@ -1,0 +1,9 @@
+<!-- top navbar-->
+<header ng-include="'templates/top-navbar-dock.html'" ng-class="app.theme.topbar"></header>
+<!-- Main-->
+<section>
+   <!-- Content-->
+   <div ui-view="" autoscroll="false" ng-class="app.views.animation" class="app"></div>
+</section>
+<!-- Page footer-->
+<footer ng-include="'templates/footer.html'"></footer>

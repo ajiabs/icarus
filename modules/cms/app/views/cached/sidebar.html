@@ -1,0 +1,473 @@
+<!-- START Sidebar-->
+<div class="sidebar-wrapper">
+   <div ui-sidebar="" class="sidebar">
+      <div class="sidebar-nav">
+         <ul class="nav">
+            <!-- Iterates over all sidebar items-->
+            <li class="nav-heading">
+               <span translate="sidebar.heading.HEADER" class="text-muted">Main Navigation</span>
+            </li>
+            <li ui-sref-active="active">
+               <a ui-sref="app.dashboard" title="Dashboard" ripple="">
+                  <div class="label pull-right label-success">4</div>
+                  <em class="sidebar-item-icon icon-pie-graph"></em>
+                  <span translate="sidebar.nav.DASHBOARD">Dashboard</span>
+               </a>
+            </li>
+            <li ui-sref-active="active">
+               <a ui-sref="app.cards" title="Cards" ripple="">
+                  <em class="sidebar-item-icon icon-stack"></em>
+                  <span translate="sidebar.nav.CARDS">Cards</span>
+               </a>
+            </li>
+            <li ui-sref-active="active">
+               <a ui-sref="app-fh.mailbox.folder.list({folder: 'inbox'})" title="Mailbox" ripple="">
+                  <div class="label pull-right label-success">12</div>
+                  <em class="sidebar-item-icon icon-mail"></em>
+                  <span translate="sidebar.nav.app.MAILBOX">Mailbox</span>
+               </a>
+            </li>
+            <li ng-class="{active:$state.includes('app-fh.columns')}">
+               <a href="" title="Layouts" ripple="">
+                  <em class="sidebar-item-caret fa pull-right fa-angle-right"></em>
+                  <em class="sidebar-item-icon icon-layout"></em>
+                  <span>Layouts</span>
+               </a>
+               <ul class="nav sidebar-subnav">
+                  <li class="sidebar-subnav-header">
+                     <a>
+                        <em class="sidebar-item-icon fa fa-angle-right"></em>Layouts</a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app-dock.dashboard" title="Docked" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span>Docked</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app-fh.columns" title="Full Height" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span>Full Height</span>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <hr/>
+            </li>
+            <li ng-class="{active:$state.includes('app.ui')}">
+               <a href="" title="Components" ripple="">
+                  <em class="sidebar-item-caret fa pull-right fa-angle-right"></em>
+                  <em class="sidebar-item-icon icon-box"></em>
+                  <span translate="sidebar.nav.component.COMPONENTS">Components</span>
+               </a>
+               <ul class="nav sidebar-subnav">
+                  <li class="sidebar-subnav-header">
+                     <a>
+                        <em class="sidebar-item-icon fa fa-angle-right"></em>Components</a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.ui.buttons" title="Buttons" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.component.BUTTON">Buttons</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.ui.notifications" title="Notifications" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.component.NOTIFICATION">Notifications</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.ui.bootstrapui" title="Bootsrap UI" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <div class="label pull-right label-primary">7</div>
+                        <span translate="sidebar.nav.component.BOOTSTRAPUI">Bootsrap UI</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.ui.panels" title="Panels" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.component.PANEL">Panels</span>
+                     </a>
+                  </li>
+                  <li>
+                     <hr/>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.ui.sweetalert" title="SweetAlert" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span>SweetAlert</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.ui.navtree" title="Nav Tree" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span>Nav Tree</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.ui.nestable" title="Nestable" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span>Nestable</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.ui.sortable" title="Sortable" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span>Sortable</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.ui.grid" title="Grid" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.component.GRID">Grid</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.ui.grid-masonry" title="Grid Masonry" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.component.GRID_MASONRY">Grid Masonry</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.ui.typo" title="Typography" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.component.TYPO">Typography</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.ui.palette" title="Palette" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.component.PALETTE">Palette</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.ui.localization" title="Localization" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span>Localization</span>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+            <li ng-class="{active:$state.includes('app.forms')}">
+               <a href="" title="Forms" ripple="">
+                  <em class="sidebar-item-caret fa pull-right fa-angle-right"></em>
+                  <em class="sidebar-item-icon icon-book"></em>
+                  <span translate="sidebar.nav.form.FORM">Forms</span>
+               </a>
+               <ul class="nav sidebar-subnav">
+                  <li class="sidebar-subnav-header">
+                     <a>
+                        <em class="sidebar-item-icon fa fa-angle-right"></em>Forms</a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.forms.inputs" title="Inputs" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.form.INPUT">Inputs</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.forms.validation" title="Validation" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.form.VALIDATION">Validation</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.forms.wizard" title="Wizard" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.form.WIZARD">Wizard</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.forms.upload" title="Upload" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span>Upload</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.forms.xeditable" title="xEditable" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span>xEditable</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.forms.imagecrop" title="Image Crop" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span>Image Crop</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.forms.uiselect" title="uiSelect" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span>uiSelect</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.forms.slider" title="slider" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span>Range slider</span>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+            <li ng-class="{active:$state.includes('app.tables')}">
+               <a href="" title="Tables" ripple="">
+                  <em class="sidebar-item-caret fa pull-right fa-angle-right"></em>
+                  <em class="sidebar-item-icon icon-grid"></em>
+                  <span translate="sidebar.nav.table.TABLE">Tables</span>
+               </a>
+               <ul class="nav sidebar-subnav">
+                  <li class="sidebar-subnav-header">
+                     <a>
+                        <em class="sidebar-item-icon fa fa-angle-right"></em>Tables</a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.tables.responsive" title="Responsive" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.table.RESPONSIVE">Responsive</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.tables.ngtable" title="ngTables" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span>ngTables</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.tables.xeditable" title="xEditable" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span>xEditable</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.tables.datatables" title="Datables" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span>Datables</span>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+            <li ng-class="{active:$state.includes('app.charts')}">
+               <a href="" title="Flot" ripple="">
+                  <em class="sidebar-item-caret fa pull-right fa-angle-right"></em>
+                  <em class="sidebar-item-icon icon-bar-graph"></em>
+                  <span translate="sidebar.nav.CHART">Charts</span>
+               </a>
+               <ul class="nav sidebar-subnav">
+                  <li class="sidebar-subnav-header">
+                     <a>
+                        <em class="sidebar-item-icon fa fa-angle-right"></em>Charts</a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.charts.flot" title="Flot" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span>Flot</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.charts.pie" title="Pie Charts" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span>Pie</span>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+            <li ng-class="{active:$state.includes('app.maps')}">
+               <a href="" title="Maps" ripple="">
+                  <em class="sidebar-item-caret fa pull-right fa-angle-right"></em>
+                  <em class="sidebar-item-icon icon-map"></em>
+                  <span translate="sidebar.nav.map.MAP">Maps</span>
+               </a>
+               <ul class="nav sidebar-subnav">
+                  <li class="sidebar-subnav-header">
+                     <a>
+                        <em class="sidebar-item-icon fa fa-angle-right"></em>Maps</a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.maps.google" title="Google Maps" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.map.GOOGLE">Google Maps</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.maps.vector" title="Vector Maps" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.map.VECTOR">Vector Maps</span>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+            <li ng-class="{active:$state.includes('app.icons')}">
+               <a href="" title="Icons" ripple="">
+                  <em class="sidebar-item-caret fa pull-right fa-angle-right"></em>
+                  <em class="sidebar-item-icon icon-play"></em>
+                  <span translate="sidebar.nav.icon.ICON">Icons</span>
+               </a>
+               <ul class="nav sidebar-subnav">
+                  <li class="sidebar-subnav-header">
+                     <a>
+                        <em class="sidebar-item-icon fa fa-angle-right"></em>Icons</a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.icons.feather" title="Feather Icons" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.icon.FEATHER">Feather Icons</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.icons.fa" title="Font Awesome" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.icon.FA">Font Awesome</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.icons.climacon" title="Climacons" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.icon.CLIMA">Climacons</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.icons.weather" title="Weather Icons" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.icon.WEATHER">Weather Icons</span>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <hr/>
+            </li>
+            <li class="nav-heading">
+               <span class="text-muted">Extras</span>
+            </li>
+            <li ng-class="{active:$state.includes('app.extras')}">
+               <a href="" title="Extras" ripple="">
+                  <em class="sidebar-item-caret fa pull-right fa-angle-right"></em>
+                  <em class="sidebar-item-icon icon-ribbon"></em>
+                  <span>Extras</span>
+               </a>
+               <ul class="nav sidebar-subnav">
+                  <li class="sidebar-subnav-header">
+                     <a>
+                        <em class="sidebar-item-icon fa fa-angle-right"></em>Extras</a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.extras.calendar" title="Calendar" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.app.CALENDAR">Calendar</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.extras.tasks" title="Tasks List" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.app.TASK">Tasks List</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app-fh.chat" title="Chat" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span>Chat</span>
+                     </a>
+                  </li>
+                  <li>
+                     <hr/>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.extras.invoice" title="Invoice" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.pages.INVOICE">Invoice</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.extras.price" title="Price" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.pages.PRICE">Price</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.extras.search" title="Search" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.pages.SEARCH">Search</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.extras.timeline" title="Timeline" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span>Timeline</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.extras.projects" title="Projects" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span>Projects</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.extras.gallery" title="Gallery" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span>Gallery</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.extras.profile" title="Profile" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span>Profile</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="app.extras.template" title="Template" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.pages.BLANK">Template</span>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <a href="" title="Pages" ripple="">
+                  <em class="sidebar-item-caret fa pull-right fa-angle-right"></em>
+                  <em class="sidebar-item-icon icon-stack"></em>
+                  <span translate="sidebar.nav.pages.PAGES">Pages</span>
+               </a>
+               <ul class="nav sidebar-subnav">
+                  <li class="sidebar-subnav-header">
+                     <a>
+                        <em class="sidebar-item-icon fa fa-angle-right"></em>Pages</a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="page.login" title="Login" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.pages.LOGIN">Login</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="page.register" title="Sign up" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.pages.REGISTER">Sign up</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="page.recover" title="Recover Password" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.pages.RECOVER">Recover Password</span>
+                     </a>
+                  </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="page.lock" title="Lock" ripple="">
+                        <em class="sidebar-item-icon"></em>
+                        <span translate="sidebar.nav.pages.LOCK">Lock</span>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <a href="../html5jquery/dist" title="Static" ripple="" class="bg-primary">
+                  <em class="text-white sidebar-item-icon fa fa-html5"></em>
+                  <span class="text-white">Static Version</span>
+               </a>
+            </li>
+         </ul>
+      </div>
+   </div>
+</div>
+<!-- END Sidebar-->

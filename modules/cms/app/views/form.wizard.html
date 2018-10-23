@@ -1,0 +1,80 @@
+<div class="app-view-header">Form Wizard</div>
+<!-- START panel-->
+<div class="panel panel-default">
+   <div class="panel-heading">Form Wizard Validate</div>
+   <div class="panel-body">
+      <div ng-init="activeStep=1" class="wizard">
+         <ul class="steps-bar">
+            <li ng-class="{'active':activeStep&gt;=1}">
+               <span>Step 1</span>
+            </li>
+            <li ng-class="{'active':activeStep&gt;=2}">
+               <span>Step 2</span>
+            </li>
+            <li ng-class="{'active':activeStep&gt;=3}">
+               <span>Step 3</span>
+            </li>
+         </ul>
+         <div ng-show="activeStep==1" class="wizard-step">
+            <h4>Create Account
+               <small>&mdash; Step 1</small>
+            </h4>
+            <form name="form_step1" class="form-validate">
+               <p>Email:</p>
+               <input type="email" placeholder="mail@example.com" name="email" ng-model="email" required="required" class="form-control" />
+               <p class="mt">Password</p>
+               <div class="row">
+                  <div class="col-xs-6">
+                     <input id="id-source" type="password" placeholder="Type your password" ng-model="form.match1" class="form-control" />
+                  </div>
+                  <div class="col-xs-6">
+                     <input type="password" placeholder="Retype your password" name="confirm_match" data-parsley-equalto="#id-source" required="" ng-model="form.match2" ui-validate="'$value==form.match1'" ui-validate-watch="'validator.match1'" class="form-control"
+                     />
+                  </div>
+               </div>
+               <p ng-show="form_step1.confirm_match.$error.validator" class="text-danger">Password do not match!</p>
+               <div class="mt">
+                  <button type="submit" ng-disabled="form_step1.$invalid" ng-click="activeStep=2" class="btn btn-primary">Next</button>
+               </div>
+            </form>
+         </div>
+         <div ng-show="activeStep==2" class="wizard-step">
+            <h4>Your Social Networks
+               <small>&mdash; Step 2</small>
+            </h4>
+            <form name="form_step2" class="form-validate">
+               <p class="mt">Twitter:</p>
+               <input type="text" name="twitter" ng-model="twitter" placeholder="#username" ng-pattern="/^#[0-9a-zA-Z]+$/" class="form-control" />
+               <p class="mt">Facebook:</p>
+               <input type="text" name="facebook" ng-model="facebook" placeholder="/username" ng-pattern="/^/[0-9a-zA-Z]+$/" class="form-control" />
+               <p class="mt">Website:</p>
+               <input type="url" name="url" placeholder="http://" ng-model="website" class="form-control" />
+               <div class="mt">
+                  <button type="button" ng-click="activeStep=1" class="btn btn-default">Prev</button>
+                  <button type="submit" ng-disabled="form_step2.$invalid" ng-click="activeStep=3" class="btn btn-primary">Next</button>
+               </div>
+            </form>
+         </div>
+         <div ng-show="activeStep==3" class="wizard-step">
+            <h4>Personal details
+               <small>&mdash; Step 3</small>
+            </h4>
+            <form name="form_step3" class="form-validate">
+               <p class="mt">Name:</p>
+               <input type="text" name="name" placeholder="Your fullname" ng-model="name" required="" class="form-control" />
+               <p class="mt">Phone:</p>
+               <input type="text" name="phone" ng-model="phone" placeholder="Only numbers" ng-pattern="/^[0-9]+$/" class="form-control" />
+               <p class="mt">Address:</p>
+               <textarea name="address" placeholder="Your address" ng-model="address" class="form-control"></textarea>
+            </form>
+            <div ng-show="stepsDone" class="alert alert-success mv-lg">
+               <p class="text-bold m0">Excellent ! You've completed all steps.</p>
+            </div>
+            <div class="mt">
+               <button type="button" ng-click="activeStep=2" class="btn btn-default">Prev</button>
+               <button type="button" ng-disabled="form_step3.$invalid" ng-click="stepsDone=true" class="btn btn-primary">Finish</button>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

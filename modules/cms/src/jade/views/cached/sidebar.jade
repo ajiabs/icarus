@@ -1,0 +1,328 @@
+// START Sidebar
+.sidebar-wrapper
+  .sidebar(ui-sidebar="")
+    .sidebar-nav
+        ul.nav
+          // Iterates over all sidebar items
+          li.nav-heading
+            span.text-muted(translate='sidebar.heading.HEADER') Main Navigation
+          li(ui-sref-active="active")
+            a(ui-sref='app.dashboard', title='Dashboard', ripple='')
+              .label.pull-right.label-success 4
+              em.sidebar-item-icon.icon-pie-graph
+              span(translate='sidebar.nav.DASHBOARD') Dashboard
+          li(ui-sref-active="active")
+            a(ui-sref='app.cards', title='Cards', ripple='')
+              em.sidebar-item-icon.icon-stack
+              span(translate='sidebar.nav.CARDS') Cards
+          li(ui-sref-active="active")
+            a(ui-sref="app-fh.mailbox.folder.list({folder: 'inbox'})", title='Mailbox', ripple='')
+              .label.pull-right.label-success 12
+              em.sidebar-item-icon.icon-mail
+              span(translate='sidebar.nav.app.MAILBOX') Mailbox
+          li(ng-class="{active:$state.includes('app-fh.columns')}")
+            a(href='', title='Layouts', ripple='')
+              em.sidebar-item-caret.fa.pull-right.fa-angle-right
+              em.sidebar-item-icon.icon-layout
+              span Layouts
+            ul.nav.sidebar-subnav
+              li.sidebar-subnav-header
+                a
+                  em.sidebar-item-icon.fa.fa-angle-right
+                  | Layouts
+              li(ui-sref-active="active")
+                a(ui-sref='app-dock.dashboard', title='Docked', ripple='')
+                  em.sidebar-item-icon
+                  span Docked
+              li(ui-sref-active="active")
+                a(ui-sref='app-fh.columns', title='Full Height', ripple='')
+                  em.sidebar-item-icon
+                  span Full Height
+          li
+            hr
+          li(ng-class="{active:$state.includes('app.ui')}")
+            a(href='', title='Components', ripple='')
+              em.sidebar-item-caret.fa.pull-right.fa-angle-right
+              em.sidebar-item-icon.icon-box
+              span(translate='sidebar.nav.component.COMPONENTS') Components
+            ul.nav.sidebar-subnav
+              li.sidebar-subnav-header
+                a
+                  em.sidebar-item-icon.fa.fa-angle-right
+                  | Components
+              li(ui-sref-active="active")
+                a(ui-sref='app.ui.buttons', title='Buttons', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.component.BUTTON') Buttons
+              li(ui-sref-active="active")
+                a(ui-sref='app.ui.notifications', title='Notifications', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.component.NOTIFICATION') Notifications
+              li(ui-sref-active="active")
+                a(ui-sref='app.ui.bootstrapui', title='Bootsrap UI', ripple='')
+                  em.sidebar-item-icon
+                  .label.pull-right.label-primary 7
+                  span(translate='sidebar.nav.component.BOOTSTRAPUI') Bootsrap UI
+              li(ui-sref-active="active")
+                a(ui-sref='app.ui.panels', title='Panels', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.component.PANEL') Panels
+              li
+                hr
+              li(ui-sref-active="active")
+                a(ui-sref='app.ui.sweetalert', title='SweetAlert', ripple='')
+                  em.sidebar-item-icon
+                  span SweetAlert
+              li(ui-sref-active="active")
+                a(ui-sref='app.ui.navtree', title='Nav Tree', ripple='')
+                  em.sidebar-item-icon
+                  span Nav Tree
+              li(ui-sref-active="active")
+                a(ui-sref='app.ui.nestable', title='Nestable', ripple='')
+                  em.sidebar-item-icon
+                  span Nestable
+              li(ui-sref-active="active")
+                a(ui-sref='app.ui.sortable', title='Sortable', ripple='')
+                  em.sidebar-item-icon
+                  span Sortable
+              li(ui-sref-active="active")
+                a(ui-sref='app.ui.grid', title='Grid', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.component.GRID') Grid
+              li(ui-sref-active="active")
+                a(ui-sref='app.ui.grid-masonry', title='Grid Masonry', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.component.GRID_MASONRY') Grid Masonry
+              li(ui-sref-active="active")
+                a(ui-sref='app.ui.typo', title='Typography', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.component.TYPO') Typography
+              li(ui-sref-active="active")
+                a(ui-sref='app.ui.palette', title='Palette', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.component.PALETTE') Palette
+              li(ui-sref-active="active")
+                a(ui-sref='app.ui.localization', title='Localization', ripple='')
+                  em.sidebar-item-icon
+                  span Localization
+          li(ng-class="{active:$state.includes('app.forms')}")
+            a(href='', title='Forms', ripple='')
+              em.sidebar-item-caret.fa.pull-right.fa-angle-right
+              em.sidebar-item-icon.icon-book
+              span(translate='sidebar.nav.form.FORM') Forms
+            ul.nav.sidebar-subnav
+              li.sidebar-subnav-header
+                a
+                  em.sidebar-item-icon.fa.fa-angle-right
+                  | Forms
+              li(ui-sref-active="active")
+                a(ui-sref='app.forms.inputs', title='Inputs', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.form.INPUT') Inputs
+              li(ui-sref-active="active")
+                a(ui-sref='app.forms.validation', title='Validation', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.form.VALIDATION') Validation
+              li(ui-sref-active="active")
+                a(ui-sref='app.forms.wizard', title='Wizard', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.form.WIZARD') Wizard
+              li(ui-sref-active="active")
+                a(ui-sref='app.forms.upload', title='Upload', ripple='')
+                  em.sidebar-item-icon
+                  span Upload
+              li(ui-sref-active="active")
+                a(ui-sref='app.forms.xeditable', title='xEditable', ripple='')
+                  em.sidebar-item-icon
+                  span xEditable
+              li(ui-sref-active="active")
+                a(ui-sref='app.forms.imagecrop', title='Image Crop', ripple='')
+                  em.sidebar-item-icon
+                  span Image Crop
+              li(ui-sref-active="active")
+                a(ui-sref='app.forms.uiselect', title='uiSelect', ripple='')
+                  em.sidebar-item-icon
+                  span uiSelect
+              li(ui-sref-active="active")
+                a(ui-sref='app.forms.slider', title='slider', ripple='')
+                  em.sidebar-item-icon
+                  span Range slider
+          li(ng-class="{active:$state.includes('app.tables')}")
+            a(href='', title='Tables', ripple='')
+              em.sidebar-item-caret.fa.pull-right.fa-angle-right
+              em.sidebar-item-icon.icon-grid
+              span(translate='sidebar.nav.table.TABLE') Tables
+            ul.nav.sidebar-subnav
+              li.sidebar-subnav-header
+                a
+                  em.sidebar-item-icon.fa.fa-angle-right
+                  | Tables
+              li(ui-sref-active="active")
+                a(ui-sref='app.tables.responsive', title='Responsive', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.table.RESPONSIVE') Responsive
+              li(ui-sref-active="active")
+                a(ui-sref='app.tables.ngtable', title='ngTables', ripple='')
+                  em.sidebar-item-icon
+                  span ngTables
+              li(ui-sref-active="active")
+                a(ui-sref='app.tables.xeditable', title='xEditable', ripple='')
+                  em.sidebar-item-icon
+                  span xEditable
+              li(ui-sref-active="active")
+                a(ui-sref='app.tables.datatables', title='Datables', ripple='')
+                  em.sidebar-item-icon
+                  span Datables
+          li(ng-class="{active:$state.includes('app.charts')}")
+            a(href='', title='Flot', ripple='')
+              em.sidebar-item-caret.fa.pull-right.fa-angle-right
+              em.sidebar-item-icon.icon-bar-graph
+              span(translate='sidebar.nav.CHART') Charts
+            ul.nav.sidebar-subnav
+              li.sidebar-subnav-header
+                a
+                  em.sidebar-item-icon.fa.fa-angle-right
+                  | Charts
+              li(ui-sref-active="active")
+                a(ui-sref='app.charts.flot', title='Flot', ripple='')
+                  em.sidebar-item-icon
+                  span Flot
+              li(ui-sref-active="active")
+                a(ui-sref='app.charts.pie', title='Pie Charts', ripple='')
+                  em.sidebar-item-icon
+                  span Pie
+          li(ng-class="{active:$state.includes('app.maps')}")
+            a(href='', title='Maps', ripple='')
+              em.sidebar-item-caret.fa.pull-right.fa-angle-right
+              em.sidebar-item-icon.icon-map
+              span(translate='sidebar.nav.map.MAP') Maps
+            ul.nav.sidebar-subnav
+              li.sidebar-subnav-header
+                a
+                  em.sidebar-item-icon.fa.fa-angle-right
+                  | Maps
+              li(ui-sref-active="active")
+                a(ui-sref='app.maps.google', title='Google Maps', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.map.GOOGLE') Google Maps
+              li(ui-sref-active="active")
+                a(ui-sref='app.maps.vector', title='Vector Maps', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.map.VECTOR') Vector Maps
+          li(ng-class="{active:$state.includes('app.icons')}")
+            a(href='', title='Icons', ripple='')
+              em.sidebar-item-caret.fa.pull-right.fa-angle-right
+              em.sidebar-item-icon.icon-play
+              span(translate='sidebar.nav.icon.ICON') Icons
+            ul.nav.sidebar-subnav
+              li.sidebar-subnav-header
+                a
+                  em.sidebar-item-icon.fa.fa-angle-right
+                  | Icons
+              li(ui-sref-active="active")
+                a(ui-sref='app.icons.feather', title='Feather Icons', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.icon.FEATHER') Feather Icons
+              li(ui-sref-active="active")
+                a(ui-sref='app.icons.fa', title='Font Awesome', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.icon.FA') Font Awesome
+              li(ui-sref-active="active")
+                a(ui-sref='app.icons.climacon', title='Climacons', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.icon.CLIMA') Climacons
+              li(ui-sref-active="active")
+                a(ui-sref='app.icons.weather', title='Weather Icons', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.icon.WEATHER') Weather Icons
+          li
+            hr
+          li.nav-heading
+            span.text-muted Extras
+          li(ng-class="{active:$state.includes('app.extras')}")
+            a(href='', title='Extras', ripple='')
+              em.sidebar-item-caret.fa.pull-right.fa-angle-right
+              em.sidebar-item-icon.icon-ribbon
+              span Extras
+            ul.nav.sidebar-subnav
+              li.sidebar-subnav-header
+                a
+                  em.sidebar-item-icon.fa.fa-angle-right
+                  | Extras
+              li(ui-sref-active="active")
+                a(ui-sref='app.extras.calendar', title='Calendar', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.app.CALENDAR') Calendar
+              li(ui-sref-active="active")
+                a(ui-sref='app.extras.tasks', title='Tasks List', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.app.TASK') Tasks List
+              li(ui-sref-active="active")
+                a(ui-sref='app-fh.chat', title='Chat', ripple='')
+                  em.sidebar-item-icon
+                  span Chat
+              li
+                hr
+              li(ui-sref-active="active")
+                a(ui-sref='app.extras.invoice', title='Invoice', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.pages.INVOICE') Invoice
+              li(ui-sref-active="active")
+                a(ui-sref='app.extras.price', title='Price', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.pages.PRICE') Price
+              li(ui-sref-active="active")
+                a(ui-sref='app.extras.search', title='Search', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.pages.SEARCH') Search
+              li(ui-sref-active="active")
+                a(ui-sref='app.extras.timeline', title='Timeline', ripple='')
+                  em.sidebar-item-icon
+                  span Timeline
+              li(ui-sref-active="active")
+                a(ui-sref='app.extras.projects', title='Projects', ripple='')
+                  em.sidebar-item-icon
+                  span Projects
+              li(ui-sref-active="active")
+                a(ui-sref='app.extras.gallery', title='Gallery', ripple='')
+                  em.sidebar-item-icon
+                  span Gallery
+              li(ui-sref-active="active")
+                a(ui-sref='app.extras.profile', title='Profile', ripple='')
+                  em.sidebar-item-icon
+                  span Profile
+              li(ui-sref-active="active")
+                a(ui-sref='app.extras.template', title='Template', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.pages.BLANK') Template
+          li
+            a(href='', title='Pages', ripple='')
+              em.sidebar-item-caret.fa.pull-right.fa-angle-right
+              em.sidebar-item-icon.icon-stack
+              span(translate='sidebar.nav.pages.PAGES') Pages
+            ul.nav.sidebar-subnav
+              li.sidebar-subnav-header
+                a
+                  em.sidebar-item-icon.fa.fa-angle-right
+                  | Pages
+              li(ui-sref-active="active")
+                a(ui-sref='page.login', title='Login', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.pages.LOGIN') Login
+              li(ui-sref-active="active")
+                a(ui-sref='page.register', title='Sign up', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.pages.REGISTER') Sign up
+              li(ui-sref-active="active")
+                a(ui-sref='page.recover', title='Recover Password', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.pages.RECOVER') Recover Password
+              li(ui-sref-active="active")
+                a(ui-sref='page.lock', title='Lock', ripple='')
+                  em.sidebar-item-icon
+                  span(translate='sidebar.nav.pages.LOCK') Lock
+          li
+            a.bg-primary(href='../html5jquery/dist', title='Static', ripple='')
+              em.text-white.sidebar-item-icon.fa.fa-html5
+              span.text-white Static Version
+// END Sidebar

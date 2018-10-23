@@ -1,0 +1,37 @@
+<div ng-controller="MailboxFolderController" class="mb-panel">
+   <div ng-class="{'mb-content-open' : mailPanelOpened}" class="mb-panel-inner">
+      <div class="mb-panel-list">
+         <h3 class="text-center visible-lg">{{ folder | titlecase }}
+            <small>({{ mailList.length }})</small>
+         </h3>
+         <!-- START Mail list-->
+         <div class="mb-mails-responsive">
+            <p ng-if="!mailList.length" class="lead text-center text-muted mt-xl">No Mail</p>
+            <table ng-if="mailList.length" class="table mb-mails">
+               <tbody>
+                  <tr ng-repeat="mail in mailList" ng-class="{'mb-unread' : mail.unread}">
+                     <td>
+                        <div class="point-pin">
+                           <img ng-src="{{mail.from.avatar}}" alt="Mail Avatar" class="img-circle mb-mail-avatar thumb48" />
+                           <div class="point point-success point-lg"></div>
+                        </div>
+                     </td>
+                     <td ng-click="openMail(mail.id)" class="clickable">
+                        <div class="mb-mail-date">{{mail.time}}</div>
+                        <div class="pull-left"><a href="" class="mb-mail-from">{{mail.from.name}}</a>
+                           <div class="mb-mail-subject">{{mail.subject}}</div>
+                        </div>
+                        <div class="mb-mail-preview">{{mail.excerpt}}</div>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+         <!-- END Mail list-->
+      </div>
+      <!-- Mail content-->
+      <div ui-view="mails" class="mb-panel-content">
+         <p class="lead text-center text-muted mt-xl">Select Mail</p>
+      </div>
+   </div>
+</div>

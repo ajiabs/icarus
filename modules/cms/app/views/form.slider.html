@@ -1,0 +1,33 @@
+<div class="app-view-header">Range Slider
+   <small>Slider directive for AngularJS.</small>
+</div>
+<div ng-controller="SliderController as rangeslider" class="container-fluid">
+   <p class="clearfix">
+      <span class="pull-left">Single</span>
+      <span class="pull-right">Curent Value {{rangeslider.value}}</span>
+   </p>
+   <slider ng-model="value" floor="1" ceiling="100"></slider>
+   <p></p>
+   <p class="clearfix">
+      <span class="pull-left">Single with formatting</span>
+      <span class="pull-right">Curent Value {{rangeslider.formatted}}</span>
+   </p>
+   <slider ng-model="rangeslider.formatted" translate-fn="priceFormat" floor="1" ceiling="100"></slider>
+   <p class="clearfix">
+      <span class="pull-left">Range</span>
+      <span class="pull-right">Min:{{rangeslider.range.min}} - Max:{{rangeslider.range.max}}</span>
+   </p>
+   <slider ng-model="rangeslider.range.min" ng-model-range="rangeslider.range.max" floor="1" ceiling="100"></slider>
+   <h4 class="page-header">Variants</h4>
+   <slider ng-model="rangeslider.range2.min" ng-model-range="rangeslider.range2.max" floor="1" ceiling="100" class="slider-primary"></slider>
+   <slider ng-model="rangeslider.range2.min" ng-model-range="rangeslider.range2.max" floor="1" ceiling="100" class="slider-success"></slider>
+   <slider ng-model="rangeslider.range2.min" ng-model-range="rangeslider.range2.max" floor="1" ceiling="100" class="slider-info"></slider>
+   <slider ng-model="rangeslider.range2.min" ng-model-range="rangeslider.range2.max" floor="1" ceiling="100" class="slider-warning"></slider>
+   <slider ng-model="rangeslider.range2.min" ng-model-range="rangeslider.range2.max" floor="1" ceiling="100" class="slider-danger"></slider>
+   <slider ng-model="rangeslider.range2.min" ng-model-range="rangeslider.range2.max" floor="1" ceiling="100" class="slider-inverse"></slider>
+   <slider ng-model="rangeslider.range2.min" ng-model-range="rangeslider.range2.max" floor="1" ceiling="100" class="slider-amber"></slider>
+   <slider ng-model="rangeslider.range2.min" ng-model-range="rangeslider.range2.max" floor="1" ceiling="100" class="slider-pink"></slider>
+   <slider ng-model="rangeslider.range2.min" ng-model-range="rangeslider.range2.max" floor="1" ceiling="100" class="slider-purple"></slider>
+   <slider ng-model="rangeslider.range2.min" ng-model-range="rangeslider.range2.max" floor="1" ceiling="100" class="slider-orange"></slider>
+   <slider ng-model="rangeslider.range2.min" ng-model-range="rangeslider.range2.max" floor="1" ceiling="100" class="slider-white"></slider>
+</div>

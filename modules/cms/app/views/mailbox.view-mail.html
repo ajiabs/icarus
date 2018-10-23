@@ -1,0 +1,62 @@
+<!-- Back to folder button-->
+<div ng-click="backToFolder()" class="mb-panel-back">
+   <em class="fa fa-angle-left fa-fw"></em>Back to {{ folder }}</div>
+<div ng-controller="MailboxViewController">
+   <div class="clearfix mb">
+      <div class="btn-group pull-left">
+         <a href="" title="Reply" class="btn btn-default btn-sm">
+            <em class="fa fa-mail-reply text-gray-dark"></em>
+         </a>
+         <a href="" title="Reply All" class="btn btn-default btn-sm">
+            <em class="fa fa-mail-reply-all text-gray-dark"></em>
+         </a>
+         <a href="" title="Forward" class="btn btn-default btn-sm">
+            <em class="fa fa-mail-forward text-gray-dark"></em>
+         </a>
+         <a href="" title="Mark as Spam" class="btn btn-default btn-sm">
+            <em class="fa fa-exclamation text-gray-dark"></em>
+         </a>
+         <a href="" title="Sent to Trash" class="btn btn-default btn-sm">
+            <em class="fa fa-trash text-gray-dark"></em>
+         </a>
+      </div>
+   </div>
+   <h3>{{viewMail.subject}}</h3>
+   <div class="clearfix">
+      <p class="pull-left m0">
+         <span class="text-muted mr">From:</span><a href="">{{viewMail.from.name}} <span>&lt;{{viewMail.from.email}}&gt;</span></a>
+      </p>
+      <p class="pull-right m0">
+         <span>10:56 pm</span>
+      </p>
+   </div>
+   <hr/>
+   <p>
+      <img src="app/img/mb-sample.jpg" alt="Mailbox image" class="img-responsive" />
+   </p>
+   <p>Pellentesque vitae turpis id lorem dictum suscipit vitae sit amet leo. Duis imperdiet, enim vitae euismod mattis, lectus nibh interdum felis, quis eleifend orci orci sed quam. Fusce a egestas turpis. Etiam tellus nulla, dictum in pellentesque feugiat,
+      sagittis non lectus.</p>
+   <p>Donec consequat massa vel orci laoreet vehicula. Aenean sollicitudin facilisis tortor eu mollis.</p>
+   <hr/>
+   <p class="text-muted text-sm">Attachments</p>
+   <ul class="list-inline">
+      <li>
+         <a href="">
+            <img src="app/img/bg1.jpg" class="img-responsive img-thumbnail thumb48" />
+         </a>
+      </li>
+      <li>
+         <a href="">
+            <img src="app/img/bg2.jpg" class="img-responsive img-thumbnail thumb48" />
+         </a>
+      </li>
+      <li>
+         <a href="">
+            <img src="app/img/bg3.jpg" class="img-responsive img-thumbnail thumb48" />
+         </a>
+      </li>
+   </ul>
+   <hr/>
+   <!-- Wysiswyg editor-->
+   <summernote ng-model="summernoteText" height="300" class="b0"></summernote>
+</div>

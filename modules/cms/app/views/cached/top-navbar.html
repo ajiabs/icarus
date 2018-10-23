@@ -1,0 +1,125 @@
+<!-- START Top Navbar-->
+<nav role="navigation" ng-controller="HeaderNavController as header" class="navbar topnavbar">
+   <!-- START button offset-->
+   <div class="btn-offset">
+      <button type="button" btn-layer-morph="" target="#layer-search" ripple="" class="btn btn-info btn-circle btn-lg shadow-z1">
+         <em class="fa fa-search"></em>
+      </button>
+   </div>
+   <!-- START button offset-->
+   <!-- START navbar header-->
+   <div class="navbar-header">
+      <a ui-sref="app.dashboard" class="navbar-brand">
+         <img src="app/img/logo.png" alt="App Logo" class="brand-logo" />
+      </a>
+      <!-- Mobile buttons-->
+      <div class="mobile-toggles">
+         <!-- Button to show/hide the sidebar on mobile. Visible on mobile only.-->
+         <a href="" ng-click="app.sidebar.isOffscreen = !app.sidebar.isOffscreen" class="sidebar-toggle">
+            <em class="fa fa-navicon"></em>
+         </a>
+         <!-- Button to show/hide the header menu on mobile. Visible on mobile only.-->
+         <a href="" ng-click="header.toggleHeaderMenu()" class="menu-toggle hidden-material">
+            <em class="fa fa-ellipsis-v fa-fw"></em>
+         </a>
+      </div>
+   </div>
+   <!-- END navbar header-->
+   <!-- START Nav wrapper-->
+   <div uib-collapse="header.headerMenuCollapsed" class="nav-wrapper collapse navbar-collapse">
+      <!-- START Left navbar-->
+      <ul class="nav navbar-nav hidden-material">
+         <li>
+            <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+            <a href="" ng-click="app.sidebar.isOffscreen = !app.sidebar.isOffscreen" class="hidden-xs">
+               <em ng-class="app.sidebar.isOffscreen ? 'fa-caret-right':'fa-caret-left'" class="fa"></em>
+            </a>
+         </li>
+         <!-- START Apps menu-->
+         <li uib-dropdown="" class="dropdown dropdown-scale">
+            <a href="" uib-dropdown-toggle="" ripple="" class="dropdown-toggle">
+               <em class="fa fa-th fa-fw"></em>
+               <span class="visible-xs-inline ml">Applications</span>
+            </a>
+            <!-- START Dropdown menu-->
+            <ul id="bg-white" class="dropdown-menu p wd-lg">
+               <div class="row ml0 mr0 mt mb text-center">
+                  <div class="col-xs-4">
+                     <div class="pv">
+                        <a ui-sref="app.extras.profile">
+                           <span class="block mb">
+                              <em class="icon-head fa-2x text-warning"></em>
+                           </span>
+                           <small class="text-muted">Profile</small>
+                        </a>
+                     </div>
+                  </div>
+                  <div class="col-xs-4">
+                     <div class="pv">
+                        <a ui-sref="app-fh.mailbox.folder.list({folder: 'inbox'})">
+                           <span class="block mb">
+                              <em class="icon-mail fa-2x text-primary"></em>
+                           </span>
+                           <small class="text-muted">Mailbox</small>
+                        </a>
+                     </div>
+                  </div>
+                  <div class="col-xs-4">
+                     <div class="pv">
+                        <a ui-sref="app.extras.calendar">
+                           <span class="block mb">
+                              <em class="fa fa-calendar fa-2x text-danger"></em>
+                           </span>
+                           <small class="text-muted">Calendar</small>
+                        </a>
+                     </div>
+                  </div>
+                  <div class="col-xs-4">
+                     <div class="pv">
+                        <a ui-sref="app.maps.vector">
+                           <span class="block mb">
+                              <em class="icon-map fa-2x text-success"></em>
+                           </span>
+                           <small class="text-muted">Map</small>
+                        </a>
+                     </div>
+                  </div>
+                  <div class="col-xs-4">
+                     <div class="pv">
+                        <a ui-sref="app.dashboard">
+                           <span class="block mb">
+                              <em class="icon-bar-graph-2 fa-2x text-info"></em>
+                           </span>
+                           <small class="text-muted">Dashboard</small>
+                        </a>
+                     </div>
+                  </div>
+                  <div class="col-xs-4">
+                     <div class="pv">
+                        <a ui-sref="app.extras.gallery">
+                           <span class="block mb">
+                              <em class="icon-image fa-2x text-muted"></em>
+                           </span>
+                           <small class="text-muted">Gallery</small>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </ul>
+         </li>
+         <!-- END Apps menu-->
+         <!-- START lock screen-->
+         <li>
+            <a ui-sref="page.lock" title="Lock screen" ripple="">
+               <em class="icon-lock fa-fw"></em>
+               <span class="visible-xs-inline ml">Lock Screen</span>
+            </a>
+         </li>
+         <!-- END lock screen-->
+      </ul>
+      <!-- END Left navbar-->
+   </div>
+   <!-- END Nav wrapper-->
+
+</nav>
+<!-- END Top Navbar-->

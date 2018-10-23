@@ -1,0 +1,312 @@
+.app-view-header 
+  | Cards
+  small A piece of paper that contains unique related data
+
+.container-fluid.container-flush(ng-controller="CardsController as card")
+  .row
+    .col-lg-7.col-lg-push-5.col-md-12
+      .row
+        .col-md-6.col-xs-12
+          // START Panel
+          .panel.panel-card.panel-card-image.bg-pic4(chained-animation="fadeInUp")
+            .panel-body
+              small.text-white A nice clear day.
+              h2.text-lg.text-white 
+                em.wi.wi-day-sunny.mr
+                | 21
+                em.wi.wi-celsius
+                br
+                small.text-white Paris, France
+            .panel-footer.text-center
+              .row
+                .col-xs-3
+                  ul.list-unstyled.m0
+                    li
+                      em.wi.wi-day-rain.text-md.mb
+                    li: small Tomorrow
+                    li
+                      | 22
+                      em.wi.wi-celsius.mb
+                .col-xs-3
+                  ul.list-unstyled.m0
+                    li
+                      em.wi.wi-showers.text-md.mb
+                    li: small Monday
+                    li
+                      | 23 
+                      em.wi.wi-celsius.mb
+                .col-xs-3
+                  ul.list-unstyled.m0
+                    li
+                      em.wi.wi-storm-showers.text-md.mb
+                    li: small Tuesday
+                    li
+                      | 20 
+                      em.wi.wi-celsius.mb
+                .col-xs-3
+                  ul.list-unstyled.m0
+                    li
+                      em.wi.wi-rain.text-md.mb
+                    li: small Wednesday
+                    li
+                      | 22 
+                      em.wi.wi-celsius.mb
+          // END Panel
+        .col-md-6.col-xs-12
+          .row
+            .col-sm-12.col-xs-6
+              // START Panel
+              .panel.panel-card.card-md(chained-animation="fadeInUp")
+                .panel-body
+                  em.pull-right.icon-bar-graph-2.text-muted
+                  .text-md 30.1 ms
+                  .text-muted Average load time
+                flot.mt-lg(options='card.smallChartOpts', dataset="card.smallChartData1", height="84px")
+              // END Panel
+            .col-sm-12.col-xs-6
+              // START Panel
+              .panel.panel-card.card-md(chained-animation="fadeInUp")
+                .panel-body
+                  em.pull-right.icon-bar-graph-2.text-muted
+                  .text-md 1500
+                  .text-muted New followers
+                flot.mt-lg(options='card.smallChartOpts', dataset="card.smallChartData2", height="84px")
+              // END Panel
+
+    .col-lg-5.col-lg-pull-7.col-md-12
+      // START Panel
+      .panel.panel-card(chained-animation="fadeInUp")
+        .panel-body.bg-primary
+          // START button group
+          .pull-right.btn-group(uib-dropdown='')
+            a(href="", uib-dropdown-toggle="").dropdown-toggle.text-white
+              em.fa.fa-ellipsis-v.fa-lg
+            ul.dropdown-menu.fadeInUp.animated(role='menu')
+              li
+                a(href='') Daily
+              li
+                a(href='') Monthly
+              li.divider
+              li
+                a(href='') All time
+          // END button group
+          h3.m0.text-center.text-white Sales
+          flot(options='card.splineChartOpts', dataset="card.splineData", series="{splines: areaSplineSeries}", height="220px")
+        .panel-body
+          .row
+            .col-md-8.col-xs-6
+              p.text-muted.mb-sm Sales from last year report
+              h2.m0.text-lg.text-slim 4566
+            .col-md-4.col-xs-6
+              .clearfix.text-sm.text-muted.mb-sm
+                .pull-left May
+                .pull-right 
+                  | 500
+                  em.fa.fa-caret-down.fa-fw.text-danger
+              uib-progressbar.mb.progress-xxs.b0.bg-gray-light(value='81', type='primary')
+              .clearfix.text-sm.text-muted.mb-sm.pt-sm
+                .pull-left June
+                .pull-right 
+                  | 2300
+                  em.fa.fa-caret-up.fa-fw.text-success
+              uib-progressbar.mb.progress-xxs.b0.bg-gray-light(value='61', type='primary')
+      // END Panel
+  .row
+    .col-lg-4.col-xs-6
+      // START Panel
+      .panel.panel-purple.panel-card(chained-animation="fadeInUp")
+        .panel-body.bg-purple
+          p.text-uppercase: strong TECH
+          .l-table
+            h2.text-lg.l-cell.v-middle.no-scroll
+              a.h-link(href="") Updating Apps to Material Design now
+          p.text-muted.mb-lg
+            em.fa.fa-clock-o.mr
+            | 10 mar 10:00 am
+        .panel-footer.bg-purple
+          p
+            img.mr.thumb32.img-circle(src="app/img/user/01.jpg")
+            | by 
+            a(href="").text-white Harvey Hawkins
+      // END Panel
+
+    .col-lg-4.col-xs-6
+      // START Panel
+      .panel.panel-card.panel-card-image.bg-pic5.bg-warning(chained-animation="fadeInUp")
+        .panel-body.text-center
+          h4.text-white Agenda
+          h2.text-lg.text-white  21 march
+          small.text-white (5) Pending assignments.
+        .panel-footer.bg-warning
+          scrollable(height="80px")
+            .p.text-ellipsis: a(href="")
+              span.text-muted.mr 10:30 am
+              span Vivamus cursus ullamcorper faucibus. 
+            .p.text-ellipsis: a(href="")
+              span.text-muted.mr 12:30  am
+              span Ut non tortor nec eros gravida tincidunt.
+            .p.text-ellipsis: a(href="")
+              span.text-muted.mr 1:10 pm
+              span Sed quis turpis mi. 
+            .p.text-ellipsis: a(href="")
+              span.text-muted.mr 2:40 pm
+              span Proin vulputate neque non turpis...
+            .p.text-ellipsis: a(href="")
+              span.text-muted.mr 3:20 pm
+              span Phasellus dolor velit, dictum a pulvinar eu, convallis a ante. 
+      // END Panel
+
+    .col-lg-4.col-xs-12
+      // START Panel
+      .panel.panel-card.panel-card-map(chained-animation="fadeInUp", ng-controller="GoogleMapController as gmap")
+        #map_canvas.fh(ui-map='gmap.myMap', ui-options='gmap.mapOptions')
+        .panel-footer.bg-transparent
+          input.form-control.shadow-z1(type="text", placeholder="Search something..")
+      // END Panel
+  .row
+    .col-xs-12
+      // START Panel
+      .panel.mb(chained-animation="fadeInUp")
+        .panel-body
+          .row
+            .col-lg-8.col-xs-12
+              .pull-right.mr-lg
+                .text-lg 48.02%
+                em.fa.fa-caret-up.text-success
+                small Sales incremented
+              p.pull-left Sales from last year
+                br
+                small.text-sm Proin a nisi ac arcu varius laoreet.
+              flot(src="'server/chart/linev2.json'", options="card.splineOptions2", height="320px")
+            .col-lg-4.col-xs-12
+              h3 Last 3 months goals overview
+              p.text-muted Donec eu dolor sem, non auctor sapien. Praesent congue nisi in metus malesuada nec dictum nunc egestas. 
+              ul.list-group
+                li.list-group-item
+                  table.wd-wide
+                    tbody: tr
+                      td
+                        .pv Month
+                      td.wd-sm.hidden-xs.hidden-sm
+                        .pv Volume
+                      td.wd-sm
+                        .pv Goal
+                li.list-group-item
+                  table.wd-wide
+                    tbody: tr
+                      td
+                        h5 November
+                      td.wd-sm.hidden-xs.hidden-sm
+                        p.m0
+                          small.text-muted 3500
+                      td.wd-sm
+                        uib-progressbar.m0.progress-xs(value='50', type='warning')
+                 li.list-group-item
+                  table.wd-wide
+                    tbody: tr
+                      td
+                        h5 December
+                      td.wd-sm.hidden-xs.hidden-sm
+                        p.m0
+                          small.text-muted 2800
+                      td.wd-sm
+                        uib-progressbar.m0.progress-xs(value='20', type='danger')
+                 li.list-group-item
+                  table.wd-wide
+                    tbody: tr
+                      td
+                        h5 Janaruary
+                      td.wd-sm.hidden-xs.hidden-sm
+                        p.m0
+                          small.text-muted 1200
+                      td.wd-sm
+                        uib-progressbar.m0.progress-xs(value='80', type='success')
+      // END Panel
+  .row
+    .col-lg-4.col-md-12.fw-boxed
+      // START Panel
+      .panel.panel-card.panel-card-image.bg-pic6(chained-animation="fadeInUp")
+        .panel-body.text-center
+          // START button group
+          .pull-right.btn-group(uib-dropdown='dropdown')
+            a(href="", uib-dropdown-toggle="").dropdown-toggle.text-link
+              em.fa.fa-ellipsis-v
+            ul.dropdown-menu.fadeInUp.animated(role='menu')
+              li
+                a(href='') Open
+              li
+                a(href='') Share
+              li.divider
+              li
+                a(href='') More News
+          // END button group
+          .pull-right.mr
+            em.fa.fa-star.fa-fw.clickable(ng-class="{'text-amber' : card.starred }", ng-click="card.starred = !card.starred")
+
+        .panel-footer.bg-noir
+          h2 
+            a(href="") Latest tech news.
+          p: small Aliquam felis nibh, ultrices non elementum porttitor, auctor at justo.  
+      // END Panel
+    .col-lg-5.col-md-6.fw-boxed
+      // START Panel
+      .panel.panel-card(chained-animation="fadeInUp")
+        .panel-body
+          .row.text-center
+            .col-xs-6
+              p.mt-lg Earnings
+              .knob-container
+                knob(knob-data='card.knobLoaderData1', knob-options='card.knobLoaderOptions1', knob-max="100")
+              p: small Ut faucibus, nibh in ultricies egestas, odio nulla euismod purus, eget porta diam urna at arcu. 
+            .col-xs-6
+              p.mt-lg Referrer
+              .knob-container
+                knob(knob-data='card.knobLoaderData2', knob-options='card.knobLoaderOptions2', knob-max="100")
+              p: small Cras malesuada tortor justo, et volutpat tellus. Mauris bibendum lectus ut leo pharetra imperdiet. 
+      // END Panel
+    .col-lg-3.col-md-6.fw-boxed
+      // START Panel
+      .panel.panel-card(chained-animation="fadeInUp")
+        .panel-body.bg-amber
+          .pull-right
+            h3.m0.text-bold NASDAQ  
+          h2.m0.text-bold 2500.11
+          small 5.55
+            em.fa.fa-caret-up.fa-fw
+            | 0.14 %
+          sparkline.mb(options="card.sparkOptions", values="card.sparkValues")
+        .smoothy
+          scrollable(height="220px")
+            .table-responsive.bg-white
+              table.table.table-bordered.table-striped.text-center
+                thead
+                  tr
+                    th.text-center Income
+                    th.text-center Outcome
+                    th.text-center Total
+                tbody
+                  tr
+                    td.text-success.text-bold $ 1,548.00
+                    td.text-danger.text-bold $ 0.00
+                    td $ 1,548.00
+                  tr
+                    td.text-success.text-bold $ 3,548.00
+                    td.text-danger.text-bold $ 1000.00
+                    td $ 2,548.00
+                  tr
+                    td.text-success.text-bold $ 10,256.00
+                    td.text-danger.text-bold $ 10,000.00
+                    td $ 256.00
+                  tr
+                    td.text-success.text-bold $ 11,100.50
+                    td.text-danger.text-bold $ 100.00
+                    td $ 11,000.50
+                  tr
+                    td.text-success.text-bold $ 3,548.00
+                    td.text-danger.text-bold $ 1000.00
+                    td $ 2,548.00
+                  tr
+                    td.text-success.text-bold $ 10,256.00
+                    td.text-danger.text-bold $ 10,000.00
+                    td $ 256.00
+      // END Panel

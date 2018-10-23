@@ -1,0 +1,21 @@
+<div class="app-view-header">Vector Maps</div>
+<div ng-controller="VectorMapController as vectormap" class="container-fluid">
+   <div class="row">
+      <div class="col-lg-12">
+         <div class="panel panel-default">
+            <div class="panel-body">
+               <p>Using series and markers data</p>
+               <vector-map map-options="vectormap.mapOptions"></vector-map>
+            </div>
+         </div>
+      </div>
+      <div class="col-lg-12">
+         <div class="panel panel-default">
+            <div class="panel-body">
+               <p>Using only markers with custom colors</p>
+               <vector-map map-options="vectormap.mapOptions2"></vector-map>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

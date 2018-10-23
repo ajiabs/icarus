@@ -1,0 +1,137 @@
+.app-view-header Form Validation
+  small Poweful validation using angularui native directives
+
+// START row
+.row(ng-controller="FormValidationController as form")
+  .col-md-12
+    form.form-validate.form-horizontal(action='#', name="formv")
+      // START panel
+      .panel.panel-default
+        .panel-heading
+          .panel-title Fields validation
+        .panel-body
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Required Text
+              .col-sm-6
+                input.form-control(type='text', name='required', required='')
+              .col-sm-4
+                code required
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Email
+              .col-sm-6
+                input.form-control(type='email', placeholder="mail@example.com", name='email', required='', ng-model="form.email")
+              .col-sm-4
+                code type='email'
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Email BlackList
+              .col-sm-6
+                input.form-control(type='email', placeholder="example: 'bad@domain.com'", name='email_bl', required='', ui-validate="{blacklist : 'form.notBlackListed($value)' }", ng-model="form.email_bl")
+                span(ng-show='formv.email_bl.$error.blacklist') This e-mail is black-listed!
+              .col-sm-4
+                code ui-validate="{blacklist}"
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Number
+              .col-sm-6
+                input.form-control(type='number', name='number', required='', ng-model="form.number")
+              .col-sm-4
+                code type='number'
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Digits
+              .col-sm-6
+                input.form-control(type='text', name='digits', required='', ng-pattern="/^[0-9]+$/", ng-model="form.digits")
+              .col-sm-4
+                code ng-pattern="/^[0-9]+$/"
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Alphanum
+              .col-sm-6
+                input.form-control(type='text', name='alphanum', required='', ng-pattern="/^[a-zA-Z]+$/", ng-model="form.alpha")
+              .col-sm-4
+                code ng-pattern="/^[a-zA-Z]+$/"
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Url
+              .col-sm-6
+                input.form-control(type='url', name='url', required='', ng-model="form.url", placeholder="protocol://")
+              .col-sm-4
+                code type='url'
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Equal to
+              .col-sm-6
+                .row
+                  .col-xs-6
+                    input.form-control#id-source(type='password', ng-model="form.match1")
+                  .col-xs-6
+                    input.form-control(type='password', name="confirm_match", required='', ng-model="form.match2", ui-validate="'$value==form.match1'" ui-validate-watch="'validator.match1'")
+                p.text-danger(ng-show='formv.confirm_match.$error.validator') Not match!
+              .col-sm-4
+                code ui-validate="'$value==form.match1'"
+
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Minlength
+              .col-sm-6
+                input.form-control(type='text', name='minlength', required='', ng-model="form.minlen", ng-minlength="6")
+              .col-sm-4
+                code ng-minlength="6"
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Maxlength
+              .col-sm-6
+                input.form-control(type='text', name='maxlength', required='', , ng-model="form.maxlen", ng-maxlength="10")
+              .col-sm-4
+                code ng-maxlength="10"
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Length
+              .col-sm-6
+                input.form-control(type='text', name='length', required='', , ng-model="form.minmaxlen", ng-minlength="6", ng-maxlength="10")
+              .col-sm-4
+                code ng-minlength="6", ng-maxlength="10"
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Min
+              .col-sm-6
+                input.form-control(type='text', name='min', required='', ng-model="form.minvalue" ui-validate="'$value >= 6'")
+              .col-sm-4
+                code  ui-validate="'$value &gt;= 6'"
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Max
+              .col-sm-6
+                input.form-control(type='text', name='max', required='', ng-model="form.maxvalue" ui-validate="'$value <= 6'")
+              .col-sm-4
+                code ui-validate="'$value &lt;= 6'"
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Min words
+              .col-sm-6
+                input.form-control(type='text', required='', ui-validate="'form.words($value) >= 6'", ng-model="form.minwords")
+              .col-sm-4
+                code ui-validate="'form.words($value) &gt;= 6'"
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Max words
+              .col-sm-6
+                input.form-control(type='text', required='', ui-validate="'form.words($value) <= 6'", ng-model="form.maxwords")
+              .col-sm-4
+                code ui-validate="'form.words($value) &lt;= 6'"
+          
+          fieldset
+            .form-group
+              label.col-sm-2.control-label Range of words
+              .col-sm-6
+                input.form-control(type='text',required='', ui-validate="'form.words($value) >= 6 && form.words($value) <= 10'", ng-model="form.rangewords")
+              .col-sm-4
+                code ui-validate="'form.words($value) &gt;= 6 &amp;&amp; form.words($value) &lt;= 10'"
+
+        .panel-footer.text-center
+          button.btn.btn-info(type='submit') Run validation
+      // END panel
+// END row

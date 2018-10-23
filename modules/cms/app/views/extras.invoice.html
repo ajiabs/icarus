@@ -1,0 +1,132 @@
+<div class="app-view-header mb0 hidden-print">
+   <span class="mt">Invoice</span>
+   <!-- START button group-->
+   <div uib-dropdown="dropdown" class="btn-group pull-right">
+      <button type="button" ng-disabled="disabled" uib-dropdown-toggle="" class="btn dropdown-toggle btn-default btn-sm">Actions
+         <span class="caret"></span>
+      </button>
+      <ul role="menu" class="dropdown-menu">
+         <li><a href="">Clone</a>
+         </li>
+         <li><a href="">Edit</a>
+         </li>
+         <li><a href="">Delete</a>
+         </li>
+         <li class="divider"></li>
+         <li>
+            <a href="">
+               <em class="fa fa-plus-circle fa-fw mr-sm"></em>Create Invoice</a>
+         </li>
+      </ul>
+   </div>
+   <!-- END button group-->
+</div>
+<div class="clearfix"></div>
+<div class="row pv">
+   <div class="col-xs-8">
+      <div class="text-lg text-bold">Naut</div>
+   </div>
+   <div class="col-xs-4">
+      <h3 class="text-right text-muted">
+         <span class="mt">Invoice #4321</span>
+      </h3>
+   </div>
+</div>
+<div class="row">
+   <div class="col-xs-12">
+      <h4 class="text-bold">Bootstrap Admin + AngularJs</h4>
+      <address>Nowhere 65
+         <br/>Far St., 123
+         <br/>Showland</address>
+   </div>
+</div>
+<div class="row bt pv-xl">
+   <div class="col-xs-8 br">
+      <h4 class="text-bold">Victor Hawkins</h4>
+      <address>Neverland 54
+         <br/>Jump, Joe, 123
+         <br/>Mars</address>
+   </div>
+   <div class="col-xs-4">
+      <table class="table">
+         <tr>
+            <td class="b0">
+               <strong>Period</strong>
+            </td>
+            <td class="b0 text-right">
+               <strong>October</strong>
+            </td>
+         </tr>
+         <tr>
+            <td class="b0">Date</td>
+            <td class="b0 text-right">15/11/2014</td>
+         </tr>
+         <tr>
+            <td class="b0">Due Date</td>
+            <td class="b0 text-right">10/12/2014</td>
+         </tr>
+      </table>
+   </div>
+</div>
+<div class="table-responsive table-bordered mb-lg">
+   <table class="table">
+      <thead>
+         <tr>
+            <th>Description</th>
+            <th class="col-xs">Quantity</th>
+            <th class="col-xs">Price</th>
+            <th class="col-xs text-right">Total</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td>
+               <p>Iphone 5s - 64Gb</p>
+               <small class="text-muted">In egestas tincidunt purus eget malesuada. Fusce non dolor nisi, a convallis nisl.</small>
+            </td>
+            <td>4</td>
+            <td>$500</td>
+            <td class="text-right">$2000</td>
+         </tr>
+         <tr>
+            <td>
+               <p>Site desing and development</p>
+               <small class="text-muted">In egestas tincidunt purus eget malesuada. Fusce non dolor nisi, a convallis nisl. Integer venenatis ultrices vulputate.</small>
+            </td>
+            <td>1</td>
+            <td>$1500</td>
+            <td class="text-right">$1500</td>
+         </tr>
+         <tr>
+            <td>
+               <p>iMac Pro 27</p>
+               <small class="text-muted">In egestas tincidunt purus eget malesuada. Fusce non dolor nisi, a convallis nisl. Cras aliquam mauris massa.</small>
+            </td>
+            <td>6</td>
+            <td>$1100</td>
+            <td class="text-right">$6600</td>
+         </tr>
+      </tbody>
+   </table>
+</div>
+<div class="row">
+   <div class="col-sm-offset-8 col-sm-4 pv">
+      <div class="clearfix">
+         <p class="pull-left">Subtotal</p>
+         <p class="pull-right mr">$11200</p>
+      </div>
+      <div class="clearfix">
+         <p class="pull-left">Tax (12%)</p>
+         <p class="pull-right mr">$1200</p>
+      </div>
+      <div class="clearfix text-bold">
+         <p class="pull-left pv">TOTAL</p>
+         <p class="pull-right mr pv">$5,800.00</p>
+      </div>
+   </div>
+</div>
+<hr class="hidden-print" />
+<div class="clearfix">
+   <button type="button" onclick="window.print();" class="btn btn-default pull-right">Print</button>
+   <button type="button" class="btn btn-success pull-left">Send Invoice</button>
+</div>

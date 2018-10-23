@@ -1,0 +1,10 @@
+<div class="app-view-header">Sortable
+   <small>Lightweight jQuery plugin to create sortable lists and grids using native HTML5 drag and drop API.</small>
+</div>
+<div ng-controller="SortableController" class="container container-md">
+   <ul html-sortable="sortableOptions" html-sortable-callback="sortableCallback" ng-model="sortadata" class="list-group">
+      <li ng-repeat="itm in sortadata" class="list-group-item">
+         <em class="fa fa-reorder fa-fw text-muted mr-lg"></em>{{itm.name}}</li>
+   </ul>
+   <button ng-click="add()" class="btn btn-info">Add another</button>
+</div>

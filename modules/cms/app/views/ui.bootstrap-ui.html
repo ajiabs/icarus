@@ -1,0 +1,227 @@
+<div class="app-view-header">Bootstrap UI
+   <small>Bootstrap components in the Angular way</small>
+</div>
+<!-- START row-->
+<div class="row">
+   <div class="col-lg-6">
+      <h4 class="page-header mt0">Carousel</h4>
+      <div ng-controller="CarouselDemoController">
+         <uib-carousel interval="myInterval">
+            <uib-slide ng-repeat="slide in slides" active="slide.active">
+               <img ng-src="{{slide.image}}" style="margin: auto;" alt="" class="wd-wide" />
+               <div class="carousel-caption">
+                  <h4>Slide {{$index}}</h4>
+                  <p>{{slide.text}}</p>
+               </div>
+            </uib-slide>
+         </uib-carousel>
+         <div class="row pv">
+            <div class="col-lg-6">
+               <p>Interval, in milliseconds:</p>
+               <input type="number" ng-model="myInterval" class="form-control" />
+            </div>
+            <div class="col-lg-6">
+               <p>Add a slide with a random image</p>
+               <button type="button" ng-click="addSlide()" class="btn btn-info">Add Slide</button>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="col-lg-6">
+      <h4 class="page-header mt0">Typeahead</h4>
+      <script type="text/ng-template" id="customTemplate.html">
+         <a><img ng-src="http://upload.wikimedia.org/wikipedia/commons/thumb/{{match.model.flag}}" width="16" alt=""/><span bind-html-unsafe="match.label | typeaheadHighlight:query"></span></a>
+      </script>
+      <div ng-controller="TypeaheadController" class="typeahead-ctrl">
+         <h5>&bull; Static arrays</h5>
+         <div class="well well-sm">Model: {{selected | json}}</div>
+         <input type="text" ng-model="selected" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control" />
+         <h5>&bull; Asynchronous results</h5>
+         <div class="well well-sm">Model: {{asyncSelected | json}}</div>
+         <input type="text" ng-model="asyncSelected" placeholder="Locations loaded via $http" uib-typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" class="form-control"
+         /><i ng-show="loadingLocations" class="fa fa-refresh"></i>
+         <h5>&bull; Custom templates for results</h5>
+         <div class="well well-sm">Model: {{customSelected | json}}</div>
+         <input type="text" ng-model="customSelected" placeholder="Custom template" uib-typeahead="state as state.name for state in statesWithFlags | filter:{name:$viewValue}" typeahead-template-url="customTemplate.html"
+         class="form-control" />
+      </div>
+   </div>
+</div>
+<br/>
+<!-- START row-->
+<div class="row">
+   <div class="col-lg-6">
+      <h4 class="page-header">Accordion</h4>
+      <!-- START panel-->
+      <div id="panelDemo13" class="panel panel-default">
+         <div class="panel-heading">Collapsible Accordion Panel Group</div>
+         <div class="panel-body">
+            <div class="checkbox c-checkbox">
+               <label>
+                  <input type="checkbox" ng-model="oneAtATime" />
+                  <span class="fa fa-check"></span>Open only one at a time</label>
+            </div>
+            <uib-accordion close-others="oneAtATime">
+               <uib-accordion-group is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+                  <uib-accordion-heading>Accordion Heading #1</uib-accordion-heading>
+                  <p>In vitae porttitor eros. Vivamus et urna magna. Mauris a velit id neque dignissim congue. Phasellus ut neque sem, ac vestibulum tellus. Integer eu diam neque, quis euismod turpis.</p>
+               </uib-accordion-group>
+               <uib-accordion-group>
+                  <uib-accordion-heading>Accordion Heading #2</uib-accordion-heading>
+                  <p>In vitae porttitor eros. Vivamus et urna magna. Sed euismod massa quis diam viverra eu consectetur elit imperdiet. Aenean rhoncus, est vel vestibulum tristique, ante lectus elementum augue, eu dictum turpis dui ut ipsum.</p>
+               </uib-accordion-group>
+               <uib-accordion-group>
+                  <uib-accordion-heading>Accordion Heading #3</uib-accordion-heading>
+                  <p>In vitae porttitor eros. Vivamus et urna magna. In consequat massa eget dui ultrices sit amet auctor libero molestie. Vestibulum nec viverra libero.</p>
+               </uib-accordion-group>
+            </uib-accordion>
+         </div>
+      </div>
+      <!-- END panel-->
+   </div>
+   <div class="col-lg-6">
+      <h4 class="page-header">Tabs</h4>
+      <!-- START panel-->
+      <div id="panelDemo14" class="panel panel-default">
+         <div class="panel-heading">Basic Tabs</div>
+         <div class="panel-body">
+            <uib-tabset>
+               <uib-tab heading="Home">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                  aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nul qui officia deserunt mollit anim id est laborum.</uib-tab>
+               <uib-tab heading="Profile">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                  aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat , sunt in culpa qui officia deserunt mollit anim id est laborum.</uib-tab>
+               <uib-tab heading="Messages">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                  aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</uib-tab>
+               <uib-tab heading="Settings">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                  aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</uib-tab>
+            </uib-tabset>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- END row-->
+<!-- START row-->
+<div class="row">
+   <div class="col-xs-12">
+      <h4 class="page-header">Calendar</h4>
+      <div ng-controller="DatepickerDemoController">
+         <div class="well well-sm">
+            <p class="m0">Selected date is:
+               <em>{{dt | date:'fullDate' }}</em>
+            </p>
+         </div>
+         <div class="row">
+            <div class="col-lg-6">
+               <h5>Inline</h5>
+               <div class="datepicker">
+                  <uib-datepicker ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm"></uib-datepicker>
+               </div>
+            </div>
+            <div class="col-lg-6">
+               <h5>Popup</h5>
+               <div class="row">
+                  <div class="col-md-12">
+                     <p class="input-group">
+                        <input type="text" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"
+                        class="form-control" />
+                        <span class="input-group-btn">
+                           <button type="button" ng-click="open($event)" class="btn btn-default">
+                              <em class="fa fa-calendar"></em>
+                           </button>
+                        </span>
+                     </p>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-12">
+                     <label>Format:</label>
+                     <select ng-model="format" ng-options="f for f in formats" class="form-control">
+                        <option></option>
+                     </select>
+                  </div>
+               </div>
+               <hr/>
+               <button type="button" ng-click="today()" class="btn btn-sm btn-info">Today</button>
+               <button type="button" ng-click="dt = '2009-08-24'" class="btn btn-sm btn-default">2009-08-24</button>
+               <button type="button" ng-click="clear()" class="btn btn-sm btn-purple">Clear</button>
+               <button type="button" ng-click="toggleMin()" uib-tooltip="After today restriction" class="btn btn-sm btn-default">Min date</button>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="col-xs-12">
+      <h4 class="page-header">Time picker</h4>
+      <div ng-controller="TimepickerDemoController">
+         <uib-timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></uib-timepicker>
+         <pre class="alert alert-info">Time is: {{mytime | date:'shortTime' }}</pre>
+         <div class="row">
+            <div class="col-xs-6">Hours step is:
+               <select ng-model="hstep" ng-options="opt for opt in options.hstep" class="form-control"></select>
+            </div>
+            <div class="col-xs-6">Minutes step is:
+               <select ng-model="mstep" ng-options="opt for opt in options.mstep" class="form-control"></select>
+            </div>
+         </div>
+         <hr/>
+         <button ng-click="toggleMode()" class="btn btn-info">12H / 24H</button>
+         <button ng-click="update()" class="btn btn-default">Set to 14:00</button>
+         <button ng-click="clear()" class="btn btn-purple">Clear</button>
+      </div>
+   </div>
+</div>
+<h4 class="page-header">Button actions</h4>
+<!-- START row-->
+<div ng-controller="ButtonActionsController" class="row">
+   <div class="col-lg-4">
+      <h4>Single toggle</h4>
+      <pre>{{singleModel}}</pre>
+      <button type="button" ng-model="singleModel" uib-btn-checkbox="btn-checkbox" btn-checkbox-true="1" btn-checkbox-false="0" class="btn btn-primary">Single Toggle</button>
+   </div>
+   <div class="col-lg-4">
+      <h4>Checkbox</h4>
+      <pre>{{checkModel}}</pre>
+      <div class="btn-group">
+         <label ng-model="checkModel.left" uib-btn-checkbox="btn-checkbox" class="btn btn-primary">Left</label>
+         <label ng-model="checkModel.middle" uib-btn-checkbox="btn-checkbox" class="btn btn-primary">Middle</label>
+         <label ng-model="checkModel.right" uib-btn-checkbox="btn-checkbox" class="btn btn-primary">Right</label>
+      </div>
+   </div>
+   <div class="col-lg-4">
+      <h4>Radio &amp; Uncheckable Radio</h4>
+      <pre>{{radioModel || 'null'}}</pre>
+      <div class="btn-group">
+         <label ng-model="radioModel" uib-btn-radio="'Left'" class="btn btn-primary">Left</label>
+         <label ng-model="radioModel" uib-btn-radio="'Middle'" class="btn btn-primary">Middle</label>
+         <label ng-model="radioModel" uib-btn-radio="'Right'" class="btn btn-primary">Right</label>
+      </div>
+      <div class="btn-group">
+         <label ng-model="radioModel" uib-btn-radio="'Left'" uncheckable="uncheckable" class="btn btn-success">Left</label>
+         <label ng-model="radioModel" uib-btn-radio="'Middle'" uncheckable="uncheckable" class="btn btn-success">Middle</label>
+         <label ng-model="radioModel" uib-btn-radio="'Right'" uncheckable="uncheckable" class="btn btn-success">Right</label>
+      </div>
+   </div>
+</div>
+<!-- END row-->
+<h4 class="page-header">Pagination</h4>
+<!-- START row-->
+<div ng-controller="PaginationDemoController" class="row">
+   <div class="col-lg-6">
+      <div>
+         <h4>Default</h4>
+         <uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></uib-pagination>
+         <uib-pagination direction-links="false" total-items="totalItems" ng-model="currentPage" num-pages="smallnumPages"></uib-pagination>
+         <pre>The selected page no: {{currentPage}}</pre>
+         <button ng-click="setPage(3)" class="btn btn-info">Set current page to: 3</button>
+      </div>
+   </div>
+   <div class="col-lg-6">
+      <h4>Pager</h4>
+      <uib-pager total-items="totalItems" ng-model="currentPage"></uib-pager>
+      <hr/>
+      <h4>Limit the maximum visible buttons</h4>
+      <uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" boundary-links="true" class="pagination-sm"></uib-pagination>
+      <uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" boundary-links="true" rotate="false" num-pages="numPages" class="pagination-sm"></uib-pagination>
+      <pre>Page: {{bigCurrentPage}} / {{numPages}}</pre>
+   </div>
+</div>
+<!-- END row-->

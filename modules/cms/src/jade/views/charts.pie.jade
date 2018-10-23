@@ -1,0 +1,64 @@
+.app-view-header Pie Charts
+
+.container-fluid(ng-controller="PieChartController as pies")
+  .row
+    .col-md-4
+      h4.page-header.clearfix
+        .pull-left Easypie
+        .pull-right
+          button.btn.btn-sm.btn-success(type="button", ng-click="pies.randomize('easy')") Randomize
+      p Easy pie chart is a jQuery plugin that uses the canvas element to render simple pie charts for single values. These charts are highly customizable, very easy to implement, scale to the resolution of the display of the client to provide sharp charts even on retina displays, and use requestAnimationFrame for smooth animations on modern devices.
+    .col-md-8
+      // START panel
+      .panel.panel-transparent
+        .panel-body.text-center
+          .row
+            .col-md-3.col-xs-6.mb-lg
+              .easypie(easypiechart='', options='pies.pieOptions', percent='pies.piePercent1')
+                span {{pies.piePercent1}}
+              p Default
+            .col-md-3.col-xs-6.mb-lg
+              .easypie(easypiechart='', options='pies.pieOptions1', percent='pies.piePercent1')
+                span {{pies.piePercent2}}
+              p Slim
+            .col-md-3.col-xs-6.mb-lg
+              .easypie(easypiechart='', options='pies.pieOptions2', percent='pies.piePercent3')
+                span {{pies.piePercent3}}
+              p Scale color
+            .col-md-3.col-xs-6.mb-lg
+              .easypie(easypiechart='', options='pies.pieOptions2', percent='pies.piePercent4')
+                span {{pies.piePercent4}}
+              p 
+      // END panel
+
+  .row
+    .col-md-4
+      h4.page-header.clearfix
+        .pull-left Knob
+        .pull-right
+          button.btn.btn-sm.btn-success(type="button", ng-click="pies.randomize('knob')") Randomize
+      p Nice, downward compatible, touchable, jQuery dial. 
+      p Implemented interactions : mouse click and wheel mouse, keyboard (on focus) and fingers (touch events)
+      p jQuery Knob is © 2012 Anthony Terrien and dual licensed under the MIT or GPL licenses.
+    .col-md-8
+      // START panel
+      .panel-body.text-center
+        .row
+          .col-md-3.col-xs-6
+            .mb-lg
+              knob(knob-data='pies.knobLoaderData1', knob-options='pies.knobLoaderOptions1', knob-max="100")
+              p Default
+            
+          .col-md-3.col-xs-6
+            .mb-lg
+              knob(knob-data='pies.knobLoaderData2', knob-options='pies.knobLoaderOptions2', knob-max="100")
+              p Ready only
+          .col-md-3.col-xs-6
+            .mb-lg
+              knob(knob-data='pies.knobLoaderData3', knob-options='pies.knobLoaderOptions3', knob-max="100")
+              p Display previous
+          .col-md-3.col-xs-6
+            .mb-lg
+              knob(knob-data='pies.knobLoaderData4', knob-options='pies.knobLoaderOptions4', knob-max="100")
+              p Angle offset and arc
+      // END panel

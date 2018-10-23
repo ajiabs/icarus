@@ -1,0 +1,198 @@
+<div class="app-view-header">Flot Charts</div>
+<div ng-controller="FlotChartController as flot" class="container-fluid">
+   <!-- START row-->
+   <div class="row">
+      <div class="col-lg-6">
+         <div class="panel panel-default">
+            <div class="panel-heading">
+               <div class="panel-title">Area</div>
+            </div>
+            <div class="panel-body">
+               <flot src="'server/chart/area.json'" options="flot.chartAreaFlotChart" series="{'lines': flot.areaSeries}"></flot>
+               <div class="text-center mt-lg">
+                  <div class="btn-switch mb btn-switch-warning">
+                     <input type="checkbox" id="input-btn-switch-10" ng-model="flot.areaSeries[0]" />
+                     <label for="input-btn-switch-10" class="btn btn-fw btn-warning">
+                        <em class="fa fa-check"></em>
+                        <strong>HTML</strong>
+                     </label>
+                  </div>
+                  <div class="btn-switch mb btn-switch-orange">
+                     <input type="checkbox" id="input-btn-switch-11" ng-model="flot.areaSeries[1]" />
+                     <label for="input-btn-switch-11" class="btn btn-fw btn-orange">
+                        <em class="fa fa-check"></em>
+                        <strong>CSS</strong>
+                     </label>
+                  </div>
+                  <div class="btn-switch mb btn-switch-danger">
+                     <input type="checkbox" id="input-btn-switch-12" ng-model="flot.areaSeries[2]" />
+                     <label for="input-btn-switch-12" class="btn btn-fw btn-danger">
+                        <em class="fa fa-check"></em>
+                        <strong>JS</strong>
+                     </label>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-lg-6">
+         <div class="panel panel-default">
+            <div class="panel-heading">
+               <div class="panel-title">Spline</div>
+            </div>
+            <div class="panel-body">
+               <flot src="'server/chart/spline.json'" options="flot.chartSplineFlotChart" series="{splines: flot.areaSplineSeries}"></flot>
+               <div class="text-center mt-lg">
+                  <div class="btn-switch mb btn-switch-info">
+                     <input type="checkbox" id="input-btn-switch-20" ng-model="flot.areaSplineSeries[0]" />
+                     <label for="input-btn-switch-20" class="btn btn-oval btn-fw btn-info">
+                        <em class="fa fa-check"></em>
+                        <strong>VISITORS</strong>
+                     </label>
+                  </div>
+                  <div class="btn-switch mb btn-switch-inverse">
+                     <input type="checkbox" id="input-btn-switch-21" ng-model="flot.areaSplineSeries[1]" />
+                     <label for="input-btn-switch-21" class="btn btn-oval btn-fw btn-inverse">
+                        <em class="fa fa-check"></em>
+                        <strong>CONVERSIONS</strong>
+                     </label>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- END row-->
+   <!-- START row-->
+   <div class="panel panel-default">
+      <div class="panel-heading">
+         <div class="panel-title">Line</div>
+      </div>
+      <div class="panel-body">
+         <div class="row">
+            <div class="col-lg-8">
+               <flot src="'server/chart/line.json'" options="flot.chartLineFlotChart" series="{lines: flot.lineSeriesLines, points: flot.lineSeriesPoints}"></flot>
+            </div>
+            <div class="col-lg-4">
+               <p class="lead mt-lg">Toggle Points</p>
+               <div class="text-center">
+                  <div class="btn-switch btn-switch-primary">
+                     <input type="checkbox" id="input-btn-switch-1" ng-model="flot.lineSeriesPoints[0]" />
+                     <label for="input-btn-switch-1" class="btn btn-fw btn-primary">
+                        <em class="fa fa-check"></em>
+                        <strong>Serie 1</strong>
+                     </label>
+                  </div>
+                  <div class="btn-switch btn-switch-info">
+                     <input type="checkbox" id="input-btn-switch-2" ng-model="flot.lineSeriesPoints[1]" />
+                     <label for="input-btn-switch-2" class="btn btn-fw btn-info">
+                        <em class="fa fa-check"></em>
+                        <strong>Serie 2</strong>
+                     </label>
+                  </div>
+                  <div class="btn-switch btn-switch-amber">
+                     <input type="checkbox" id="input-btn-switch-3" ng-model="flot.lineSeriesPoints[2]" />
+                     <label for="input-btn-switch-3" class="btn btn-fw btn-amber">
+                        <em class="fa fa-check"></em>
+                        <strong>Serie 3</strong>
+                     </label>
+                  </div>
+               </div>
+               <p class="lead mt-lg">Toggle Lines</p>
+               <div class="text-center">
+                  <div class="btn-switch btn-switch-primary">
+                     <input type="checkbox" id="input-btn-switch-4" ng-model="flot.lineSeriesLines[0]" />
+                     <label for="input-btn-switch-4" class="btn btn-fw btn-primary">
+                        <em class="fa fa-check"></em>
+                        <strong>Serie 1</strong>
+                     </label>
+                  </div>
+                  <div class="btn-switch btn-switch-info">
+                     <input type="checkbox" id="input-btn-switch-5" ng-model="flot.lineSeriesLines[1]" />
+                     <label for="input-btn-switch-5" class="btn btn-fw btn-info">
+                        <em class="fa fa-check"></em>
+                        <strong>Serie 2</strong>
+                     </label>
+                  </div>
+                  <div class="btn-switch btn-switch-amber">
+                     <input type="checkbox" id="input-btn-switch-6" ng-model="flot.lineSeriesLines[2]" />
+                     <label for="input-btn-switch-6" class="btn btn-fw btn-amber">
+                        <em class="fa fa-check"></em>
+                        <strong>Serie 3</strong>
+                     </label>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- END row-->
+   <!-- START row-->
+   <div class="panel panel-default">
+      <div class="panel-heading">
+         <div class="panel-title">Realtime</div>
+      </div>
+      <div class="panel-body">
+         <div class="row">
+            <div class="col-md-10">
+               <flot dataset="flot.realTimeChartData" options="flot.realTimeChartOpts" height="300"></flot>
+            </div>
+            <div class="col-md-2">
+               <label>Set an update interval</label>
+               <input type="text" ng-model="flot.realTimeChartUpdateInterval" class="form-control" />
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- START row-->
+   <div class="row">
+      <div class="col-lg-6">
+         <div class="panel panel-default">
+            <div class="panel-heading">
+               <div class="panel-title">Bar</div>
+            </div>
+            <div class="panel-body">
+               <flot src="'server/chart/bar.json'" options="flot.chartBarFlotChart"></flot>
+            </div>
+         </div>
+      </div>
+      <div class="col-lg-6">
+         <div class="panel panel-default">
+            <div class="panel-heading">
+               <div class="panel-title">Stacked Bars</div>
+            </div>
+            <div class="panel-body">
+               <div class="indicator show">
+                  <span class="spinner"></span>
+               </div>
+               <flot src="'server/chart/barstacked.json'" options="flot.chartBarStackedFlotChart"></flot>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- END row-->
+   <!-- START row-->
+   <div class="row">
+      <div class="col-md-6">
+         <div class="panel panel-default">
+            <div class="panel-heading">
+               <div class="panel-title">Pie</div>
+            </div>
+            <div class="panel-body">
+               <flot src="'server/chart/pie.json'" options="flot.chartPieFlotChart"></flot>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-6">
+         <div class="panel panel-default">
+            <div class="panel-heading">
+               <div class="panel-title">Donut</div>
+            </div>
+            <div class="panel-body">
+               <flot src="'server/chart/donut.json'" options="flot.chartDonutFlotChart"></flot>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- END row-->
+</div>

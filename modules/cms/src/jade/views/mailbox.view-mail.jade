@@ -1,0 +1,44 @@
+// Back to folder button
+.mb-panel-back(ng-click="backToFolder()")
+  em.fa.fa-angle-left.fa-fw
+  | Back to {{ folder }}
+
+div(ng-controller="MailboxViewController")
+  .clearfix.mb
+    .btn-group.pull-left
+      a.btn.btn-default.btn-sm(href="", title="Reply")
+        em.fa.fa-mail-reply.text-gray-dark
+      a.btn.btn-default.btn-sm(href="", title="Reply All")
+        em.fa.fa-mail-reply-all.text-gray-dark
+      a.btn.btn-default.btn-sm(href="", title="Forward")
+        em.fa.fa-mail-forward.text-gray-dark
+      a.btn.btn-default.btn-sm(href="", title="Mark as Spam")
+        em.fa.fa-exclamation.text-gray-dark
+      a.btn.btn-default.btn-sm(href="", title="Sent to Trash")
+        em.fa.fa-trash.text-gray-dark
+
+  h3 {{viewMail.subject}}
+  .clearfix
+    p.pull-left.m0
+      span.text-muted.mr From: 
+      a(href="") {{viewMail.from.name}} 
+        span &lt;{{viewMail.from.email}}&gt;
+    p.pull-right.m0
+      span 10:56 pm
+  hr
+
+  p: img.img-responsive(src="app/img/mb-sample.jpg",alt="Mailbox image")
+  p Pellentesque vitae turpis id lorem dictum suscipit vitae sit amet leo. Duis imperdiet, enim vitae euismod mattis, lectus nibh interdum felis, quis eleifend orci orci sed quam. Fusce a egestas turpis. Etiam tellus nulla, dictum in pellentesque feugiat, sagittis non lectus. 
+  p Donec consequat massa vel orci laoreet vehicula. Aenean sollicitudin facilisis tortor eu mollis. 
+  hr
+  p.text-muted.text-sm Attachments
+  ul.list-inline
+    li
+      a(href=""): img.img-responsive.img-thumbnail.thumb48(src="app/img/bg1.jpg")
+    li
+      a(href=""): img.img-responsive.img-thumbnail.thumb48(src="app/img/bg2.jpg")
+    li
+      a(href=""): img.img-responsive.img-thumbnail.thumb48(src="app/img/bg3.jpg")
+  hr
+  // Wysiswyg editor
+  summernote.b0(ng-model="summernoteText", height="300")

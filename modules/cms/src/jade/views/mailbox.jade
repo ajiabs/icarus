@@ -1,0 +1,20 @@
+.container-fh(ng-controller="MailboxController", ng-init="app.sidebar.isOffscreen = true; app.footer.hidden = true")
+  .row.row-flush.m0.fh.bg-white
+    .col-lg-2.col-md-12.mb-folder-box
+      .mb-buttons
+        .mb-btn-folder
+          a.h3.m0.text-white.text-center.hidden-lg(href="", ng-click="mailboxMenuCollapsed = !mailboxMenuCollapsed")
+            | {{ folderName | titlecase }}
+            em.fa.fa-caret-down.fa-fw
+        .mb-btn-compose
+          a.btn.btn-info.btn-block.btn-sm(ui-sref="app-fh.mailbox.compose")
+            strong Compose
+      .mb-boxes(uib-collapse="mailboxMenuCollapsed")
+        ul.mb-folder-list
+          li(ng-repeat="folder in mailboxFolders")
+            a(ui-sref="app-fh.mailbox.folder.list({folder: folder.name})", ui-sref-opts="{notify: true}", ui-sref-active='active')
+              span.label.label-primary.pull-right {{ folder.count }}
+              em.fa.fa-fw.fa-lg(ng-class="folder.icon")
+              span {{ folder.name | titlecase }}
+    .clearfix.hidden-lg
+    .col-lg-10.mb-panel-wrapper(ui-view="container")

@@ -1,0 +1,38 @@
+.app-view-header SweetAlert
+  small A Beautiful Replacement For Javascript's "alert"
+
+.container(ng-controller="SweetAlertController as sweet")
+  .row
+    .col-md-2
+      h3 Examples
+  hr
+  .row.mb-lg
+    .col-md-6
+      | A basic message
+    .col-md-2
+      a.btn.btn-primary(href='', ng-click='sweet.demo1();') Try me!
+  .row.mb-lg
+    .col-md-6
+      | A title with a text under
+    .col-md-2
+      a.btn.btn-primary(href='', ng-click='sweet.demo2();') Try me!
+  .row.mb-lg
+    .col-md-6
+      | A success message!
+    .col-md-2
+      a.btn.btn-primary(href='', ng-click='sweet.demo3();') Try me!
+  .row.mb-lg
+    .col-md-6
+      | A warning message, with a function attached to the &quot;Confirm&quot;-button
+    .col-md-2
+      a.btn.btn-primary(href='', ng-click='sweet.demo4();') Try me!
+  .row.mb-lg
+    .col-md-6
+      | ... and by passing a parameter, you can execute something else for &quot;Cancel&quot;.
+    .col-md-2
+      a.btn.btn-primary(href='', ng-click='sweet.demo5();') Try me!
+  .row.mb-lg
+    .col-md-6
+      | A message with a custom icon
+    .col-md-2
+      a.btn.btn-primary(href='', ng-click='sweet.demo6();') Try me!

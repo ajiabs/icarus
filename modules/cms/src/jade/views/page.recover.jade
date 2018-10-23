@@ -1,0 +1,21 @@
+.container.container-sm.animated.fadeInDown
+  .center-block.mt-xl
+    // START panel
+    img.center-block.img-rounded(src='app/img/logo-gray.png', alt='Image')
+    .panel
+      .panel-body
+        p.pv
+          strong RESET PASSWORD
+          br
+          | We will send you instructions to reset your password.
+        form(role='form')
+          .row
+            .col-md-8
+              .form-group.has-feedback
+                input#resetInputEmail1.form-control(type='email', placeholder='Your email', autocomplete="off")
+                span.fa.fa-envelope.form-control-feedback.text-muted
+            .col-md-4
+              button.btn.btn-danger.btn-block(type='submit') Send
+              
+    // END panel
+    .p-lg.text-center(ng-include="'app/views/page.footer.html'")

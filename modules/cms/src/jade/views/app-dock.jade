@@ -1,0 +1,10 @@
+// top navbar
+header(ng-include="'templates/top-navbar-dock.html'", ng-class="app.theme.topbar")
+
+// Main
+section
+  // Content
+  .app(ui-view="", autoscroll="false", ng-class="app.views.animation")
+  
+// Page footer
+footer(ng-include="'templates/footer.html'")

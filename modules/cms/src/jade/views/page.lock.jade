@@ -1,0 +1,15 @@
+.abs-center.wd-xl.animated.fadeInDown
+  img.img-circle.center-block.thumb80(src='app/img/user/02.jpg', alt="User Picture")
+  br
+  .text-center Type password to unlock
+  form.p(role='form', ng-submit="$state.go('app.dashboard')")
+    .form-group.has-feedback
+    .input-group
+      input#exampleInputPassword1.form-control(type='password', placeholder='Password')
+      span.input-group-btn
+        button.btn.btn-info(type='submit') 
+          em.fa.fa-lock.fa-fw
+  .text-center.mt-sm
+    a(ui-sref="page.recover").text-muted: small Forgot your password?
+  
+  .p-lg.text-center(ng-include="'app/views/page.footer.html'")

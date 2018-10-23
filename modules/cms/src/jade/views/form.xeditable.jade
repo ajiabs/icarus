@@ -1,0 +1,108 @@
+.app-view-header Form xEditable
+  small Edit in place for AngularJS
+
+.row(ng-controller='FormxEditableController as xform')
+  .col-md-6
+    .panel.panel-default
+      .panel-heading HTML5 Inputs
+      .panel-body
+        .form-horizontal
+          .form-group.m0
+            label.col-sm-4.control-label Email: 
+            .col-sm-8
+              p.form-control-static
+                a(href='', editable-email='xform.user.email') {{ xform.user.email || &apos;empty&apos; }}
+          .form-group.m0
+            label.col-sm-4.control-label Tel: 
+            .col-sm-8
+              p.form-control-static
+                a(href='', editable-tel='xform.user.tel', e-pattern='\\d{3}\-\\d{2}\-\\d{2}', e-title='xxx-xx-xx') {{ xform.user.tel || &apos;empty&apos; }}
+          .form-group.m0
+            label.col-sm-4.control-label Number: 
+            .col-sm-8
+              p.form-control-static
+                a(href='', editable-number='xform.user.number', e-min='18') {{ xform.user.number || &apos;empty&apos; }}
+          .form-group.m0
+            label.col-sm-4.control-label Range: 
+            .col-sm-8
+              p.form-control-static
+                a(href='', editable-range='xform.user.range', e-step='5') {{ xform.user.range || &apos;empty&apos; }}
+
+          .form-group.m0
+            label.col-sm-4.control-label Url: 
+            .col-sm-8
+              p.form-control-static
+                a(href='', editable-url='xform.user.url') {{ xform.user.url || &apos;empty&apos; }}
+
+          .form-group.m0
+            label.col-sm-4.control-label Search: 
+            .col-sm-8
+              p.form-control-static
+                a(href='', editable-search='xform.user.search') {{ xform.user.search || &apos;empty&apos; }}
+
+          .form-group.m0
+            label.col-sm-4.control-label Color: 
+            .col-sm-8
+              p.form-control-static
+                a(href='', editable-color='xform.user.color') {{ xform.user.color || &apos;empty&apos; }}
+
+          .form-group.m0
+            label.col-sm-4.control-label Date: 
+            .col-sm-8
+              p.form-control-static
+                a(href='', editable-date='xform.user.date') {{ xform.user.date || &apos;empty&apos; }}
+
+          .form-group.m0
+            label.col-sm-4.control-label Time: 
+            .col-sm-8
+              p.form-control-static
+                a(href='', editable-time='xform.user.time') {{ xform.user.time || &apos;empty&apos; }}
+
+          .form-group.m0
+            label.col-sm-4.control-label Datetime: 
+            .col-sm-8
+              p.form-control-static
+                a(href='', editable-datetime='xform.user.datetime') {{ xform.user.datetime || &apos;empty&apos; }}
+
+          .form-group.m0
+            label.col-sm-4.control-label Month: 
+            .col-sm-8
+              p.form-control-static
+                a(href='', editable-month='xform.user.month') {{ xform.user.month || &apos;empty&apos; }}
+
+          .form-group.m0
+            label.col-sm-4.control-label Week: 
+            .col-sm-8
+              p.form-control-static
+                a(href='', editable-week='xform.user.week') {{ xform.user.week || &apos;empty&apos; }}
+  .col-md-6
+    .panel.panel-default
+      .panel-heading Controls
+      .panel-body
+        .form-horizontal
+          .form-group.m0
+            label.col-sm-4.control-label Text
+            .col-sm-8
+              p.form-control-static
+                a(href='', editable-text='xform.user.name') {{ xform.user.name || &apos;empty&apos; }}
+          .form-group.m0
+            label.col-sm-4.control-label Local Select
+            .col-sm-8
+              p.form-control-static
+                a(href='', editable-select='xform.user2.status', e-ng-options='s.value as s.text for s in xform.statuses') {{ xform.showStatus() }}
+          .form-group.m0
+            label.col-sm-4.control-label Remote Select
+            .col-sm-8
+              p.form-control-static
+                a(href='', editable-select='xform.user3.text', ng-init='xform.loadGroups()', e-ng-options='g.text as g.text for g in xform.groups') {{ xform.user3.text || &apos;not set&apos; }}  
+          .form-group.m0
+            label.col-sm-4.control-label Textarea
+            .col-sm-8
+              p.form-control-static
+                a(href='', editable-textarea='xform.user.desc', e-rows='3', e-cols='30') {{ xform.user.desc || 'no description' }}    
+          .form-group.m0
+            label.col-sm-4.control-label Typeahead
+            .col-sm-8
+              p.form-control-static
+                a(href='', editable-text='xform.user4.state', e-typeahead='state for state in xform.states | filter:$viewValue | limitTo:8') {{ xform.user4.state || &apos;empty&apos; }}  
+

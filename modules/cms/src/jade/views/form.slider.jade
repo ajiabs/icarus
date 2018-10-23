@@ -1,0 +1,31 @@
+.app-view-header Range Slider
+  small Slider directive for AngularJS.
+
+.container-fluid(ng-controller='SliderController as rangeslider')
+  p.clearfix
+    span.pull-left Single
+    span.pull-right Curent Value {{rangeslider.value}}
+  slider(ng-model='value', floor='1', ceiling='100')   
+  p 
+  p.clearfix
+    span.pull-left Single with formatting
+    span.pull-right Curent Value {{rangeslider.formatted}}
+  slider(ng-model='rangeslider.formatted', translate-fn='priceFormat', floor='1', ceiling='100')
+  p.clearfix
+    span.pull-left Range
+    span.pull-right Min:{{rangeslider.range.min}} - Max:{{rangeslider.range.max}}
+  slider(ng-model='rangeslider.range.min', ng-model-range='rangeslider.range.max', floor='1', ceiling='100')   
+  
+  h4.page-header Variants
+  
+  slider.slider-primary(ng-model='rangeslider.range2.min', ng-model-range='rangeslider.range2.max', floor='1', ceiling='100')
+  slider.slider-success(ng-model='rangeslider.range2.min', ng-model-range='rangeslider.range2.max', floor='1', ceiling='100')
+  slider.slider-info(ng-model='rangeslider.range2.min', ng-model-range='rangeslider.range2.max', floor='1', ceiling='100')
+  slider.slider-warning(ng-model='rangeslider.range2.min', ng-model-range='rangeslider.range2.max', floor='1', ceiling='100')
+  slider.slider-danger(ng-model='rangeslider.range2.min', ng-model-range='rangeslider.range2.max', floor='1', ceiling='100')
+  slider.slider-inverse(ng-model='rangeslider.range2.min', ng-model-range='rangeslider.range2.max', floor='1', ceiling='100')
+  slider.slider-amber(ng-model='rangeslider.range2.min', ng-model-range='rangeslider.range2.max', floor='1', ceiling='100')
+  slider.slider-pink(ng-model='rangeslider.range2.min', ng-model-range='rangeslider.range2.max', floor='1', ceiling='100')
+  slider.slider-purple(ng-model='rangeslider.range2.min', ng-model-range='rangeslider.range2.max', floor='1', ceiling='100')
+  slider.slider-orange(ng-model='rangeslider.range2.min', ng-model-range='rangeslider.range2.max', floor='1', ceiling='100')
+  slider.slider-white(ng-model='rangeslider.range2.min', ng-model-range='rangeslider.range2.max', floor='1', ceiling='100')

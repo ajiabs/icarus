@@ -1,0 +1,136 @@
+.app-view-header Flot Charts
+
+.container-fluid(ng-controller="FlotChartController as flot")
+  // START row
+  .row
+    .col-lg-6
+      .panel.panel-default
+        .panel-heading
+          .panel-title Area
+        .panel-body
+          flot(src="'server/chart/area.json'", options="flot.chartAreaFlotChart", series="{'lines': flot.areaSeries}")
+          .text-center.mt-lg
+            .btn-switch.mb(class="btn-switch-warning")
+              input(type='checkbox', id='input-btn-switch-10', ng-model="flot.areaSeries[0]")
+              label.btn.btn-fw(for='input-btn-switch-10', class="btn-warning")
+                em.fa.fa-check
+                strong HTML
+            .btn-switch.mb(class="btn-switch-orange")
+              input(type='checkbox', id='input-btn-switch-11', ng-model="flot.areaSeries[1]")
+              label.btn.btn-fw(for='input-btn-switch-11', class="btn-orange")
+                em.fa.fa-check
+                strong CSS
+            .btn-switch.mb(class="btn-switch-danger")
+              input(type='checkbox', id='input-btn-switch-12', ng-model="flot.areaSeries[2]")
+              label.btn.btn-fw(for='input-btn-switch-12', class="btn-danger")
+                em.fa.fa-check
+                strong JS
+    .col-lg-6
+      .panel.panel-default
+        .panel-heading
+          .panel-title Spline
+        .panel-body
+          flot(src="'server/chart/spline.json'", options="flot.chartSplineFlotChart", series="{splines: flot.areaSplineSeries}")
+          .text-center.mt-lg
+            .btn-switch.mb(class="btn-switch-info")
+              input(type='checkbox', id='input-btn-switch-20', ng-model="flot.areaSplineSeries[0]")
+              label.btn.btn-oval.btn-fw(for='input-btn-switch-20', class="btn-info")
+                em.fa.fa-check
+                strong VISITORS
+            .btn-switch.mb(class="btn-switch-inverse")
+              input(type='checkbox', id='input-btn-switch-21', ng-model="flot.areaSplineSeries[1]")
+              label.btn.btn-oval.btn-fw(for='input-btn-switch-21', class="btn-inverse")
+                em.fa.fa-check
+                strong CONVERSIONS
+  // END row
+
+  // START row
+  .panel.panel-default
+    .panel-heading
+      .panel-title Line
+    .panel-body
+      .row
+        .col-lg-8
+          flot(src="'server/chart/line.json'", options="flot.chartLineFlotChart", series="{lines: flot.lineSeriesLines, points: flot.lineSeriesPoints}")
+        .col-lg-4
+          p.lead.mt-lg Toggle Points
+          .text-center
+            .btn-switch(class="btn-switch-primary")
+              input(type='checkbox', id='input-btn-switch-1', ng-model="flot.lineSeriesPoints[0]")
+              label.btn.btn-fw(for='input-btn-switch-1', class="btn-primary")
+                em.fa.fa-check
+                strong Serie 1
+            .btn-switch(class="btn-switch-info")
+              input(type='checkbox', id='input-btn-switch-2', ng-model="flot.lineSeriesPoints[1]")
+              label.btn.btn-fw(for='input-btn-switch-2', class="btn-info")
+                em.fa.fa-check
+                strong Serie 2
+            .btn-switch(class="btn-switch-amber")
+              input(type='checkbox', id='input-btn-switch-3', ng-model="flot.lineSeriesPoints[2]")
+              label.btn.btn-fw(for='input-btn-switch-3', class="btn-amber")
+                em.fa.fa-check
+                strong Serie 3
+          p.lead.mt-lg Toggle Lines
+          .text-center
+            .btn-switch(class="btn-switch-primary")
+              input(type='checkbox', id='input-btn-switch-4', ng-model="flot.lineSeriesLines[0]")
+              label.btn.btn-fw(for='input-btn-switch-4', class="btn-primary")
+                em.fa.fa-check
+                strong Serie 1
+            .btn-switch(class="btn-switch-info")
+              input(type='checkbox', id='input-btn-switch-5', ng-model="flot.lineSeriesLines[1]")
+              label.btn.btn-fw(for='input-btn-switch-5', class="btn-info")
+                em.fa.fa-check
+                strong Serie 2
+            .btn-switch(class="btn-switch-amber")
+              input(type='checkbox', id='input-btn-switch-6', ng-model="flot.lineSeriesLines[2]")
+              label.btn.btn-fw(for='input-btn-switch-6', class="btn-amber")
+                em.fa.fa-check
+                strong Serie 3
+
+  // END row
+
+  // START row
+  .panel.panel-default
+    .panel-heading
+      .panel-title Realtime
+    .panel-body
+      .row
+        .col-md-10
+            flot(dataset="flot.realTimeChartData", options="flot.realTimeChartOpts", height="300")
+        .col-md-2
+          label Set an update interval
+          input.form-control(type="text", ng-model="flot.realTimeChartUpdateInterval")
+
+  // START row
+  .row
+    .col-lg-6
+      .panel.panel-default
+        .panel-heading
+          .panel-title Bar
+        .panel-body
+          flot(src="'server/chart/bar.json'", options="flot.chartBarFlotChart")
+    .col-lg-6
+      .panel.panel-default
+        .panel-heading
+          .panel-title Stacked Bars
+        .panel-body
+          .indicator.show
+            span.spinner
+          flot(src="'server/chart/barstacked.json'", options="flot.chartBarStackedFlotChart")
+  // END row
+  // START row
+  .row
+    .col-md-6
+      .panel.panel-default
+        .panel-heading
+          .panel-title Pie
+        .panel-body
+          flot(src="'server/chart/pie.json'", options="flot.chartPieFlotChart")
+    .col-md-6
+      .panel.panel-default
+        .panel-heading
+          .panel-title Donut
+        .panel-body
+          flot(src="'server/chart/donut.json'", options="flot.chartDonutFlotChart")
+  // END row

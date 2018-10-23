@@ -1,0 +1,11 @@
+<!-- top navbar-->
+<header ng-include="'templates/top-navbar.html'" ng-class="app.theme.topbar"></header>
+<!-- Sidebar-->
+<aside ng-include="'templates/sidebar.html'" ng-class="app.theme.sidebar"></aside>
+<!-- Main-->
+<section>
+   <!-- Content-->
+   <div ui-view="" autoscroll="false" ng-class="app.views.animation" class="app app-fh"></div>
+</section>
+<!-- Page footer-->
+<footer ng-include="'templates/footer.html'"></footer>

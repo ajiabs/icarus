@@ -1,0 +1,27 @@
+<div class="app-view-header">Google Maps</div>
+<div ng-controller="GoogleMapController as gmap" class="container-fluid">
+   <section id="map">
+      <h4>Click to add a marker!</h4>
+      <div class="row">
+         <div class="col-md-2">
+            <p ng-if="gmap.myMarkers.length">Markers</p>
+            <ul>
+               <li ng-repeat="marker in gmap.myMarkers"><a href="" ng-click="gmap.myMap.panTo(marker.getPosition())">Pan to Marker {{$index}}</a>
+               </li>
+            </ul>
+         </div>
+         <div class="col-md-10">
+            <!-- this is the confusing part. we have to point the map marker directive  at an existing google.maps.Marker object, so it can hook up events-->
+            <div ng-repeat="marker in gmap.myMarkers" ui-map-marker="gmap.myMarkers[$index]" ui-event="{'map-click': 'gmap.openMarkerInfo(marker)'}"></div>
+            <div ui-map-info-window="gmap.myInfoWindow">
+               <h1>Marker</h1>Lat:
+               <input ng-model="gmap.currentMarkerLat" />, Lng:
+               <input ng-model="gmap.currentMarkerLng" /><a ng-click="gmap.setMarkerPosition(gmap.currentMarker, gmap.currentMarkerLat, gmap.currentMarkerLng)">Set Position</a>
+            </div>
+            <!-- Giving the div an id="map_canvas" fix problems with twitter bootstrap affectinggoogle maps-->
+            <div id="map_canvas" ui-map="gmap.myMap" ui-event="{'map-click': 'gmap.addMarker($event, $params)', 'map-zoom_changed': 'gmap.setZoomMessage(myMap.getZoom())' }" ui-options="gmap.mapOptions" class="gmap"></div>
+         </div>
+      </div>
+      <p class="text-right">{{zoomMessage}}</p>
+   </section>
+</div>

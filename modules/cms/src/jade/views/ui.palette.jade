@@ -1,0 +1,37 @@
+mixin paletteColor(colorClass)
+  .box-placeholder.b0(class="#{colorClass}")
+    h4= ('.'+colorClass)
+    p   
+      | Vestibulum rutrum venenatis pretium. 
+      a(href="") A link here 
+      | Proin posuere gravida ipsum, a pretium augue commodo eget. 
+    p.text-muted Some muted text
+    ul.nav
+      li.active: a(href="") nav item 1
+      li: a(href="") nav item 2
+      li: a(href="") nav item 3
+
+mixin palette(brand)
+  .table-grid
+    .col
+      +paletteColor('bg-'+brand+' bg-light')
+    .col
+      +paletteColor('bg-'+brand)
+    .col
+      +paletteColor('bg-'+brand+' bg-dark')
+
+.app-view-header Palette
+  small Color swatches
+
+- var brands = ['primary', 'success', 'info', 'warning', 'danger', 'inverse', 'amber', 'pink', 'purple', 'orange']
+- var mono = ['gray-darker', 'gray-dark', 'gray', 'gray-light', 'gray-lighter']
+
+.panel.panel-default
+  .panel-body
+    - each val in brands
+      +palette(val)
+
+    .table-grid
+      - each col in mono
+        .col
+          +paletteColor('bg-'+col)

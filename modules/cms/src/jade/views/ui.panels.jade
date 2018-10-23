@@ -1,0 +1,138 @@
+.app-view-header Panels
+
+// START row
+.row
+  .col-lg-4
+    // START panel
+    .panel.panel-default
+      .panel-heading Default Panel
+      .panel-body In ac leo dui, vel pellentesque mauris. In ac consectetur lectus. Maecenas suscipit sodales dui. Maecenas dolor ipsum, sodales non porttitor non, facilisis at eros. 
+      .panel-footer Panel Footer
+    // END panel
+  .col-lg-4
+    // START panel
+    .panel.panel-primary
+      .panel-heading Primary Panel
+      .panel-body In ac leo dui, vel pellentesque mauris. In ac consectetur lectus. Maecenas suscipit sodales dui. Maecenas dolor ipsum, sodales non porttitor non, facilisis at eros. 
+      .panel-footer Panel Footer
+    // END panel
+  .col-lg-4
+    // START panel
+    .panel.panel-success
+      .panel-heading Success Panel
+      .panel-body In ac leo dui, vel pellentesque mauris. In ac consectetur lectus. Maecenas suscipit sodales dui. Maecenas dolor ipsum, sodales non porttitor non, facilisis at eros. 
+      .panel-footer Panel Footer
+    // END panel
+.row
+  .col-lg-4
+    // START panel
+    .panel.panel-info
+      .panel-heading Info Panel
+      .panel-body In ac leo dui, vel pellentesque mauris. In ac consectetur lectus. Maecenas suscipit sodales dui. Maecenas dolor ipsum, sodales non porttitor non, facilisis at eros. 
+      .panel-footer Panel Footer
+    // END panel
+  .col-lg-4
+    // START panel
+    .panel.panel-warning
+      .panel-heading Warning Panel
+      .panel-body In ac leo dui, vel pellentesque mauris. In ac consectetur lectus. Maecenas suscipit sodales dui. Maecenas dolor ipsum, sodales non porttitor non, facilisis at eros. 
+      .panel-footer Panel Footer
+    // END panel
+  .col-lg-4
+    // START panel
+    .panel.panel-danger
+      .panel-heading Danger Panel
+      .panel-body In ac leo dui, vel pellentesque mauris. In ac consectetur lectus. Maecenas suscipit sodales dui. Maecenas dolor ipsum, sodales non porttitor non, facilisis at eros. 
+      .panel-footer Panel Footer
+    // END panel
+.row
+  .col-lg-3
+    // START panel
+    .panel.panel-amber
+      .panel-heading Amber Panel
+      .panel-body In ac leo dui, vel pellentesque mauris. In ac consectetur lectus. Maecenas suscipit sodales dui. Maecenas dolor ipsum, sodales non porttitor non, facilisis at eros. 
+      .panel-footer Panel Footer
+    // END panel
+  .col-lg-3
+    // START panel
+    .panel.panel-pink
+      .panel-heading Pink Panel
+      .panel-body In ac leo dui, vel pellentesque mauris. In ac consectetur lectus. Maecenas suscipit sodales dui. Maecenas dolor ipsum, sodales non porttitor non, facilisis at eros. 
+      .panel-footer Panel Footer
+    // END panel
+  .col-lg-3
+    // START panel
+    .panel.panel-purple
+      .panel-heading Purple Panel
+      .panel-body In ac leo dui, vel pellentesque mauris. In ac consectetur lectus. Maecenas suscipit sodales dui. Maecenas dolor ipsum, sodales non porttitor non, facilisis at eros. 
+      .panel-footer Panel Footer
+    // END panel
+  .col-lg-3
+    // START panel
+    .panel.panel-orange
+      .panel-heading Orange Panel
+      .panel-body In ac leo dui, vel pellentesque mauris. In ac consectetur lectus. Maecenas suscipit sodales dui. Maecenas dolor ipsum, sodales non porttitor non, facilisis at eros. 
+      .panel-footer Panel Footer
+    // END panel
+// END row
+
+h4.page-header.clearfix
+  .pull-left.mt-sm Draggable panels
+  button.pull-right.btn.btn-labeled.btn-default.btn-sm(type='button', reset-key="portletState")
+    span.btn-label
+      em.fa.fa-refresh
+    | Reset
+.portlets-wrapper
+  // START row
+  .row
+    #portlet-1.col-lg-6(portlet="")
+      // START panel
+      #panelPortlet1.panel.panel-purple
+        .panel-heading.portlet-handler
+          | Purple Panel
+        .panel-body
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at arcu dolor. Suspendisse tincidunt orci nec arcu semper imperdiet volutpat elit faucibus. 
+          p Aliquam auctor diam ut urna lacinia faucibus. 
+      // EN panel
+      // START panel
+      #panelPortlet2.panel.panel-danger
+        .panel-heading.portlet-handler
+          | Danger Panel
+        .panel-body
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+      // END panel
+      // START panel
+      #panelPortlet3.panel.panel-warning
+        .panel-heading.portlet-handler
+          | Warning Panel
+        .panel-body
+          p Nullam lectus nisl, hendrerit vel hendrerit quis, interdum eu felis. 
+          p Aliquam auctor diam ut urna lacinia faucibus. 
+          p Aliquam auctor diam ut urna lacinia faucibus. 
+      // EN panel
+    #portlet-2.col-lg-6(portlet="")
+      // START panel
+      #panelPortlet4.panel.panel-info
+        .panel-heading.portlet-handler
+          | Info Panel
+        .panel-body
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.
+          p Aliquam auctor diam ut urna lacinia faucibus. 
+      // EN panel
+      // START panel
+      #panelPortlet5.panel.panel-default
+        .panel-heading.portlet-handler
+          | Default Panel
+        .panel-body
+          p Integer vulputate nibh et diam sagittis in dictum mauris dapibus. Phasellus ullamcorper rhoncus sagittis. Quisque interdum sollicitudin sollicitudin. 
+          p Aliquam auctor diam ut urna lacinia faucibus. 
+      // END panel
+      // START panel
+      #panelPortlet16.panel.panel-inverse
+        .panel-heading.portlet-handler
+          | Inverse Panel
+        .panel-body
+          p Aenean iaculis diam lectus. Aenean pellentesque augue non eros commodo tempus. 
+          p Aliquam auctor diam ut urna lacinia faucibus.  Proin adipiscing, dolor faucibus ullamcorper interdum, urna justo convallis arcu, ultrices auctor enim turpis ut purus. Fusce a egestas turpis. Sed ullamcorper posuere eros vitae iaculis. 
+      // END panel
+  // END row

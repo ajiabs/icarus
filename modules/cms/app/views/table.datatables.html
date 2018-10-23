@@ -1,0 +1,702 @@
+<div class="app-view-header">Angular Datatables</div>
+
+<div class="row">
+   <div class="col-md-12">
+      <div ng-controller="DataTablesController as dt">
+         <table datatable="ng" class="row-border hover table table-bordered table-hover bg-white">
+            <thead>
+               <tr>
+                  <th>ID</th>
+                  <th>FirstName</th>
+                  <th>LastName</th>
+                  <th>MiddleName</th>
+                  <th>Actions</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr ng-repeat="person in dt.persons">
+                  <td>{{ person.id }}</td>
+                  <td>{{ person.firstName }}</td>
+                  <td>{{ person.lastName }}</td>
+                  <td>{{ person.middleName }}</td>
+                  <td> 
+                      <script type="text/ng-template" id="/myModalContent.html">
+                  <div class="modal-header"><button type="button" data-dismiss="modal" aria-hidden="true" class="close">×</button><h4 id="myModalLabel" class="modal-title">Modal title</h4></div><div class="modal-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div><div class="modal-footer"><button ng-click="ok()" class="btn btn-primary">OK</button><button ng-click="cancel()" class="btn btn-warning">Cancel</button></div>
+                     </script>
+                     <button title="Edit" ng-controller="ModalController as modal" ng-click="modal.open('lg')" class="btn btn-sm btn-info">
+                      <em class="fa fa-pencil"></em>
+                     </button>
+                     <button title="Delete" ng-click="dt.demo4();" class="btn btn-sm btn-danger">
+                        <em class="fa fa-trash"></em>
+                     </button>
+                     <button title="View" ng-controller="ModalController as modal" ng-click="modal.open()" class="btn btn-sm btn-success">
+                     <em class="fa fa-eye"></em>
+                     </button>
+                  
+
+
+                </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
+</div>
+
+
+
+
+<div class="app-view-header">Tasks List
+   <!-- Button trigger modal -->
+   <button ng-click="taskctrl.modalOpen()" class="pull-right btn btn-primary">Add new Task</button>
+   <!-- Modal inline template-->
+   <script type="text/ng-template" id="/myModalContent.html">
+      <div class="modal-header"><h4 id="myModalLabel" class="modal-title">Add new Task</h4></div><div class="modal-body"><div class="form-group"><input ng-trim="true" type="text" ng-model="theTask.title" placeholder="Task title.." required="required" class="form-control"/></div><div class="form-group"><textarea ng-trim="true" ng-model="theTask.description" placeholder="Type a description.." rows="8" class="form-control"></textarea></div></div><div class="modal-footer"><button ng-click="modalAddTask(theTask)" ng-bind="actionText()" class="btn btn-primary"> </button><button ng-click="modalCancel()" class="btn btn-warning">Cancel</button></div>
+   </script>
+</div>
+<div class="task">
+   <div class="task-item-list">
+      <div ng-show="!taskctrl.tasksList.length" class="lead text-muted text-center">Start creating a new task..</div>
+      <uib-accordion close-others="true">
+         <uib-accordion-group ng-repeat="item in taskctrl.tasksList" ng-class="{'task-complete': item.complete}" is-disabled="item.complete" class="task-item">
+            <uib-accordion-heading>
+               <span ng-click="taskctrl.removeTask($index, $event)" ng-hide="!item.complete" class="close">
+                  <em class="fa fa-times"></em>
+               </span>
+               <div class="inline checkbox c-checkbox">
+                  <label ng-click="$event.stopPropagation()">
+                     <input type="checkbox" ng-model="item.complete" id="{{'task-item-'+$index}}" ng-disabled="taskEdition" />
+                     <span class="fa fa-check"></span>
+                  </label>
+               </div>
+               <span ng-bind="item.task.title" class="task-title">Task title</span>
+               <span ng-click="taskctrl.editTask($index, $event)" class="task-edit fa fa-pencil"></span>
+            </uib-accordion-heading>
+            <p>
+               <span ng-bind="item.task.description"></span>
+               <span ng-if="item.task.description === ''" class="text-muted">No description</span>
+            </p>
+         </uib-accordion-group>
+      </uib-accordion>
+      <div class="clearfix">
+         <div ng-if="taskctrl.tasksList.length &gt; 0" class="pull-left">
+            <span>{{ taskctrl.totalTasksCompleted() }} Completed</span>-
+            <span>{{ taskctrl.totalTasksPending() }} Pending</span>
+         </div>
+         <div ng-if="taskctrl.tasksList.length &gt; 0" class="pull-right">
+            <button ng-click="taskctrl.clearAllTasks()" class="btn btn-warning btn-sm">Remove all Tasks</button>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+
+
+
+<div ng-controller="FormInputController as form" class="container-fluid">
+   <div class="panel panel-default">
+      <h4 class="panel-heading">Classic inputs</h4>
+      <div class="panel-body">
+         <form method="get" action="/" novalidate="" class="form-horizontal">
+            <fieldset>
+               <div class="form-group">
+                  <label for="input-id-1" class="col-sm-2 control-label">Text</label>
+                  <div class="col-sm-10">
+                     <input id="input-id-1" type="text" class="form-control" />
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset>
+               <div class="form-group">
+                  <label for="input-id-1" class="col-sm-2 control-label">Shadow</label>
+                  <div class="col-sm-10">
+                     <input id="input-id-1" type="text" class="form-control shadow-z1" />
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Password</label>
+                  <div class="col-sm-10">
+                     <input type="password" name="password" class="form-control" />
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Rounded Corners</label>
+                  <div class="col-sm-10">
+                     <input type="text" class="form-control form-control-rounded" />
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">With help</label>
+                  <div class="col-sm-10">
+                     <input type="text" class="form-control" />
+                     <span class="help-block m-b-none">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Placeholder</label>
+                  <div class="col-sm-10">
+                     <input type="text" placeholder="placeholder" class="form-control" />
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Disabled</label>
+                  <div class="col-sm-10">
+                     <input type="text" placeholder="Disabled input here..." disabled="" class="form-control" />
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Static control</label>
+                  <div class="col-sm-10">
+                     <p class="form-control-static">email@demo.com</p>
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Checkboxes and radios</label>
+                  <div class="col-sm-10">
+                     <div class="checkbox">
+                        <label>
+                           <input type="checkbox" value="" />Option one is this and that—be sure to include why it's great</label>
+                     </div>
+                     <div class="radio">
+                        <label>
+                           <input id="optionsRadios1" type="radio" name="optionsRadios" value="option1" checked="" />Option one is this and that—be sure to include why it's great</label>
+                     </div>
+                     <div class="radio">
+                        <label>
+                           <input id="optionsRadios2" type="radio" name="optionsRadios" value="option2" />Option two can be something else and selecting it will deselect option one</label>
+                     </div>
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Inline checkboxes</label>
+                  <div class="col-sm-10">
+                     <label class="checkbox checkbox-inline">
+                        <input id="inlineCheckbox1" type="checkbox" value="option1" />a</label>
+                     <label class="checkbox-inline">
+                        <input id="inlineCheckbox2" type="checkbox" value="option2" />b</label>
+                     <label class="checkbox-inline">
+                        <input id="inlineCheckbox3" type="checkbox" value="option3" />c</label>
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset class="last-child">
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Select</label>
+                  <div class="col-sm-10">
+                     <select name="account" class="form-control m-b">
+                        <option>Option 1</option>
+                        <option>Option 2</option>
+                        <option>Option 3</option>
+                        <option>Option 4</option>
+                     </select>
+                     <br/>
+                     <div class="row">
+                        <div class="col-lg-4">
+                           <select multiple="" class="form-control">
+                              <option>Option 1</option>
+                              <option>Option 2</option>
+                              <option>Option 3</option>
+                              <option>Option 4</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </fieldset>
+         </form>
+      </div>
+   </div>
+   <div class="panel panel-default">
+      <h4 class="panel-heading">Variants</h4>
+      <div class="panel-body">
+         <form method="get" action="/" novalidate="" class="form-horizontal">
+            <fieldset>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Custom Checkboxes &amp; radios</label>
+                  <div class="col-sm-10">
+                     <div class="checkbox c-checkbox needsclick">
+                        <label class="needsclick">
+                           <input type="checkbox" value="" class="needsclick" />
+                           <span class="fa fa-check"></span>Option one</label>
+                     </div>
+                     <div class="checkbox c-checkbox">
+                        <label>
+                           <input type="checkbox" checked="" value="" />
+                           <span class="fa fa-check"></span>Option two checked</label>
+                     </div>
+                     <div class="checkbox c-checkbox">
+                        <label>
+                           <input type="checkbox" checked="" disabled="" value="" />
+                           <span class="fa fa-check"></span>Option three checked and disabled</label>
+                     </div>
+                     <div class="checkbox c-checkbox">
+                        <label>
+                           <input type="checkbox" disabled="" value="" />
+                           <span class="fa fa-check"></span>Option four disabled</label>
+                     </div>
+                     <div class="radio c-radio">
+                        <label>
+                           <input type="radio" name="a" value="option1" />
+                           <span class="fa fa-circle"></span>Option one</label>
+                     </div>
+                     <div class="radio c-radio">
+                        <label>
+                           <input type="radio" name="a" value="option2" checked="" />
+                           <span class="fa fa-circle"></span>Option two checked</label>
+                     </div>
+                     <div class="radio c-radio">
+                        <label>
+                           <input type="radio" value="option2" checked="" disabled="" />
+                           <span class="fa fa-circle"></span>Option three checked and disabled</label>
+                     </div>
+                     <div class="radio c-radio">
+                        <label>
+                           <input type="radio" name="a" disabled="" />
+                           <span class="fa fa-circle"></span>Option four disabled</label>
+                     </div>
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Inline checkboxes</label>
+                  <div class="col-sm-10">
+                     <div class="checkbox-inline c-checkbox">
+                        <label>
+                           <input id="inlineCheckbox10" type="checkbox" value="option1" />
+                           <span class="fa fa-check"></span>a</label>
+                     </div>
+                     <div class="checkbox-inline c-checkbox">
+                        <label>
+                           <input id="inlineCheckbox20" type="checkbox" value="option2" />
+                           <span class="fa fa-check"></span>b</label>
+                     </div>
+                     <div class="checkbox-inline c-checkbox">
+                        <label>
+                           <input id="inlineCheckbox30" type="checkbox" value="option3" />
+                           <span class="fa fa-check"></span>c</label>
+                     </div>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Circular</label>
+                  <div class="col-sm-10">
+                     <div class="checkbox c-checkbox c-checkbox-rounded">
+                        <label>
+                           <input id="roundedcheckbox10" type="checkbox" checked="checked" />
+                           <span class="fa fa-check"></span>Lorem</label>
+                     </div>
+                     <div class="checkbox c-checkbox c-checkbox-rounded">
+                        <label>
+                           <input id="roundedcheckbox20" type="checkbox" />
+                           <span class="fa fa-check"></span>Ipsum</label>
+                     </div>
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Inline radios</label>
+                  <div class="col-sm-10">
+                     <div class="radio-inline c-radio">
+                        <label>
+                           <input id="inlineradio1" type="radio" name="i-radio" value="option1" checked="checked" />
+                           <span class="fa fa-circle"></span>a</label>
+                     </div>
+                     <div class="radio-inline c-radio">
+                        <label>
+                           <input id="inlineradio2" type="radio" name="i-radio" value="option2" />
+                           <span class="fa fa-circle"></span>b</label>
+                     </div>
+                     <div class="radio-inline c-radio">
+                        <label>
+                           <input id="inlineradio3" type="radio" name="i-radio" value="option3" />
+                           <span class="fa fa-circle"></span>c</label>
+                     </div>
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Custom icons</label>
+                  <div class="col-sm-10">
+                     <div class="radio-inline c-radio">
+                        <label>
+                           <input id="inlineradio10" type="radio" name="i-radio" value="option1" checked="checked" />
+                           <span class="fa fa-check"></span>a</label>
+                     </div>
+                     <div class="radio-inline c-radio">
+                        <label>
+                           <input id="inlineradio20" type="radio" name="i-radio" value="option2" checked="checked" />
+                           <span class="fa fa-tint"></span>b</label>
+                     </div>
+                     <div class="radio-inline c-radio">
+                        <label>
+                           <input id="inlineradio30" type="radio" name="i-radio" value="option3" checked="checked" />
+                           <span class="fa fa-user"></span>c</label>
+                     </div>
+                     <br/>
+                     <div class="checkbox-inline c-checkbox">
+                        <label>
+                           <input id="inlinecheckbox10" type="checkbox" value="option1" checked="checked" />
+                           <span class="fa fa-paperclip"></span>a</label>
+                     </div>
+                     <div class="checkbox-inline c-checkbox">
+                        <label>
+                           <input id="inlinecheckbox20" type="checkbox" value="option2" checked="checked" />
+                           <span class="fa fa-star"></span>b</label>
+                     </div>
+                     <div class="checkbox-inline c-checkbox">
+                        <label>
+                           <input id="inlinecheckbox30" type="checkbox" value="option3" checked="checked" />
+                           <span class="fa fa-phone"></span>c</label>
+                     </div>
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Switch Small</label>
+                  <div class="col-sm-10">
+                     <label class="switch switch-sm">
+                        <input type="checkbox" checked="checked" />
+                        <span></span>
+                     </label>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Switch</label>
+                  <div class="col-sm-10">
+                     <label class="switch">
+                        <input type="checkbox" checked="checked" />
+                        <span></span>
+                     </label>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Switch Large</label>
+                  <div class="col-sm-10">
+                     <label class="switch switch-lg">
+                        <input type="checkbox" checked="checked" />
+                        <span></span>
+                     </label>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Switch Radio</label>
+                  <div class="col-sm-10">
+                     <label class="switch">
+                        <input type="radio" checked="checked" name="radioSwitch" />
+                        <span></span>
+                     </label>
+                     <label class="switch">
+                        <input type="radio" name="radioSwitch" />
+                        <span></span>
+                     </label>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Colors</label>
+                  <div class="col-sm-2">
+                     <label class="switch switch-info">
+                        <input type="checkbox" checked="checked" />
+                        <span></span>
+                     </label>
+                     <label class="switch switch-danger">
+                        <input type="checkbox" checked="checked" />
+                        <span></span>
+                     </label>
+                     <label class="switch switch-success">
+                        <input type="checkbox" checked="checked" />
+                        <span></span>
+                     </label>
+                     <label class="switch switch-warning">
+                        <input type="checkbox" checked="checked" />
+                        <span></span>
+                     </label>
+                     <label class="switch switch-inverse">
+                        <input type="checkbox" checked="checked" />
+                        <span></span>
+                     </label>
+                     <label class="switch switch-amber">
+                        <input type="checkbox" checked="checked" />
+                        <span></span>
+                     </label>
+                     <label class="switch switch-pink">
+                        <input type="checkbox" checked="checked" />
+                        <span></span>
+                     </label>
+                     <label class="switch switch-purple">
+                        <input type="checkbox" checked="checked" />
+                        <span></span>
+                     </label>
+                     <label class="switch switch-orange">
+                        <input type="checkbox" checked="checked" />
+                        <span></span>
+                     </label>
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset>
+               <div class="form-group has-success">
+                  <label class="col-sm-2 control-label">Input with success</label>
+                  <div class="col-sm-10">
+                     <input type="text" class="form-control" />
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset>
+               <div class="form-group has-warning">
+                  <label class="col-sm-2 control-label">Input with warning</label>
+                  <div class="col-sm-10">
+                     <input type="text" class="form-control" />
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset>
+               <div class="form-group has-error">
+                  <label class="col-sm-2 control-label">Input with error</label>
+                  <div class="col-sm-10">
+                     <input type="text" class="form-control" />
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Control sizing</label>
+                  <div class="col-sm-10">
+                     <input type="text" placeholder=".input-lg" class="form-control input-lg m-b" />
+                     <br/>
+                     <input type="text" placeholder="Default input" class="form-control m-b" />
+                     <br/>
+                     <input type="text" placeholder=".input-sm" class="form-control input-sm" />
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Column sizing</label>
+                  <div class="col-sm-10">
+                     <div class="row">
+                        <div class="col-md-2">
+                           <input type="text" placeholder=".col-md-2" class="form-control" />
+                        </div>
+                        <div class="col-md-3">
+                           <input type="text" placeholder=".col-md-3" class="form-control" />
+                        </div>
+                        <div class="col-md-4">
+                           <input type="text" placeholder=".col-md-4" class="form-control" />
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Input groups</label>
+                  <div class="col-sm-10">
+                     <div class="input-group m-b">
+                        <span class="input-group-addon">@</span>
+                        <input type="text" placeholder="Username" class="form-control" />
+                     </div>
+                     <br/>
+                     <div class="input-group m-b">
+                        <input type="text" class="form-control" />
+                        <span class="input-group-addon">.00</span>
+                     </div>
+                     <br/>
+                     <div class="input-group m-b">
+                        <span class="input-group-addon">$</span>
+                        <input type="text" class="form-control" />
+                        <span class="input-group-addon">.00</span>
+                     </div>
+                     <br/>
+                     <div class="input-group m-b">
+                        <span class="input-group-addon">
+                           <input type="checkbox" />
+                        </span>
+                        <input type="text" class="form-control" />
+                     </div>
+                     <br/>
+                     <div class="input-group">
+                        <span class="input-group-addon">
+                           <input type="radio" />
+                        </span>
+                        <input type="text" class="form-control" />
+                     </div>
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Button addons</label>
+                  <div class="col-sm-10">
+                     <div class="input-group m-b">
+                        <span class="input-group-btn">
+                           <button type="button" class="btn btn-default">Go!</button>
+                        </span>
+                        <input type="text" class="form-control" />
+                     </div>
+                     <br/>
+                     <div class="input-group">
+                        <input type="text" class="form-control" />
+                        <span class="input-group-btn">
+                           <button type="button" class="btn btn-default">Go!</button>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">With dropdowns</label>
+                  <div class="col-sm-10">
+                     <div class="input-group m-b">
+                        <div uib-dropdown="dropdown" class="input-group-btn">
+                           <button type="button" uib-dropdown-toggle="" class="btn btn-default dropdown-toggle">Action
+                              <span class="caret"></span>
+                           </button>
+                           <ul class="dropdown-menu">
+                              <li><a href="">Action</a>
+                              </li>
+                              <li><a href="">Another action</a>
+                              </li>
+                              <li><a href="">Something else here</a>
+                              </li>
+                              <li class="divider"></li>
+                              <li><a href="">Separated link</a>
+                              </li>
+                           </ul>
+                        </div>
+                        <input type="text" class="form-control" />
+                     </div>
+                     <br/>
+                     <div class="input-group">
+                        <input type="text" class="form-control" />
+                        <div uib-dropdown="dropdown" class="input-group-btn">
+                           <button type="button" uib-dropdown-toggle="" class="btn btn-default dropdown-toggle">Action
+                              <span class="caret"></span>
+                           </button>
+                           <ul class="dropdown-menu pull-right">
+                              <li><a href="">Action</a>
+                              </li>
+                              <li><a href="">Another action</a>
+                              </li>
+                              <li><a href="">Something else here</a>
+                              </li>
+                              <li class="divider"></li>
+                              <li><a href="">Separated link</a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Segmented</label>
+                  <div class="col-sm-10">
+                     <div class="input-group m-b">
+                        <div uib-dropdown="dropdown" class="input-group-btn">
+                           <button type="button" tabindex="-1" class="btn btn-default">Action</button>
+                           <button type="button" uib-dropdown-toggle="" class="btn btn-default dropdown-toggle">
+                              <span class="caret"></span>
+                           </button>
+                           <ul class="dropdown-menu">
+                              <li><a href="">Action</a>
+                              </li>
+                              <li><a href="">Another action</a>
+                              </li>
+                              <li><a href="">Something else here</a>
+                              </li>
+                              <li class="divider"></li>
+                              <li><a href="">Separated link</a>
+                              </li>
+                           </ul>
+                        </div>
+                        <input type="text" class="form-control" />
+                     </div>
+                     <br/>
+                     <div class="input-group">
+                        <input type="text" class="form-control" />
+                        <div uib-dropdown="dropdown" class="input-group-btn">
+                           <button type="button" tabindex="-1" class="btn btn-default">Action</button>
+                           <button type="button" uib-dropdown-toggle="" class="btn btn-default dropdown-toggle">
+                              <span class="caret"></span>
+                           </button>
+                           <ul class="dropdown-menu pull-right">
+                              <li><a href="">Action</a>
+                              </li>
+                              <li><a href="">Another action</a>
+                              </li>
+                              <li><a href="">Something else here</a>
+                              </li>
+                              <li class="divider"></li>
+                              <li><a href="">Separated link</a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Summernote</label>
+                  <div class="col-sm-10">
+                     <!-- Wysiswyg editor-->
+                     <summernote ng-model="form.htmlContent" height="280"></summernote>
+                     <h6>Airmode
+                        <small>To reveal toolbar, select a text where you want to shape up</small>
+                     </h6>
+                     <summernote airmode="" ng-model="form.htmlContent" class="well reader-block"></summernote>
+                  </div>
+               </div>
+            </fieldset>
+            <fieldset>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Datepicker</label>
+                  <div class="col-sm-10 col-lg-4">
+                     <p class="input-group">
+                        <input type="text" uib-datepicker-popup="{{format}}" ng-model="form.dt" is-open="form.opened" min-date="false" max-date="false" uib-datepicker-options="form.dateOptions" date-disabled="form.disabled(form.date, form.mode)" close-text="Close"
+                        class="form-control" />
+                        <span class="input-group-btn">
+                           <button type="button" ng-click="form.open($event)" class="btn btn-default">
+                              <em class="fa fa-calendar"></em>
+                           </button>
+                        </span>
+                     </p>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label">Timepicker</label>
+                  <div class="col-sm-10">
+                     <uib-timepicker ng-model="form.mytime" ng-change="form.changed()" show-meridian="form.ismeridian"></uib-timepicker>
+                     <p>Time is: {{form.mytime | date:'shortTime' }}</p>
+                  </div>
+               </div>
+            </fieldset>
+           
+         </form>
+      </div>
+   </div>
+
+

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<link href='../fullcalendar.min.css' rel='stylesheet' />
+<link href='../fullcalendar.print.min.css' rel='stylesheet' media='print' />
+<script src='../lib/moment.min.js'></script>
+<script src='../lib/jquery.min.js'></script>
+<script src='../fullcalendar.min.js'></script>
+<script>
+
+
+
+	$(document).ready(function() {
+		
+		$('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,basicWeek,basicDay'
+			},
+
+			// Modal popp
+   dayClick: function (date, allDay, jsEvent, view) {
+            $('#eventTitle').val("");
+            $('#eventDate').val($.fullCalendar.formatDate(date, 'dd/MM/yyyy'));
+            $('#eventTime').val($.fullCalendar.formatDate(date, 'HH:mm'));
+          //  moment(start, 'DD.MM.YYYY').format('YYYY-MM-DD')
+            ShowEventPopup(date);
+        },
+			defaultDate: '2016-12-12',
+			navLinks: true, // can click day/week names to navigate views
+			editable: true,
+			eventLimit: true, // allow "more" link when too many events
+			events: [
+				{
+					title: 'All Day Event',
+					start: '2016-12-01'
+				},
+				{
+					title: 'Long Event',
+					start: '2016-12-07',
+					end: '2016-12-10'
+				},
+				{
+					id: 999,
+					title: 'Repeating Event',
+					start: '2016-12-09T16:00:00'
+				},
+				{
+					id: 999,
+					title: 'Repeating Event',
+					start: '2016-12-16T16:00:00'
+				},
+				{
+					title: 'Conference',
+					start: '2016-12-11',
+					end: '2016-12-13'
+				},
+				{
+					title: 'Meeting',
+					start: '2016-12-12T10:30:00',
+					end: '2016-12-12T12:30:00'
+				},
+				{
+					title: 'Lunch',
+					start: '2016-12-12T12:00:00'
+				},
+				{
+					title: 'Meeting',
+					start: '2016-12-12T14:30:00'
+				},
+				{
+					title: 'Happy Hour',
+					start: '2016-12-12T17:30:00'
+				},
+				{
+					title: 'Dinner',
+					start: '2016-12-12T20:00:00'
+				},
+				{
+					title: 'Birthday Party',
+					start: '2016-12-13T07:00:00'
+				},
+				{
+					title: 'Click for Google',
+					url: 'http://google.com/',
+					start: '2016-12-28'
+				}
+			]
+		});
+
+		var add_button = '<input type="button" value="+" />'; 
+$(".fc-day-number").prepend(add_button);
+
+
+
+
+function ShowEventPopup(date) {
+   alert("HI");
+    $('#popupEventForm').modal('show');
+    $('#eventTitle').focus();
+}
+
+$('#btnPopupSave').click(function () {
+
+    $('#popupEventForm').hide();
+
+    var dataRow = {
+        'Title': $('#eventTitle').val(),
+        'NewEventDate': $('#eventDate').val(),
+        'NewEventTime': $('#eventTime').val(),
+        'NewEventDuration': $('#eventDuration').val()
+    }
+
+    ClearPopupFormValues();
+
+    $.ajax({
+        type: 'POST',
+        url: "/Diary/SaveEvent",
+        data: dataRow,
+        success: function (response) {
+            if (response == 'True') {
+                $('#calendar').fullCalendar('refetchEvents');
+                alert('New event saved!');
+            }
+            else {
+                alert('Error, could not save event!');
+            }
+        }
+    });
+});
+
+
+		
+	});
+
+</script>
+<style>
+
+	body {
+		margin: 40px 10px;
+		padding: 0;
+		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+		font-size: 14px;
+	}
+
+	#calendar {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+</style>
+</head>
+<body>
+
+	<div id='calendar'></div>
+
+
+
+
+	<!--Modal  -->
+<div id="popupEventForm>" class="modal hide fade" style="display: none;" aria-hidden="true">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">×</a>
+            <h3>
+                    Test </h3>
+        </div>
+        <div class="modal-body">
+            <table class="table pop_table table-bordered table-hover table-condensed">
+
+                    
+                <tbody>
+                <tr><td class="span3 leftcol">From&nbsp;</td>
+                    <td class="span6">
+                                    
+                                                            </td>
+                </tr>
+                
+                
+                <tr><td class="span3 leftcol">Subject&nbsp;</td>
+                    <td class="span6">
+                                    
+                                                          </td>
+                </tr>
+
+            
+                <tr><td class="span3 leftcol">Message&nbsp;</td>
+                    <td class="span6">
+                                    
+                                                          </td>
+                </tr>
+                
+                 <tr><td class="span3 leftcol">Time&nbsp;</td>
+                    <td class="span6">
+                                    
+                                                       </td>
+                </tr>
+
+            
+                
+                        </tbody></table>
+
+        </div>
+        <div class="modal-footer">
+
+            <a href="#" class="btn" data-dismiss="modal">Close</a>
+        </div>
+    </div>
+<!-- ModaleEnd -->
+
+</body>
+</html>

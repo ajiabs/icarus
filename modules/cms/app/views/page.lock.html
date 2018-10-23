@@ -1,0 +1,22 @@
+<div class="abs-center wd-xl animated fadeInDown">
+   <img src="app/img/user/02.jpg" alt="User Picture" class="img-circle center-block thumb80" />
+   <br/>
+   <div class="text-center">Type password to unlock</div>
+   <form role="form" ng-submit="$state.go('app.dashboard')" class="p">
+      <div class="form-group has-feedback"></div>
+      <div class="input-group">
+         <input id="exampleInputPassword1" type="password" placeholder="Password" class="form-control" />
+         <span class="input-group-btn">
+            <button type="submit" class="btn btn-info">
+               <em class="fa fa-lock fa-fw"></em>
+            </button>
+         </span>
+      </div>
+   </form>
+   <div class="text-center mt-sm">
+      <a ui-sref="page.recover" class="text-muted">
+         <small>Forgot your password?</small>
+      </a>
+   </div>
+   <div ng-include="'app/views/page.footer.html'" class="p-lg text-center"></div>
+</div>

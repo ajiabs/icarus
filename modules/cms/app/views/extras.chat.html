@@ -1,0 +1,190 @@
+<div ng-controller="ChatController as chat" ng-init="app.footer.hidden = true" class="container-fh">
+   <div class="l-table-fixed">
+      <div class="l-cell wd-md br">
+         <div class="l-table bg-white">
+            <div class="p bt">
+               <select class="form-control">
+                  <option>Current Status</option>
+                  <option>Online</option>
+                  <option>Offline</option>
+                  <option>Away</option>
+                  <option>Busy</option>
+               </select>
+            </div>
+            <div class="l-row">
+               <div class="l-cell-wrapper">
+                  <div class="l-cell-inner">
+                     <div class="p">
+                        <ul class="list-block">
+                           <li class="pv text-muted">ONLINE</li>
+                           <li class="media pb bb">
+                              <div class="pull-left">
+                                 <!-- Contact avatar-->
+                                 <div class="point-pin">
+                                    <a href="">
+                                       <img src="app/img/user/05.jpg" alt="Image" class="media-object img-circle thumb40" />
+                                    </a>
+                                    <div class="point point-success point-lg"></div>
+                                 </div>
+                              </div>
+                              <!-- Contact info-->
+                              <div class="media-body">
+                                 <div class="media-heading"><a href="">Sylvia Harper</a>
+                                    <br/>
+                                    <small class="text-muted">Designeer</small>
+                                 </div>
+                              </div>
+                           </li>
+                           <!-- END User status-->
+                           <!-- START User status-->
+                           <li class="media pb bb">
+                              <div class="pull-left">
+                                 <!-- Contact avatar-->
+                                 <div class="point-pin">
+                                    <a href="">
+                                       <img src="app/img/user/06.jpg" alt="Image" class="media-object img-circle thumb40" />
+                                    </a>
+                                    <div class="point point-success point-lg"></div>
+                                 </div>
+                              </div>
+                              <!-- Contact info-->
+                              <div class="media-body">
+                                 <div class="media-heading"><a href="">Bob Hayes</a>
+                                    <br/>
+                                    <small class="text-muted">Designeer</small>
+                                 </div>
+                              </div>
+                           </li>
+                           <!-- END User status-->
+                           <!-- START User status-->
+                           <li class="media pb bb">
+                              <div class="pull-left">
+                                 <!-- Contact avatar-->
+                                 <div class="point-pin">
+                                    <a href="">
+                                       <img src="app/img/user/07.jpg" alt="Image" class="media-object img-circle thumb40" />
+                                    </a>
+                                    <div class="point point-danger point-lg"></div>
+                                 </div>
+                              </div>
+                              <!-- Contact info-->
+                              <div class="media-body">
+                                 <div class="media-heading"><a href="">Jimmie Stevens</a>
+                                    <br/>
+                                    <small class="text-muted">Designeer</small>
+                                 </div>
+                              </div>
+                           </li>
+                           <!-- END User status-->
+                           <!-- START User status-->
+                           <li class="media pb">
+                              <div class="pull-left">
+                                 <!-- Contact avatar-->
+                                 <div class="point-pin">
+                                    <a href="">
+                                       <img src="app/img/user/08.jpg" alt="Image" class="media-object img-circle thumb40" />
+                                    </a>
+                                    <div class="point point-warning point-lg"></div>
+                                 </div>
+                              </div>
+                              <!-- Contact info-->
+                              <div class="media-body">
+                                 <div class="media-heading"><a href="">Chris Berry</a>
+                                    <br/>
+                                    <small class="text-muted">Designer</small>
+                                 </div>
+                              </div>
+                           </li>
+                           <!-- END User status-->
+                           <li class="pv text-muted">OFFLINE</li>
+                           <!-- START User status-->
+                           <li class="media pb bb">
+                              <div class="pull-left">
+                                 <!-- Contact avatar-->
+                                 <div class="point-pin">
+                                    <a href="">
+                                       <img src="app/img/user/03.jpg" alt="Image" class="media-object img-circle thumb40" />
+                                    </a>
+                                    <div class="point point-lg"></div>
+                                 </div>
+                              </div>
+                              <!-- Contact info-->
+                              <div class="media-body">
+                                 <div class="media-heading"><a href="">Leta Wood</a>
+                                    <br/>
+                                    <small class="text-muted">Developer</small>
+                                 </div>
+                              </div>
+                           </li>
+                           <!-- END User status-->
+                           <!-- START User status-->
+                           <li class="media pb">
+                              <div class="pull-left">
+                                 <!-- Contact avatar-->
+                                 <div class="point-pin">
+                                    <a href="">
+                                       <img src="app/img/user/01.jpg" alt="Image" class="media-object img-circle thumb40" />
+                                    </a>
+                                    <div class="point point-lg"></div>
+                                 </div>
+                              </div>
+                              <!-- Contact info-->
+                              <div class="media-body">
+                                 <div class="media-heading"><a href="">Alicia Grant</a>
+                                    <br/>
+                                    <small class="text-muted">Designer</small>
+                                 </div>
+                              </div>
+                           </li>
+                           <!-- END User status-->
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="p bt">
+               <div class="btn btn-success btn-block">+ New contact</div>
+            </div>
+         </div>
+      </div>
+      <div class="l-cell">
+         <div class="l-table">
+            <div class="l-row">
+               <div class="l-cell-wrapper">
+                  <div class="l-cell-inner">
+                     <div class="p">
+                        <ul class="chat">
+                           <li ng-repeat="msg in chat.messages" ng-class="msg.position" class="clearfix animated fadeIn">
+                              <span ng-class="msg.position === 'right' ? 'pull-right' : 'pull-left'" class="chat-img">
+                                 <img ng-src="{{msg.avatar}}" alt="Image" class="img-circle thumb48" />
+                              </span>
+                              <div class="chat-body clearfix">
+                                 <div class="chat-header">
+                                    <a href="" class="text-inverse">
+                                       <strong ng-class="{'pull-right': (msg.position === 'right')}">{{msg.name}}</strong>
+                                    </a>
+                                    <small ng-class="{'pull-right': (msg.position !== 'right')}" class="text-muted">
+                                       <span class="fa fa-time"></span>{{msg.time}}</small>
+                                 </div>
+                                 <div class="chat-msg">{{msg.content}}</div>
+                              </div>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="p bt">
+               <form>
+                  <div class="input-group">
+                     <input type="text" placeholder="Type your message..." ng-model="chat.currMessage" class="form-control" />
+                     <span class="input-group-btn">
+                        <button type="submit" ng-click="chat.addMessage()" class="btn btn-default">Send</button>
+                     </span>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

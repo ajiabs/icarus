@@ -1,0 +1,180 @@
+.app-view-header Bootstrap UI
+  small Bootstrap components in the Angular way
+
+// START row
+.row
+  .col-lg-6
+    h4.page-header.mt0 Carousel
+    div(ng-controller='CarouselDemoController')
+      uib-carousel(interval='myInterval')
+        uib-slide(ng-repeat='slide in slides', active='slide.active')
+          img.wd-wide(ng-src='{{slide.image}}', style='margin: auto;', alt="")
+          .carousel-caption
+            h4 Slide {{$index}}
+            p {{slide.text}}
+      .row.pv
+        .col-lg-6
+          p Interval, in milliseconds:
+          input.form-control(type='number', ng-model='myInterval')
+        .col-lg-6
+          p Add a slide with a random image
+          button.btn.btn-info(type='button', ng-click='addSlide()') Add Slide
+
+  .col-lg-6
+    h4.page-header.mt0 Typeahead
+
+    script(type="text/ng-template", id="customTemplate.html")
+      a
+        img(ng-src='http://upload.wikimedia.org/wikipedia/commons/thumb/{{match.model.flag}}', width='16', alt="")
+        span(bind-html-unsafe='match.label | typeaheadHighlight:query')
+
+    .typeahead-ctrl(ng-controller='TypeaheadController')
+      h5 &bull; Static arrays
+      .well.well-sm Model: {{selected | json}}
+      input.form-control(type='text', ng-model='selected', uib-typeahead='state for state in states | filter:$viewValue | limitTo:8')
+      h5 &bull; Asynchronous results
+      .well.well-sm Model: {{asyncSelected | json}}
+      input.form-control(type='text', ng-model='asyncSelected', placeholder='Locations loaded via $http', uib-typeahead='address for address in getLocation($viewValue)', typeahead-loading='loadingLocations')
+      i.fa.fa-refresh(ng-show='loadingLocations')
+      h5 &bull; Custom templates for results
+      .well.well-sm Model: {{customSelected | json}}
+      input.form-control(type='text', ng-model='customSelected', placeholder='Custom template', uib-typeahead='state as state.name for state in statesWithFlags | filter:{name:$viewValue}', typeahead-template-url='customTemplate.html')
+br
+// START row
+.row
+  .col-lg-6
+    h4.page-header Accordion
+    // START panel
+    #panelDemo13.panel.panel-default
+      .panel-heading
+        | Collapsible Accordion Panel Group
+      .panel-body
+        .checkbox.c-checkbox
+          label
+            input(type='checkbox', ng-model='oneAtATime')
+            span.fa.fa-check
+            | Open only one at a time
+
+        uib-accordion(close-others='oneAtATime')
+          uib-accordion-group(is-open='status.isFirstOpen', is-disabled='status.isFirstDisabled')
+            uib-accordion-heading Accordion Heading #1
+            p In vitae porttitor eros. Vivamus et urna magna. Mauris a velit id neque dignissim congue. Phasellus ut neque sem, ac vestibulum tellus. Integer eu diam neque, quis euismod turpis. 
+          uib-accordion-group
+            uib-accordion-heading Accordion Heading #2
+            p In vitae porttitor eros. Vivamus et urna magna. Sed euismod massa quis diam viverra eu consectetur elit imperdiet. Aenean rhoncus, est vel vestibulum tristique, ante lectus elementum augue, eu dictum turpis dui ut ipsum. 
+          uib-accordion-group
+            uib-accordion-heading Accordion Heading #3
+            p In vitae porttitor eros. Vivamus et urna magna. In consequat massa eget dui ultrices sit amet auctor libero molestie. Vestibulum nec viverra libero. 
+    // END panel
+
+  .col-lg-6
+    h4.page-header Tabs
+    // START panel
+    #panelDemo14.panel.panel-default
+      .panel-heading Basic Tabs
+      .panel-body
+        uib-tabset
+          uib-tab(heading='Home') Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nul qui officia deserunt mollit anim id est laborum.
+          uib-tab(heading='Profile') Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat , sunt in culpa qui officia deserunt mollit anim id est laborum.
+          uib-tab(heading='Messages') Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+          uib-tab(heading='Settings') Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+
+// END row
+// START row
+.row
+  .col-xs-12
+    h4.page-header Calendar
+    div(ng-controller='DatepickerDemoController')
+      .well.well-sm
+        p.m0 Selected date is: 
+         em {{dt | date:'fullDate' }}
+      .row
+        .col-lg-6
+          h5 Inline
+          div.datepicker
+            uib-datepicker.well.well-sm(ng-model='dt', min-date='minDate', show-weeks='true')
+        .col-lg-6
+          h5 Popup
+          .row
+            .col-md-12
+              p.input-group
+                input.form-control(type='text', uib-datepicker-popup='{{format}}', ng-model='dt', is-open='opened', min-date='minDate', max-date="'2015-06-22'", datepicker-options='dateOptions', date-disabled='disabled(date, mode)', ng-required='true', close-text='Close')
+                span.input-group-btn
+                  button.btn.btn-default(type='button', ng-click='open($event)')
+                    em.fa.fa-calendar
+          .row
+            .col-md-12
+              label Format:
+              select.form-control(ng-model='format', ng-options='f for f in formats')
+                option
+          hr
+          button.btn.btn-sm.btn-info(type='button', ng-click='today()') Today
+          button.btn.btn-sm.btn-default(type='button', ng-click="dt = '2009-08-24'") 2009-08-24
+          button.btn.btn-sm.btn-purple(type='button', ng-click='clear()') Clear
+          button.btn.btn-sm.btn-default(type='button', ng-click='toggleMin()', uib-tooltip='After today restriction') Min date
+  .col-xs-12
+    h4.page-header Time picker
+    div(ng-controller='TimepickerDemoController')
+      uib-timepicker(ng-model='mytime', ng-change='changed()', hour-step='hstep', minute-step='mstep', show-meridian='ismeridian')
+      pre.alert.alert-info.
+        Time is: {{mytime | date:'shortTime' }}        
+      .row
+        .col-xs-6
+          | Hours step is:
+          select.form-control(ng-model='hstep', ng-options='opt for opt in options.hstep')
+        .col-xs-6
+          | Minutes step is:
+          select.form-control(ng-model='mstep', ng-options='opt for opt in options.mstep')
+      hr
+      button.btn.btn-info(ng-click='toggleMode()') 12H / 24H
+      button.btn.btn-default(ng-click='update()') Set to 14:00
+      button.btn.btn-purple(ng-click='clear()') Clear
+
+
+h4.page-header Button actions
+// START row
+.row(ng-controller='ButtonActionsController')
+  .col-lg-4
+    h4 Single toggle
+    pre {{singleModel}}
+    button.btn.btn-primary(type='button', ng-model='singleModel', uib-btn-checkbox='btn-checkbox', btn-checkbox-true='1', btn-checkbox-false='0')
+      | Single Toggle
+  .col-lg-4
+    h4 Checkbox
+    pre {{checkModel}}
+    .btn-group
+      label.btn.btn-primary(ng-model='checkModel.left', uib-btn-checkbox='btn-checkbox') Left
+      label.btn.btn-primary(ng-model='checkModel.middle', uib-btn-checkbox='btn-checkbox') Middle
+      label.btn.btn-primary(ng-model='checkModel.right', uib-btn-checkbox='btn-checkbox') Right
+  .col-lg-4
+    h4 Radio &amp; Uncheckable Radio
+    pre {{radioModel || 'null'}}
+    .btn-group
+      label.btn.btn-primary(ng-model='radioModel', uib-btn-radio="'Left'") Left
+      label.btn.btn-primary(ng-model='radioModel', uib-btn-radio="'Middle'") Middle
+      label.btn.btn-primary(ng-model='radioModel', uib-btn-radio="'Right'") Right
+    .btn-group
+      label.btn.btn-success(ng-model='radioModel', uib-btn-radio="'Left'", uncheckable='uncheckable') Left
+      label.btn.btn-success(ng-model='radioModel', uib-btn-radio="'Middle'", uncheckable='uncheckable') Middle
+      label.btn.btn-success(ng-model='radioModel', uib-btn-radio="'Right'", uncheckable='uncheckable') Right
+// END row
+
+h4.page-header Pagination
+// START row
+.row(ng-controller='PaginationDemoController')
+  .col-lg-6
+    div
+      h4 Default
+      uib-pagination(total-items='totalItems', ng-model='currentPage', ng-change='pageChanged()')
+      uib-pagination(direction-links='false', total-items='totalItems', ng-model='currentPage', num-pages='smallnumPages')
+      pre The selected page no: {{currentPage}}
+      button.btn.btn-info(ng-click='setPage(3)') Set current page to: 3
+  .col-lg-6
+      h4 Pager
+      uib-pager(total-items='totalItems', ng-model='currentPage')
+      hr
+      h4 Limit the maximum visible buttons
+      uib-pagination.pagination-sm(total-items='bigTotalItems', ng-model='bigCurrentPage', max-size='maxSize', boundary-links='true')
+      uib-pagination.pagination-sm(total-items='bigTotalItems', ng-model='bigCurrentPage', max-size='maxSize', boundary-links='true', rotate='false', num-pages='numPages')
+      pre Page: {{bigCurrentPage}} / {{numPages}}
+// END row

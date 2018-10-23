@@ -1,0 +1,14 @@
+.app-view-header Vector Maps
+
+.container-fluid(ng-controller='VectorMapController as vectormap')
+  .row
+    .col-lg-12
+      .panel.panel-default
+        .panel-body
+          p Using series and markers data
+          vector-map(map-options="vectormap.mapOptions")
+    .col-lg-12
+      .panel.panel-default
+        .panel-body
+          p Using only markers with custom colors
+          vector-map(map-options="vectormap.mapOptions2")

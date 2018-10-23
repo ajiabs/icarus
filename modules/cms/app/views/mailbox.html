@@ -1,0 +1,28 @@
+<div ng-controller="MailboxController" ng-init="app.sidebar.isOffscreen = true; app.footer.hidden = true" class="container-fh">
+   <div class="row row-flush m0 fh bg-white">
+      <div class="col-lg-2 col-md-12 mb-folder-box">
+         <div class="mb-buttons">
+            <div class="mb-btn-folder"><a href="" ng-click="mailboxMenuCollapsed = !mailboxMenuCollapsed" class="h3 m0 text-white text-center hidden-lg">{{ folderName | titlecase }}<em class="fa fa-caret-down fa-fw"></em></a>
+            </div>
+            <div class="mb-btn-compose">
+               <a ui-sref="app-fh.mailbox.compose" class="btn btn-info btn-block btn-sm">
+                  <strong>Compose</strong>
+               </a>
+            </div>
+         </div>
+         <div uib-collapse="mailboxMenuCollapsed" class="mb-boxes">
+            <ul class="mb-folder-list">
+               <li ng-repeat="folder in mailboxFolders">
+                  <a ui-sref="app-fh.mailbox.folder.list({folder: folder.name})" ui-sref-opts="{notify: true}" ui-sref-active="active">
+                     <span class="label label-primary pull-right">{{ folder.count }}</span>
+                     <em ng-class="folder.icon" class="fa fa-fw fa-lg"></em>
+                     <span>{{ folder.name | titlecase }}</span>
+                  </a>
+               </li>
+            </ul>
+         </div>
+      </div>
+      <div class="clearfix hidden-lg"></div>
+      <div ui-view="container" class="col-lg-10 mb-panel-wrapper"></div>
+   </div>
+</div>

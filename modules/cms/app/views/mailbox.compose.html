@@ -1,0 +1,40 @@
+<div class="mb-mail-compose">
+   <!-- START action buttons-->
+   <div class="clearfix mb">
+      <div class="pull-left">
+         <button type="button" ng-class="{'active':mail.cc}" ng-click="mail.cc = !mail.cc" class="btn btn-default btn-sm">CC</button>
+         <button type="button" ng-class="{'active':mail.bcc}" ng-click="mail.bcc = !mail.bcc" class="btn btn-default btn-sm">BCC</button>
+         <button type="button" uib-tooltip="Discard message" class="btn btn-default btn-sm">
+            <em class="fa fa-trash"></em>
+         </button>
+      </div>
+   </div>
+   <!-- END action buttons-->
+   <!-- START Mails-->
+   <div class="panel panel-default">
+      <div class="panel-body">
+         <form role="form-horizontal" method="post">
+            <div class="input-group form-group">
+               <span class="input-group-addon text-sm">To:</span>
+               <input type="text" class="form-control" />
+            </div>
+            <div ng-show="mail.cc" class="input-group form-group">
+               <span class="input-group-addon text-sm">CC:</span>
+               <input type="text" class="form-control" />
+            </div>
+            <div ng-show="mail.bcc" class="input-group form-group">
+               <span class="input-group-addon text-sm">BCC:</span>
+               <input type="text" class="form-control" />
+            </div>
+            <div class="input-group form-group">
+               <span class="input-group-addon text-sm">Subject:</span>
+               <input type="text" class="form-control" />
+            </div>
+            <div class="mb-editor">
+               <!-- Wysiswyg editor-->
+               <summernote ng-model="summernoteText" height="300" class="b0"></summernote>
+            </div>
+         </form>
+      </div>
+   </div>
+</div>

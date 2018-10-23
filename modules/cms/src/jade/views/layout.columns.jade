@@ -1,0 +1,29 @@
+.container-fh(ng-init="app.footer.hidden = true")
+
+  .l-table-fixed
+    .l-cell.wd-md.br.bg-gray-light
+      .l-table
+        .l-row
+          .l-cell-wrapper
+            .l-cell-inner
+              .p
+                p Top
+                - each val in new Array(60)
+                  br
+                p Bottom
+        .p.bt
+          p Footer
+
+    .l-cell.br.v-middle.bg-gray-lighter
+      .p
+        p.lead.text-center Fully centered text
+    .l-cell.wd-md
+      .l-table
+        .l-row
+          .l-cell-wrapper
+            .l-cell-inner
+              .p
+                p Top
+                - each val in new Array(60)
+                  br
+                p Bottom

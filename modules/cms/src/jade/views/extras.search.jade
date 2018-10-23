@@ -1,0 +1,97 @@
+.app-view-header Search
+
+form
+  .form-group.mb-xl.shadow-z1
+    .input-group
+      input.form-control(type="text", placeholder="Search something..")
+      span.input-group-btn
+        button.btn.btn-default(type="button") Search!
+
+// START panel
+.panel.panel-default
+  .panel-heading
+    button.pull-right.btn.btn-xs.btn-default Clear
+    | 500 results found for: 
+    span.text-success "Bootstrap + AngularJS"
+    paneltool(tool-refresh="traditional")
+  // START table-responsive
+  .table-responsive
+    table.table
+      tbody
+        tr
+          td
+            .media
+              a.pull-left(href='')
+                img.media-object.img-responsive.img-rounded.thumb64(src="app/img/dummy.png", alt="")
+              .media-body
+                h4.media-heading 
+                  a(href="").text-inverse Curabitur pulvinar tristique bibendum. 
+                p.text-muted Sed gravida auctor odio. Sed viverra rutrum hendrerit. Praesent dapibus justo dolor. Suspendisse rhoncus consectetur eros vehicula accumsan. 
+                a(href="").mr.label.label-primary item label 1 
+                a(href="").mr.label.label-primary tag2
+                a(href="").mr.label.label-primary some category
+
+        tr
+          td
+            .media
+              a.pull-left(href='')
+                img.media-object.img-responsive.img-rounded.thumb64(src="app/img/dummy.png", alt="")
+              .media-body
+                h4.media-heading 
+                  a(href="").text-inverse Curabitur pulvinar tristique bibendum. 
+                p.text-muted Sed gravida auctor odio. Sed viverra rutrum hendrerit. Praesent dapibus justo dolor. Suspendisse rhoncus consectetur eros vehicula accumsan. 
+                a(href="").mr.label.label-primary item label 1 
+                a(href="").mr.label.label-primary some category
+        tr
+          td
+            .media
+              a.pull-left(href='')
+                img.media-object.img-responsive.img-rounded.thumb64(src="app/img/dummy.png", alt="")
+              .media-body
+                h4.media-heading 
+                  a(href="").text-inverse Etiam feugiat risus massa. 
+                p.text-muted Sed gravida auctor odio. Sed viverra rutrum hendrerit. Praesent dapibus justo dolor. Suspendisse rhoncus consectetur eros vehicula accumsan. 
+                a(href="").mr.label.label-primary item label 1 
+                a(href="").mr.label.label-primary some category
+        tr
+          td
+            .media
+              a.pull-left(href='')
+                img.media-object.img-responsive.img-rounded.thumb64(src="app/img/dummy.png", alt="")
+              .media-body
+                h4.media-heading 
+                  a(href="").text-inverse Curabitur pulvinar tristique bibendum. 
+                p.text-muted Sed gravida auctor odio. Sed viverra rutrum hendrerit. Praesent dapibus justo dolor. Suspendisse rhoncus consectetur eros vehicula accumsan. 
+                a(href="").mr.label.label-primary item label 1 
+                a(href="").mr.label.label-primary tag2
+        tr
+          td
+            .media
+              a.pull-left(href='')
+                img.media-object.img-responsive.img-rounded.thumb64(src="app/img/dummy.png", alt="")
+              .media-body
+                h4.media-heading 
+                  a(href="").text-inverse Nullam ultricies, urna ac aliquet fringilla, eros velit vehicula elit, at faucibus velit erat eu ante. 
+                p.text-muted Sed gravida auctor odio. Sed viverra rutrum hendrerit. Praesent dapibus justo dolor. Suspendisse rhoncus consectetur eros vehicula accumsan. 
+                a(href="").mr.label.label-primary tag2
+                a(href="").mr.label.label-primary some category
+        tr
+          td
+            .media
+              a.pull-left(href='')
+                img.media-object.img-responsive.img-rounded.thumb64(src="app/img/dummy.png", alt="")
+              .media-body
+                h4.media-heading 
+                  a(href="").text-inverse Curabitur pulvinar tristique bibendum. 
+                p.text-muted Sed gravida auctor odio. Sed viverra rutrum hendrerit. Praesent dapibus justo dolor. Suspendisse rhoncus consectetur eros vehicula accumsan. 
+                a(href="").mr.label.label-primary tag2
+                a(href="").mr.label.label-primary some category
+  // END table-responsive
+  .panel-footer
+    ul.pagination.pagination-sm
+      li.active: a(href='') 1
+      li: a(href='') 2
+      li: a(href='') 3
+      li: a(href='') 4
+      li: a(href='') »
+// END panel

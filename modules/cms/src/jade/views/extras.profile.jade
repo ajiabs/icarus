@@ -1,0 +1,340 @@
+.unwrap(style="background:url(app/img/profile.jpg) center center; background-size:cover;")
+  .container.container-lg.p-lg
+    .pull-right
+      button.btn.btn-amber(type="button") Follow
+    .media.mt-lg
+      .media-left.media-middle
+        a(href='')
+          img.media-object.thumb96.img-circle(src='app/img/user/02.jpg')
+      .media-body.text-white
+        h2.mv-lg.media-heading John Doe
+        button.btn.btn-info.btn-xs.mr-sm(type='button') 
+          em.fa.fa-twitter.fa-fw
+        button.btn.btn-primary.btn-xs.mr-sm(type='button') 
+          em.fa.fa-facebook.fa-fw
+        button.btn.btn-danger.btn-xs(type='button') 
+          em.fa.fa-google-plus.fa-fw
+    .text-right.text-white.pb-lg
+      p.m0: strong 2k followers
+      p.m0: strong 1.3k following
+
+.container.container-lg
+  .row
+    .col-lg-3
+      .panel
+        .panel-body
+          h3 John Doe
+          p Designer
+          p It is a long established fact that a reader will be distracted.
+      .panel
+        .panel-body
+          h6
+            span
+              em.fa.fa-twitter.mr
+              | @jdoe
+          h6
+            span.mr
+              em.fa.fa-clock-o.mr
+              | 10:05 PM
+            span.mr
+              em.fa.fa-calendar.mr
+              | 10/11/15
+            span.mr
+              em.fa.fa-map-marker.mr
+              | BA
+          h6
+            span
+              em.fa.fa-eye.mr
+              | 10 feb at 10:00 AM
+      .panel
+        .panel-heading.no-shadow Recent contacts
+        .panel-body
+          ul.list-block
+            li.media
+              .pull-left
+                // Contact avatar
+                .point-pin
+                  a(href="")
+                    img.media-object.img-circle.thumb32(src='app/img/user/05.jpg', alt="Image")
+                  .point.point-success.point-lg
+              // Contact info
+              .media-body
+                .media-heading
+                  a(href="") Juan Sims
+                  br
+                  small.text-muted Designeer
+            // END User status
+            // START User status
+            li.media
+              .pull-left
+                // Contact avatar
+                .point-pin
+                  a(href="")
+                    img.media-object.img-circle.thumb32(src='app/img/user/06.jpg', alt="Image")
+                  .point.point-success.point-lg
+              // Contact info
+              .media-body
+                .media-heading
+                  a(href="") Maureen Jenkins
+                  br
+                  small.text-muted Designeer
+            // END User status
+            // START User status
+            li.media
+              .pull-left
+                // Contact avatar
+                .point-pin
+                  a(href="")
+                    img.media-object.img-circle.thumb32(src='app/img/user/07.jpg', alt="Image")
+                  .point.point-danger.point-lg
+              // Contact info
+              .media-body
+                .media-heading
+                  a(href="") Billie Dunn
+                  br
+                  small.text-muted Designeer
+            // END User status
+            // START User status
+            li.media
+              .pull-left
+                // Contact avatar
+                .point-pin
+                  a(href="")
+                    img.media-object.img-circle.thumb32(src='app/img/user/08.jpg', alt="Image")
+                  .point.point-warning.point-lg
+              // Contact info
+              .media-body
+                .media-heading
+                  a(href="") Tomothy Roberts
+                  br
+                  small.text-muted Designer
+            // END User status
+    .col-lg-9
+      .panel
+        .panel-body(ng-controller="GoogleMapController as gmap")
+          uib-tabset
+            uib-tab(heading='Activity', select="refreshMap()")
+              // START timeline
+              ul.timeline-alt
+                li.timeline-separator(data-datetime="14 Oct")
+                // START timeline item
+                li
+                  .timeline-badge.timeline-badge-sm.thumb-32.bg-purple
+                    em.fa.fa-users
+                  .timeline-date
+                    time(datetime='10m')
+                  .timeline-panel
+                    strong Client Meeting
+                    .text-muted Green Offfice - Av 123 St Floor 2
+                    #map_canvas.gmap(ui-map='gmap.myMap', ui-options='gmap.mapOptions')
+                // END timeline item
+                // START timeline item
+                li
+                  .timeline-badge.timeline-badge-sm.bg-amber
+                    em.fa.fa-phone
+                  .timeline-date
+                    time(datetime='1h')
+                  .timeline-panel
+                    strong Call
+                    .text-muted From: 
+                      a(href="tel:+011231987") Michael
+                      | . 
+                      em  No message left.
+                // END timeline item
+                // START timeline item
+                li
+                  .timeline-badge.timeline-badge-sm.bg-info
+                    em.fa.fa-envelope
+                  .timeline-date
+                    time(datetime='3h')
+                  .timeline-panel
+                    strong New invitation
+                    .text-muted From: 
+                      strong UX Design Team
+                    a(href="")
+                      img.img-responsive(src="app/img/bg1.jpg", alt="Img")
+                    p.text-muted.mv 3 Comments
+                    .media.bb.p
+                      small.pull-right.text-muted 12m ago
+                      .pull-left
+                        img.media-object.img-circle.thumb32(src='app/img/user/05.jpg', alt='Image')
+                      .media-body
+                        span.media-heading
+                          p.m0: a(href=""): strong Aiden Curtis 
+                          p.m0.text-muted Hey looks amazing!
+                    .media.bb.p
+                      small.pull-right.text-muted 30m ago
+                      .pull-left
+                        img.media-object.img-circle.thumb32(src='app/img/user/08.jpg', alt='Image')
+                      .media-body
+                        span.media-heading
+                          p.m0: a(href=""): strong Lucas Byrd
+                          p.m0.text-muted I'm In!
+                    .media.bb.p
+                      small.pull-right.text-muted 30m ago
+                      .pull-left
+                        img.media-object.img-circle.thumb32(src='app/img/user/04.jpg', alt='Image')
+                      .media-body
+                        span.media-heading
+                          p.m0: a(href=""): strong Jennifer Garcia
+                          p.m0.text-muted See you there guys :)
+                    form(method='post', action='').mt
+                      textarea.form-control.no-resize(placeholder='Comment...', rows="1")
+                // END timeline item
+                li.timeline-separator(data-datetime="13 Oct")
+                // START timeline item
+                li
+                  .timeline-badge.timeline-badge-sm.bg-warning
+                    em.fa.fa-upload
+                  .timeline-date
+                    time(datetime='9am')
+                  .timeline-panel
+                    strong File upload
+                    a(href="") 
+                      .text-bold angular+bs.zip
+                // END timeline item
+              // END timeline
+
+            uib-tab(heading='Profile')
+              .alert.alert-info
+                .row
+                  .col-sm-8.col-sm-offset-2.text-center
+                    .lead.m0.p-lg It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+              h4.page-header Basic information
+              .row
+                .col-xs-6
+                  p
+                    span Name 
+                    | : John
+                .col-xs-6
+                  p
+                    span Last Name 
+                    | : Doe
+                .col-xs-6
+                  p
+                    span Birthday
+                    | : 21 Feb 1983
+                .col-xs-6
+                  p
+                    span Location 
+                    | : Paris, France
+                .col-xs-6
+                  p
+                    span Occupation 
+                    | : UX Developer
+                .col-xs-6
+                  p
+                    span Email 
+                    | : john@doemail.com
+                .col-xs-6
+                  p
+                    span Mobile Phone
+                    | : (123) 456 789
+                .col-xs-6
+                  p
+                    span Home Phone 
+                    | :  (+123) 654 987
+
+              h4.page-header Company information
+              .row
+                .col-xs-6
+                  p
+                    span Name 
+                    | : Company Name
+                .col-xs-6
+                  p
+                    span Branch 
+                    | : Dublin
+                .col-xs-6
+                  p
+                    span Address 
+                    | : Some st, 456
+                .col-xs-6
+                  p
+                    span Email 
+                    | : company@doemail.com
+                .col-xs-6
+                  p
+                    span Phone
+                    | : (+123) 456 789
+                .col-xs-6
+                  p
+                    span Fax
+                    | :  (+123) 654 987
+
+            uib-tab(heading='Messages')
+              ul.list-group
+                li.list-group-item
+                  p
+                    button.mr.btn.btn-amber.btn-sm.btn-circle(type="button") M
+                    em Mauris a velit id neque dignissim congue. Curabitur imperdiet consequat hendrerit. 
+              ul.list-group
+                li.list-group-item
+                  p
+                    button.mr.btn.btn-success.btn-sm.btn-circle(type="button") J
+                    em Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin vulputate neque non turpis pellentesque mattis. 
+              ul.list-group
+                li.list-group-item
+                  p
+                    a(href="").btn.btn-image.btn-circle.btn-sm.mr: img.img-responsive.img-circle(src="app/img/user/01.jpg")
+                    em Nullam quis lorem a est auctor venenatis vel vitae ipsum. Fusce pellentesque congue justo in rutrum. Etiam adipiscing, purus ultricies ornare vulputate, quam felis commodo nisl, ut posuere massa turpis ut erat. 
+              ul.list-group
+                li.list-group-item
+                  p
+                    button.mr.btn.btn-pink.btn-sm.btn-circle(type="button") K
+                    em In cursus cursus lacus, ut faucibus leo pellentesque et. Proin eget quam ante. Etiam odio ante, placerat eu accumsan ut, consectetur vel mi. 
+              ul.list-group
+                li.list-group-item
+                  p
+                    button.mr.btn.btn-purple.btn-sm.btn-circle(type="button") M
+                    em Mauris eleifend, libero nec cursus lacinia, tellus est pharetra orci, et pretium urna felis eget neque. 
+              ul.list-group
+                li.list-group-item
+                  p
+                    button.mr.btn.btn-warning.btn-sm.btn-circle(type="button") L
+                    em Nullam ultricies, urna ac aliquet fringilla, eros velit vehicula elit, at faucibus velit erat eu ante. Praesent congue nisi in metus malesuada nec dictum nunc egestas. Donec nec magna a diam eleifend facilisis non in urna. 
+
+            uib-tab(heading='Settings')
+              form.form-horizontal(role='form')
+                .form-group
+                  label.col-lg-2.control-label First Name
+                  .col-lg-6
+                    input#f-name.form-control(type='text', placeholder=' ')
+                .form-group
+                  label.col-lg-2.control-label Last Name
+                  .col-lg-6
+                    input#l-name.form-control(type='text', placeholder=' ')
+                .form-group
+                  label.col-lg-2.control-label About Me
+                  .col-lg-10
+                    textarea.form-control(name='', id='', cols='30', rows='5')
+                .form-group
+                  label.col-lg-2.control-label Country
+                  .col-lg-6
+                    input#c-name.form-control(type='text', placeholder=' ')
+                .form-group
+                  label.col-lg-2.control-label Birthday
+                  .col-lg-6
+                    input#b-day.form-control(type='text', placeholder=' ')
+                .form-group
+                  label.col-lg-2.control-label Occupation
+                  .col-lg-6
+                    input#occupation.form-control(type='text', placeholder=' ')
+                .form-group
+                  label.col-lg-2.control-label Email
+                  .col-lg-6
+                    input#email.form-control(type='text', placeholder=' ')
+                .form-group
+                  label.col-lg-2.control-label Mobile
+                  .col-lg-6
+                    input#mobile.form-control(type='text', placeholder=' ')
+                .form-group
+                  label.col-lg-2.control-label Website URL
+                  .col-lg-6
+                    input#url.form-control(type='text', placeholder='http://example.com ')
+                .form-group
+                  .col-lg-offset-2.col-lg-10
+                    button.btn.btn-primary(type='submit') Save
+                    button.btn.btn-purple(type='button') Cancel
+
+

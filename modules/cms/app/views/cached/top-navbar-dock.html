@@ -1,0 +1,46 @@
+<!-- START Top Navbar-->
+<nav role="navigation" ng-controller="HeaderNavController as header" class="navbar topnavbar">
+   <!-- START button offset-->
+   <div class="btn-offset">
+      <button type="button" btn-layer-morph="" target="#layer-search" ripple="" class="btn btn-info btn-circle btn-lg shadow-z1">
+         <em class="fa fa-search"></em>
+      </button>
+   </div>
+   <!-- START button offset-->
+   <!-- START navbar header-->
+   <div ng-class="app.theme.brand" class="navbar-header">
+      <a ui-sref="app.dashboard" class="navbar-brand">
+         <img src="app/img/logo.png" alt="App Logo" class="brand-logo" />
+      </a>
+      <!-- Mobile buttons-->
+      <div class="mobile-toggles">
+         <!-- Button to show/hide the header menu on mobile. Visible on mobile only.-->
+         <a href="" ng-click="header.toggleHeaderMenu()" class="menu-toggle pull-left">
+            <em class="fa fa-navicon fa-fw"></em>
+         </a>
+      </div>
+   </div>
+   <!-- END navbar header-->
+   <!-- START Nav wrapper-->
+   <div uib-collapse="header.headerMenuCollapsed" class="nav-wrapper collapse navbar-collapse">
+      <!-- START Left navbar-->
+      <ul class="nav navbar-nav">
+         <li><a href="#/">Back</a>
+         </li>
+         <li uib-dropdown="" class="dropdown"><a href="" uib-dropdown-toggle="" class="dropdown-toggle">Dropdown</a>
+            <!-- START Dropdown menu-->
+            <ul class="dropdown-menu">
+               <!-- START list item-->
+               <li><a href="">Sub menu 1</a>
+               </li>
+               <li><a href="">Sub menu 2</a>
+               </li>
+               <li><a href="">Sub menu 3</a>
+               </li>
+            </ul>
+         </li>
+      </ul>
+      <!-- END Left navbar-->
+   </div>
+</nav>
+<!-- END Top Navbar-->

@@ -1,0 +1,13 @@
+.app-view-header Climacons
+  small SVG animated weather icons
+
+.row
+  .col-sm-12
+
+      - var types = ['cloud','cloudDrizzle','cloudDrizzleAlt','cloudDrizzleAltFill','cloudDrizzleFill','cloudDrizzleMoon','cloudDrizzleMoonAlt','cloudDrizzleMoonAltFill','cloudDrizzleMoonFill','cloudDrizzleSun','cloudDrizzleSunAlt','cloudDrizzleSunAltFill','cloudDrizzleSunFill','cloudFill','cloudFog','cloudFogAlt','cloudFogAltFill','cloudFogFill','cloudFogMoon','cloudFogMoonAlt','cloudFogMoonAltFill','cloudFogMoonFill','cloudFogSun','cloudFogSunAlt','cloudFogSunAltFill','cloudFogSunFill','cloudHailAlt','cloudHailAltFill','cloudHailAltMoon','cloudHailAltMoonFill','cloudHailAltSun','cloudHailAltSunFill','cloudLightning','cloudLightningFill','cloudLightningMoon','cloudLightningMoonFill','cloudLightningSun','cloudLightningSunFill','cloudMoon','cloudMoonFill','cloudRain','cloudRainAlt','cloudRainAltFill','cloudRainFill','cloudRainMoon','cloudRainMoonAlt','cloudRainMoonAltFill','cloudRainMoonFill','cloudRainSun','cloudRainSunAlt','cloudRainSunAltFill','cloudRainSunFill','cloudSnow','cloudSnowAlt','cloudSnowAltFill','cloudSnowFill','cloudSnowMoon','cloudSnowMoonAlt','cloudSnowMoonAltFill','cloudSnowMoonFill','cloudSnowSun','cloudSnowSunAlt','cloudSnowSunAltFill','cloudSnowSunFill','cloudSun','cloudSunFill','moon','moonFill','moonPhase','moonPhaseFull','snowflake','snowflakeFill','sun','sunFill','sunrise','sunriseAlt','sunriseAltFill','sunriseFill','sunset','sunsetAlt','sunsetAltFill','sunsetFill','thermometer0','thermometer100','thermometer25','thermometer50','thermometer75','tornado','wind']
+      .row
+        - each t in types
+          .col-sm-3.col-xs-6
+            climacon(name="#{t}", width="80", height="80", color="#333")
+            p: code= t
+

@@ -1,0 +1,43 @@
+<div class="app-view-header">Tasks List
+   <!-- Button trigger modal -->
+   <button ng-click="taskctrl.modalOpen()" class="pull-right btn btn-primary">Add new Task</button>
+   <!-- Modal inline template-->
+   <script type="text/ng-template" id="/myModalContent.html">
+      <div class="modal-header"><h4 id="myModalLabel" class="modal-title">Add new Task</h4></div><div class="modal-body"><div class="form-group"><input ng-trim="true" type="text" ng-model="theTask.title" placeholder="Task title.." required="required" class="form-control"/></div><div class="form-group"><textarea ng-trim="true" ng-model="theTask.description" placeholder="Type a description.." rows="8" class="form-control"></textarea></div></div><div class="modal-footer"><button ng-click="modalAddTask(theTask)" ng-bind="actionText()" class="btn btn-primary"> </button><button ng-click="modalCancel()" class="btn btn-warning">Cancel</button></div>
+   </script>
+</div>
+<div class="task">
+   <div class="task-item-list">
+      <div ng-show="!taskctrl.tasksList.length" class="lead text-muted text-center">Start creating a new task..</div>
+      <uib-accordion close-others="true">
+         <uib-accordion-group ng-repeat="item in taskctrl.tasksList" ng-class="{'task-complete': item.complete}" is-disabled="item.complete" class="task-item">
+            <uib-accordion-heading>
+               <span ng-click="taskctrl.removeTask($index, $event)" ng-hide="!item.complete" class="close">
+                  <em class="fa fa-times"></em>
+               </span>
+               <div class="inline checkbox c-checkbox">
+                  <label ng-click="$event.stopPropagation()">
+                     <input type="checkbox" ng-model="item.complete" id="{{'task-item-'+$index}}" ng-disabled="taskEdition" />
+                     <span class="fa fa-check"></span>
+                  </label>
+               </div>
+               <span ng-bind="item.task.title" class="task-title">Task title</span>
+               <span ng-click="taskctrl.editTask($index, $event)" class="task-edit fa fa-pencil"></span>
+            </uib-accordion-heading>
+            <p>
+               <span ng-bind="item.task.description"></span>
+               <span ng-if="item.task.description === ''" class="text-muted">No description</span>
+            </p>
+         </uib-accordion-group>
+      </uib-accordion>
+      <div class="clearfix">
+         <div ng-if="taskctrl.tasksList.length &gt; 0" class="pull-left">
+            <span>{{ taskctrl.totalTasksCompleted() }} Completed</span>-
+            <span>{{ taskctrl.totalTasksPending() }} Pending</span>
+         </div>
+         <div ng-if="taskctrl.tasksList.length &gt; 0" class="pull-right">
+            <button ng-click="taskctrl.clearAllTasks()" class="btn btn-warning btn-sm">Remove all Tasks</button>
+         </div>
+      </div>
+   </div>
+</div>

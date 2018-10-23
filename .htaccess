@@ -1,0 +1,10 @@
+RewriteEngine on
+RewriteRule ^forum(.*) project/forum/$1
+RewriteRule ^support(.*) project/support/$1
+RewriteRule ^dbv(.*) project/dbv/$1
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+) index.php/$1 [L]
+
+

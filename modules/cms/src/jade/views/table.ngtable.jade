@@ -1,0 +1,50 @@
+.app-view-header ngTables
+  small Pure angular functional tables
+
+.container-fluid(ng-controller="AngularTableController as table")
+
+  .panel.panel-default
+    .panel-heading
+      button.pull-right.btn.btn-default.btn-sm(ng-click='table.tableParams.sorting({})') Clear sorting
+      .panel-title Sorting
+    table.table.table-bordered.table-striped(ng-table='table.tableParams')
+      tbody
+        tr(ng-repeat='user in $data')
+          td(data-title="'Name'", sortable="'name'") {{user.name}}
+          td(data-title="'Age'", sortable="'age'") {{user.age}}
+          td(data-title="'Money'", sortable="'money'")
+            span(ng-class="{ 'plus': user.money >= 0,'minus': user.money < 0 }") {{user.money}}
+
+  .panel.panel-default
+    .panel-heading
+      .panel-title Filters
+    table.table.table-bordered.table-striped(ng-table='table.tableParams2', show-filter='true')
+      tbody
+        tr(ng-repeat='user in $data')
+          td(data-title="'Name'", filter="{ 'name': 'text' }") {{user.name}}
+          td(data-title="'Age'", filter="{ 'age': 'text' }") {{user.age}}
+
+  .panel.panel-default
+    .panel-heading
+      button.pull-right.btn-sm.btn.btn-default(ng-click='table.tableParams3.data[1].$selected = true') Select 2nd Row
+      .panel-title Select Rows
+
+    table.table.ng-table-rowselected(ng-table='table.tableParams3')
+      tr(ng-repeat='user in $data', ng-click='user.$selected = !user.$selected; changeSelection(user)', ng-class="{'active': user.$selected}")
+        td(data-title="'Name'") {{user.name}}
+        td(data-title="'Age'") {{user.age}}
+    .panel-body
+      strong Selected users:
+      | {{ table.data | filter:{"$selected": true} }}
+
+
+  .panel.panel-default
+    .panel-heading
+      a.pull-right.btn.btn-sm.btn-primary(ng-mousedown='csv.generate()', ng-href='{{ csv.link() }}', download='test.csv') Export to CSV
+      .panel-title Table Export
+    .table-responsive
+      table.table.table-bordered.table-striped(ng-table='table.tableParams4', export-csv='csv')
+        tbody
+          tr(ng-repeat='user in $data')
+            td(data-title="'Name'") {{user.name}}
+            td(data-title="'Age'") {{user.age}}

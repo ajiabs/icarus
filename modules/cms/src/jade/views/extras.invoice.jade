@@ -1,0 +1,108 @@
+.app-view-header.mb0.hidden-print
+  span.mt Invoice
+  // START button group
+  .btn-group.pull-right(uib-dropdown='dropdown')
+    button.btn.dropdown-toggle.btn-default.btn-sm(type='button', ng-disabled='disabled', uib-dropdown-toggle="")
+      | Actions
+      span.caret
+    ul.dropdown-menu(role='menu')
+      li
+        a(href='') Clone
+      li
+        a(href='') Edit
+      li
+        a(href='') Delete
+      li.divider
+      li
+        a(href='') 
+          em.fa.fa-plus-circle.fa-fw.mr-sm
+          | Create Invoice
+  // END button group
+.clearfix
+
+.row.pv
+  .col-xs-8
+    .text-lg.text-bold Naut
+  .col-xs-4
+    h3.text-right.text-muted
+      span.mt Invoice #4321
+.row
+  .col-xs-12
+    h4.text-bold Bootstrap Admin + AngularJs
+    address
+      | Nowhere 65
+      br
+      | Far St., 123
+      br
+      | Showland
+
+.row.bt.pv-xl
+  .col-xs-8.br
+    h4.text-bold Victor Hawkins
+    address
+      | Neverland 54
+      br
+      | Jump, Joe, 123
+      br
+      | Mars
+  .col-xs-4
+    table.table
+      tr
+        td.b0
+          strong Period
+        td.b0.text-right
+          strong October
+      tr
+        td.b0 Date
+        td.b0.text-right 15/11/2014
+      tr
+        td.b0 Due Date
+        td.b0.text-right 10/12/2014
+
+.table-responsive.table-bordered.mb-lg
+  table.table
+    thead
+      tr
+        th Description
+        th.col-xs Quantity
+        th.col-xs Price
+        th.col-xs.text-right Total
+    tbody
+      tr
+        td 
+          p Iphone 5s - 64Gb
+          small.text-muted In egestas tincidunt purus eget malesuada. Fusce non dolor nisi, a convallis nisl. 
+        td 4
+        td $500
+        td.text-right $2000
+      tr
+        td 
+          p Site desing and development
+          small.text-muted In egestas tincidunt purus eget malesuada. Fusce non dolor nisi, a convallis nisl. Integer venenatis ultrices vulputate. 
+        td 1
+        td $1500
+        td.text-right $1500
+      tr
+        td 
+          p iMac Pro 27
+          small.text-muted In egestas tincidunt purus eget malesuada. Fusce non dolor nisi, a convallis nisl. Cras aliquam mauris massa. 
+        td 6
+        td $1100
+        td.text-right $6600
+
+.row
+  .col-sm-offset-8.col-sm-4.pv
+    .clearfix
+      p.pull-left Subtotal
+      p.pull-right.mr $11200
+    .clearfix
+      p.pull-left Tax (12%)
+      p.pull-right.mr $1200
+    .clearfix.text-bold
+      p.pull-left.pv TOTAL
+      p.pull-right.mr.pv $5,800.00
+
+hr.hidden-print
+.clearfix
+  button(type="button", onclick="window.print();").btn.btn-default.pull-right Print
+  button(type="button").btn.btn-success.pull-left Send Invoice
