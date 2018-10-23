@@ -5,14 +5,24 @@
 // | File name : database.php                                             |
 // | PHP version >= 5.2                                                   |
 // +----------------------------------------------------------------------+
-// | Author: BINU CHANDRAN.E<binu.chandran@armiasystems.com>              |
+// | Author: Armia Systems<info@armia.com>              |
 // +----------------------------------------------------------------------+
-// | Copyrights Armia Systems � 2010                                      |
+// | Copyrights Armia Systems &copy; 2018                                      |
 // | All rights reserved                                                  |
 // +----------------------------------------------------------------------+
-// | This script may not be distributed, sold, given away for free to     |
-// | third party, or used as a part of any internet services such as      |
-// | webdesign etc.                                                       |
+// |   ICARUS is free software: you can redistribute it and/or modify
+// |   it under the terms of the GNU General Public License as published by
+// |   the Free Software Foundation, either version 3 of the License, or
+// |   (at your option) any later version.
+
+// |   ICARUS is distributed in the hope that it will be useful,
+// |   but WITHOUT ANY WARRANTY; without even the implied warranty of
+// |   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// |   GNU General Public License for more details.
+
+// |   You should have received a copy of the GNU General Public License
+// |   along with ICARUS.  If not, see <https://www.gnu.org/licenses/>.   
+// |
 // +----------------------------------------------------------------------+
 
 class BaseDatabase
