@@ -15,15 +15,15 @@ else
     define('ENVIRONMENT', 'LIVE');
 
 if (ENVIRONMENT == 'LOCAL'){
-    define('MYSQL_HOST', 'localhost');
-    define('MYSQL_USERNAME', 'root');
-    define('MYSQL_PASSWORD', 'mysql');
-    define('MYSQL_DB', 'icarus');
+    define('MYSQL_HOST', '');
+    define('MYSQL_USERNAME', '');
+    define('MYSQL_PASSWORD', '');
+    define('MYSQL_DB', '');
 
     define('MYSQL_TABLE_PREFIX', 'tbl_');
-    define('BASE_URL', ROOT_URL . 'localhost/icarus/'); 
-    define('LIB_DIR', "/usr/local/ampps/www/icarus/project/lib");
-    define('FILE_UPLOAD_DIR', "/usr/local/ampps/www/icarus/project/files");
+    define('BASE_URL', ROOT_URL . ''); // localhost/icarus/
+    define('LIB_DIR', ""); // /var/www/html/icarus/project/lib
+    define('FILE_UPLOAD_DIR', ""); // /var/www/html/icarus/project/files
     define('PAYPAL_SANDBOX', 'Y');
 
 }
